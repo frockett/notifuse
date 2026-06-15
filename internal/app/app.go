@@ -652,6 +652,12 @@ func (a *App) InitServices() error {
 	// If task scheduler is disabled (e.g., in tests), also disable background task execution
 	a.taskService.SetAutoExecuteImmediate(a.config.TaskScheduler.Enabled)
 
+	// Execution mode is coupled to the internal scheduler: when this instance runs its own
+	// scheduler it executes due tasks in-process, instead of dispatching over HTTP to its own
+	// public ingress (which fails in single-pod-per-tenant topologies). When the scheduler is
+	// disabled (scale-out + external cron), HTTP dispatch is kept for fan-out across replicas.
+	a.taskService.SetDirectExecution(a.config.TaskScheduler.Enabled)
+
 	// Initialize transactional notification service
 	a.transactionalNotificationService = service.NewTransactionalNotificationService(
 		a.transactionalNotificationRepo,
