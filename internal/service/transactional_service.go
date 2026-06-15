@@ -794,14 +794,14 @@ func (s *TransactionalNotificationService) TestTemplate(ctx context.Context, wor
 
 	// Compile the template with the test data
 	compileReq := domain.CompileTemplateRequest{
-		WorkspaceID:            workspaceID,
-		MessageID:              messageID,
-		VisualEditorTree:       emailContent.VisualEditorTree,
-		TemplateData:           notifuse_mjml.MapOfAny(messageData),
-		TrackingSettings:       trackingSettings,
-		SubjectPreviewOverride: emailOptions.SubjectPreview,
+		WorkspaceID:      workspaceID,
+		MessageID:        messageID,
+		TemplateData:     notifuse_mjml.MapOfAny(messageData),
+		TrackingSettings: trackingSettings,
 	}
-	compileReq.MjmlSource = emailContent.GetCodeModeMjmlSource()
+	// Wires the resolved variant's tree/source + its inbox-preview override;
+	// an explicit per-send override from the test modal still wins.
+	emailContent.ApplyToCompileRequest(&compileReq, emailOptions.SubjectPreview)
 	compiledResult, err := s.templateService.CompileTemplate(ctx, compileReq)
 
 	if err != nil {

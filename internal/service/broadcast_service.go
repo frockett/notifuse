@@ -1079,11 +1079,11 @@ func (s *BroadcastService) SendToIndividual(ctx context.Context, request *domain
 	compileReq := domain.CompileTemplateRequest{
 		WorkspaceID:      request.WorkspaceID,
 		MessageID:        messageID,
-		VisualEditorTree: emailContent.VisualEditorTree,
 		TemplateData:     notifuse_mjml.MapOfAny(templateData),
 		TrackingSettings: trackingSettings,
 	}
-	compileReq.MjmlSource = emailContent.GetCodeModeMjmlSource()
+	// Wires the resolved variant's tree/source + its inbox-preview override.
+	emailContent.ApplyToCompileRequest(&compileReq, nil)
 	compiledTemplate, err := s.templateSvc.CompileTemplate(ctx, compileReq)
 	if err != nil {
 		s.logger.Error("Failed to compile template for broadcast")

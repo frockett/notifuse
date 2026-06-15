@@ -429,7 +429,11 @@ func CompileTemplate(req CompileTemplateRequest) (resp *CompileTemplateResponse,
 
 		tree := req.VisualEditorTree
 
-		// Apply subject_preview override in the tree before conversion
+		// Apply subject_preview override in the tree before conversion.
+		// WARNING: updateBlockContent mutates the caller's tree in place (the mj-preview block).
+		// Callers pass VisualEditorTree by pointer; this is safe only because templates are loaded
+		// fresh per send and compiled sequentially. If a shared template cache is introduced, clone
+		// the tree before concurrent compilation to avoid a data race on the mj-preview block.
 		if req.SubjectPreviewOverride != nil && *req.SubjectPreviewOverride != "" {
 			updateBlockContent(tree, MJMLComponentMjPreview, *req.SubjectPreviewOverride)
 		}

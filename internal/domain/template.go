@@ -144,6 +144,40 @@ func (t *Template) ResolveEmailContent(contactLanguage string, workspaceDefaultL
 	return t.Email
 }
 
+// ResolveSubjectPreviewOverride picks the preview text to inject into the mj-preview block at
+// compile time. An explicit caller-supplied override (e.g. transactional EmailOptions) wins;
+// otherwise it falls back to the resolved email content's own SubjectPreview. This guarantees a
+// translation renders its own inbox preview text even if its stored mj-preview block is stale.
+func ResolveSubjectPreviewOverride(explicit *string, content *EmailTemplate) *string {
+	if explicit != nil && *explicit != "" {
+		return explicit
+	}
+	if content != nil {
+		return content.SubjectPreview
+	}
+	return nil
+}
+
+// ApplyToCompileRequest fills the fields of a send-time compile request that derive from this email
+// variant: the visual editor tree, the code-mode MJML source, and the subject-preview override that
+// makes a translation render its OWN inbox preview text. Every outbound send (broadcast,
+// automation, transactional) must route the resolved email content through here so the preview
+// override travels with the body and cannot be forgotten — a send path that skips this call ends up
+// with no tree/source and fails compilation loudly instead of silently shipping a stale preview.
+// An explicit caller override (e.g. transactional EmailOptions.SubjectPreview) takes precedence over
+// the variant's own SubjectPreview.
+//
+// CONCURRENCY: req.VisualEditorTree shares e's tree by pointer, and CompileTemplate mutates that
+// tree's mj-preview block in place when the override is applied (visual mode only). This is safe
+// today because templates are loaded fresh per send (no shared template cache) and recipients
+// compile sequentially. If a shared template cache is ever introduced, clone the tree before
+// compiling concurrently — otherwise concurrent sends would race on the same mj-preview block.
+func (e *EmailTemplate) ApplyToCompileRequest(req *CompileTemplateRequest, explicitPreviewOverride *string) {
+	req.VisualEditorTree = e.VisualEditorTree
+	req.MjmlSource = e.GetCodeModeMjmlSource()
+	req.SubjectPreviewOverride = ResolveSubjectPreviewOverride(explicitPreviewOverride, e)
+}
+
 // ResolveWebContent returns the WebTemplate for the given contact language.
 // Falls back to the default template content if no translation exists.
 func (t *Template) ResolveWebContent(contactLanguage string, workspaceDefaultLanguage string) *WebTemplate {

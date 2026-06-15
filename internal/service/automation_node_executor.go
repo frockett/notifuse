@@ -345,11 +345,11 @@ func (e *EmailNodeExecutor) Execute(ctx context.Context, params NodeExecutionPar
 	compileReq := notifuse_mjml.CompileTemplateRequest{
 		WorkspaceID:      params.WorkspaceID,
 		MessageID:        messageID,
-		VisualEditorTree: emailContent.VisualEditorTree,
 		TemplateData:     notifuse_mjml.MapOfAny(templateData),
 		TrackingSettings: trackingSettings,
 	}
-	compileReq.MjmlSource = emailContent.GetCodeModeMjmlSource()
+	// Wires the resolved variant's tree/source + its inbox-preview override.
+	emailContent.ApplyToCompileRequest(&compileReq, nil)
 	compiledTemplate, err := notifuse_mjml.CompileTemplate(compileReq)
 	if err != nil {
 		return nil, fmt.Errorf("failed to compile template: %w", err)

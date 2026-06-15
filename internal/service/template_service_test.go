@@ -2050,3 +2050,223 @@ func TestTemplateService_UpdateEmailMetadataBlocks_CodeMode(t *testing.T) {
 		require.NoError(t, err)
 	})
 }
+
+// TestTemplateService_UpdateEmailMetadataBlocks_Translations verifies that the mj-title and
+// mj-preview blocks are re-stamped for every language translation, not just the default email
+// content. This is the regression coverage for the bug where a translation kept the preview
+// text it was cloned with.
+func TestTemplateService_UpdateEmailMetadataBlocks_Translations(t *testing.T) {
+	ctx := context.Background()
+	workspaceID := "ws-123"
+	userID := "user-456"
+
+	writePerms := &domain.UserWorkspace{
+		UserID:      userID,
+		WorkspaceID: workspaceID,
+		Role:        "member",
+		Permissions: domain.UserPermissions{
+			domain.PermissionResourceTemplates: {Read: true, Write: true},
+		},
+	}
+	workspaceWithFr := &domain.Workspace{
+		ID: workspaceID,
+		Settings: domain.WorkspaceSettings{
+			DefaultLanguage: "en",
+			Languages:       []string{"en", "fr"},
+		},
+	}
+
+	bodyOnlyMjml := `<mjml>
+  <mj-body>
+    <mj-section><mj-column><mj-text>Hola</mj-text></mj-column></mj-section>
+  </mj-body>
+</mjml>`
+
+	t.Run("CreateTemplate stamps mj-preview for code-mode translation", func(t *testing.T) {
+		ctrl := gomock.NewController(t)
+		defer ctrl.Finish()
+		svc, mockRepo, mockWorkspaceRepo, mockAuthService, _ := setupTemplateServiceTest(ctrl)
+
+		mainMjml := bodyOnlyMjml
+		frMjml := bodyOnlyMjml
+		mainPreview := "EN Preview"
+		frPreview := "FR Preview"
+
+		tmpl := &domain.Template{
+			ID:       "tmpl-trans-1",
+			Name:     "My Template",
+			Channel:  "email",
+			Category: "transactional",
+			Email: &domain.EmailTemplate{
+				EditorMode:     domain.EditorModeCode,
+				MjmlSource:     &mainMjml,
+				Subject:        "Test Subject",
+				SubjectPreview: &mainPreview,
+			},
+			Translations: map[string]domain.TemplateTranslation{
+				"fr": {Email: &domain.EmailTemplate{
+					EditorMode:     domain.EditorModeCode,
+					MjmlSource:     &frMjml,
+					Subject:        "Sujet de test",
+					SubjectPreview: &frPreview,
+				}},
+			},
+		}
+
+		mockAuthService.EXPECT().AuthenticateUserForWorkspace(ctx, workspaceID).Return(ctx, &domain.User{ID: userID}, writePerms, nil)
+		mockWorkspaceRepo.EXPECT().GetByID(ctx, workspaceID).Return(workspaceWithFr, nil)
+
+		mockRepo.EXPECT().CreateTemplate(ctx, workspaceID, gomock.Any()).DoAndReturn(
+			func(_ context.Context, _ string, tmplArg *domain.Template) error {
+				require.NotNil(t, tmplArg.Email.MjmlSource)
+				assert.Contains(t, *tmplArg.Email.MjmlSource, "<mj-preview>EN Preview</mj-preview>")
+
+				fr := tmplArg.Translations["fr"]
+				require.NotNil(t, fr.Email)
+				require.NotNil(t, fr.Email.MjmlSource)
+				assert.Contains(t, *fr.Email.MjmlSource, "<mj-preview>FR Preview</mj-preview>")
+				assert.Contains(t, *fr.Email.MjmlSource, "<mj-title>My Template</mj-title>")
+				return nil
+			},
+		)
+
+		err := svc.CreateTemplate(ctx, workspaceID, tmpl)
+		require.NoError(t, err)
+	})
+
+	t.Run("UpdateTemplate refreshes a stale translation mj-preview", func(t *testing.T) {
+		ctrl := gomock.NewController(t)
+		defer ctrl.Finish()
+		svc, mockRepo, mockWorkspaceRepo, mockAuthService, _ := setupTemplateServiceTest(ctrl)
+
+		// The incoming translation source still carries the OLD preview tag (as it would in the
+		// DB), but the SubjectPreview field has been edited to the new value.
+		mainMjml := bodyOnlyMjml
+		frMjmlStale := `<mjml>
+  <mj-head>
+    <mj-preview>FR Old Preview</mj-preview>
+  </mj-head>
+  <mj-body>
+    <mj-section><mj-column><mj-text>Bonjour</mj-text></mj-column></mj-section>
+  </mj-body>
+</mjml>`
+		mainPreview := "EN Preview"
+		frNewPreview := "FR New Preview"
+
+		tmpl := &domain.Template{
+			ID:       "tmpl-trans-2",
+			Name:     "My Template",
+			Channel:  "email",
+			Category: "transactional",
+			Email: &domain.EmailTemplate{
+				EditorMode:     domain.EditorModeCode,
+				MjmlSource:     &mainMjml,
+				Subject:        "Test Subject",
+				SubjectPreview: &mainPreview,
+			},
+			Translations: map[string]domain.TemplateTranslation{
+				"fr": {Email: &domain.EmailTemplate{
+					EditorMode:     domain.EditorModeCode,
+					MjmlSource:     &frMjmlStale,
+					Subject:        "Sujet de test",
+					SubjectPreview: &frNewPreview,
+				}},
+			},
+		}
+
+		existingMain := bodyOnlyMjml
+		existingTemplate := &domain.Template{
+			ID:       "tmpl-trans-2",
+			Name:     "My Template",
+			Version:  1,
+			Channel:  "email",
+			Category: "transactional",
+			Email: &domain.EmailTemplate{
+				EditorMode: domain.EditorModeCode,
+				MjmlSource: &existingMain,
+				Subject:    "Test Subject",
+			},
+			CreatedAt: time.Now().Add(-time.Hour),
+		}
+
+		mockAuthService.EXPECT().AuthenticateUserForWorkspace(ctx, workspaceID).Return(ctx, &domain.User{ID: userID}, writePerms, nil)
+		mockRepo.EXPECT().GetTemplateByID(ctx, workspaceID, "tmpl-trans-2", int64(0)).Return(existingTemplate, nil)
+		mockWorkspaceRepo.EXPECT().GetByID(ctx, workspaceID).Return(workspaceWithFr, nil)
+
+		mockRepo.EXPECT().UpdateTemplate(ctx, workspaceID, gomock.Any()).DoAndReturn(
+			func(_ context.Context, _ string, tmplArg *domain.Template) error {
+				fr := tmplArg.Translations["fr"]
+				require.NotNil(t, fr.Email)
+				require.NotNil(t, fr.Email.MjmlSource)
+				assert.Contains(t, *fr.Email.MjmlSource, "<mj-preview>FR New Preview</mj-preview>")
+				assert.NotContains(t, *fr.Email.MjmlSource, "FR Old Preview")
+				return nil
+			},
+		)
+
+		err := svc.UpdateTemplate(ctx, workspaceID, tmpl)
+		require.NoError(t, err)
+	})
+
+	t.Run("CreateTemplate stamps mj-preview for visual-mode translation", func(t *testing.T) {
+		ctrl := gomock.NewController(t)
+		defer ctrl.Finish()
+		svc, mockRepo, mockWorkspaceRepo, mockAuthService, _ := setupTemplateServiceTest(ctrl)
+
+		// Builds an mjml tree with an mj-head/mj-preview block carrying a stale value.
+		buildTreeWithStalePreview := func(stale string) notifuse_mjml.EmailBlock {
+			previewBase := notifuse_mjml.NewBaseBlock("preview", notifuse_mjml.MJMLComponentMjPreview)
+			previewBase.Content = &stale
+			previewBlock := &notifuse_mjml.MJPreviewBlock{BaseBlock: previewBase}
+			headBase := notifuse_mjml.NewBaseBlock("head", notifuse_mjml.MJMLComponentMjHead)
+			headBase.Children = []notifuse_mjml.EmailBlock{previewBlock}
+			headBlock := &notifuse_mjml.MJHeadBlock{BaseBlock: headBase}
+			bodyBase := notifuse_mjml.NewBaseBlock("body", notifuse_mjml.MJMLComponentMjBody)
+			bodyBlock := &notifuse_mjml.MJBodyBlock{BaseBlock: bodyBase}
+			rootBase := notifuse_mjml.NewBaseBlock("root", notifuse_mjml.MJMLComponentMjml)
+			rootBase.Children = []notifuse_mjml.EmailBlock{headBlock, bodyBlock}
+			return &notifuse_mjml.MJMLBlock{BaseBlock: rootBase}
+		}
+
+		mainPreview := "EN Preview"
+		frPreview := "FR Visual Preview"
+
+		tmpl := &domain.Template{
+			ID:       "tmpl-trans-3",
+			Name:     "My Template",
+			Channel:  "email",
+			Category: "transactional",
+			Email: &domain.EmailTemplate{
+				Subject:          "Test Subject",
+				SubjectPreview:   &mainPreview,
+				CompiledPreview:  "<p>en</p>",
+				VisualEditorTree: buildTreeWithStalePreview("EN Old"),
+			},
+			Translations: map[string]domain.TemplateTranslation{
+				"fr": {Email: &domain.EmailTemplate{
+					Subject:          "Sujet de test",
+					SubjectPreview:   &frPreview,
+					CompiledPreview:  "<p>fr</p>",
+					VisualEditorTree: buildTreeWithStalePreview("FR Old"),
+				}},
+			},
+		}
+
+		mockAuthService.EXPECT().AuthenticateUserForWorkspace(ctx, workspaceID).Return(ctx, &domain.User{ID: userID}, writePerms, nil)
+		mockWorkspaceRepo.EXPECT().GetByID(ctx, workspaceID).Return(workspaceWithFr, nil)
+
+		mockRepo.EXPECT().CreateTemplate(ctx, workspaceID, gomock.Any()).DoAndReturn(
+			func(_ context.Context, _ string, tmplArg *domain.Template) error {
+				fr := tmplArg.Translations["fr"]
+				require.NotNil(t, fr.Email)
+				frMjml := notifuse_mjml.ConvertJSONToMJML(fr.Email.VisualEditorTree)
+				assert.Contains(t, frMjml, "FR Visual Preview")
+				assert.NotContains(t, frMjml, "FR Old")
+				return nil
+			},
+		)
+
+		err := svc.CreateTemplate(ctx, workspaceID, tmpl)
+		require.NoError(t, err)
+	})
+}

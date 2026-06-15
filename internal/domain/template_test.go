@@ -2458,6 +2458,85 @@ func TestTemplate_ResolveWebContent(t *testing.T) {
 	})
 }
 
+func TestResolveSubjectPreviewOverride(t *testing.T) {
+	explicit := "explicit override"
+	empty := ""
+	contentPreview := "content preview"
+	content := &EmailTemplate{SubjectPreview: &contentPreview}
+
+	t.Run("explicit override wins", func(t *testing.T) {
+		got := ResolveSubjectPreviewOverride(&explicit, content)
+		assert.NotNil(t, got)
+		assert.Equal(t, "explicit override", *got)
+	})
+
+	t.Run("nil explicit falls back to resolved content", func(t *testing.T) {
+		got := ResolveSubjectPreviewOverride(nil, content)
+		assert.NotNil(t, got)
+		assert.Equal(t, "content preview", *got)
+	})
+
+	t.Run("empty explicit falls back to resolved content", func(t *testing.T) {
+		got := ResolveSubjectPreviewOverride(&empty, content)
+		assert.NotNil(t, got)
+		assert.Equal(t, "content preview", *got)
+	})
+
+	t.Run("nil content yields nil", func(t *testing.T) {
+		assert.Nil(t, ResolveSubjectPreviewOverride(nil, nil))
+	})
+
+	t.Run("content with nil preview yields nil", func(t *testing.T) {
+		assert.Nil(t, ResolveSubjectPreviewOverride(nil, &EmailTemplate{}))
+	})
+}
+
+func TestEmailTemplate_ApplyToCompileRequest(t *testing.T) {
+	preview := "variant preview"
+
+	t.Run("visual mode sets tree and preview override, leaves mjml source nil", func(t *testing.T) {
+		tree := createValidMJMLBlock()
+		e := &EmailTemplate{
+			EditorMode:       EditorModeVisual,
+			VisualEditorTree: tree,
+			SubjectPreview:   &preview,
+		}
+		var req CompileTemplateRequest
+		e.ApplyToCompileRequest(&req, nil)
+
+		assert.Equal(t, tree, req.VisualEditorTree)
+		assert.Nil(t, req.MjmlSource)
+		assert.NotNil(t, req.SubjectPreviewOverride)
+		assert.Equal(t, "variant preview", *req.SubjectPreviewOverride)
+	})
+
+	t.Run("code mode sets mjml source from the variant", func(t *testing.T) {
+		src := "<mjml></mjml>"
+		e := &EmailTemplate{
+			EditorMode:     EditorModeCode,
+			MjmlSource:     &src,
+			SubjectPreview: &preview,
+		}
+		var req CompileTemplateRequest
+		e.ApplyToCompileRequest(&req, nil)
+
+		assert.NotNil(t, req.MjmlSource)
+		assert.Equal(t, "<mjml></mjml>", *req.MjmlSource)
+		assert.NotNil(t, req.SubjectPreviewOverride)
+		assert.Equal(t, "variant preview", *req.SubjectPreviewOverride)
+	})
+
+	t.Run("explicit override takes precedence over variant preview", func(t *testing.T) {
+		explicit := "explicit override"
+		e := &EmailTemplate{SubjectPreview: &preview}
+		var req CompileTemplateRequest
+		e.ApplyToCompileRequest(&req, &explicit)
+
+		assert.NotNil(t, req.SubjectPreviewOverride)
+		assert.Equal(t, "explicit override", *req.SubjectPreviewOverride)
+	})
+}
+
 func TestTemplate_Validate_Translations(t *testing.T) {
 	validTree := createValidMJMLBlock()
 

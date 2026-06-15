@@ -313,14 +313,14 @@ func (s *EmailService) SendEmailForTemplate(ctx context.Context, request domain.
 	}
 
 	compileTemplateRequest := domain.CompileTemplateRequest{
-		WorkspaceID:            request.WorkspaceID,
-		MessageID:              request.MessageID,
-		VisualEditorTree:       emailContent.VisualEditorTree,
-		TemplateData:           request.MessageData.Data,
-		TrackingSettings:       trackingSettings,
-		SubjectPreviewOverride: request.EmailOptions.SubjectPreview,
+		WorkspaceID:      request.WorkspaceID,
+		MessageID:        request.MessageID,
+		TemplateData:     request.MessageData.Data,
+		TrackingSettings: trackingSettings,
 	}
-	compileTemplateRequest.MjmlSource = emailContent.GetCodeModeMjmlSource()
+	// Wires the resolved variant's tree/source + its inbox-preview override;
+	// an explicit per-send override from EmailOptions still wins.
+	emailContent.ApplyToCompileRequest(&compileTemplateRequest, request.EmailOptions.SubjectPreview)
 
 	// Compile the template with the message data (use system context to bypass authentication)
 	compiledTemplate, err := s.templateService.CompileTemplate(systemCtx, compileTemplateRequest)

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [32.4] - 2026-06-15
+
+- **Fix**: Translated email templates now send with their own inbox preview text (preheader) instead of the default language's. The inbox preview is rendered from the `mj-preview` block embedded in the email tree, but the metadata-sync that stamps it from the `subject_preview` field only ran for the default template — never for translations — so a translation kept the preview value it was cloned with, even after its preview was edited and saved. The sync now stamps every language variant, and all send paths (broadcast, automation, transactional) additionally inject each resolved variant's `subject_preview` at compile time, which also corrects already-saved translations without a re-save (#359).
+
 ## [32.3] - 2026-06-01
 
 - **Security**: Broadcast data-feed endpoints (`broadcasts.refreshGlobalFeed`, `broadcasts.testRecipientFeed`) are no longer a server-side request forgery (SSRF) vector and now require `broadcasts:write`. The data-feed fetcher used a plain HTTP client with no address validation, so any authenticated workspace member — including a read-only member — could make the server fetch an arbitrary URL (internal services, the private network, or the cloud instance metadata endpoint) and read back the JSON response. The fetcher now uses the SSRF-safe client already used for favicon detection (dial-time rejection of private/loopback/link-local/reserved ranges, redirect re-validation, DNS-rebinding protection), and both service methods enforce the same write permission as broadcast creation. Trusted self-hosted deployments that intentionally fetch feeds from their internal network can opt out with `BROADCAST_DATA_FEED_ALLOW_PRIVATE_HOSTS=true`.
