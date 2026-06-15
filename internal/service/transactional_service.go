@@ -839,6 +839,11 @@ func (s *TransactionalNotificationService) TestTemplate(ctx context.Context, wor
 		processedSubject = overrideSubject
 	}
 
+	// Fall back to the template's reply-to; an explicit one still wins
+	if emailOptions.ReplyTo == "" && emailContent.ReplyTo != "" {
+		emailOptions.ReplyTo = emailContent.ReplyTo
+	}
+
 	// Create SendEmailProviderRequest
 	emailRequest := domain.SendEmailProviderRequest{
 		WorkspaceID:   workspaceID,
