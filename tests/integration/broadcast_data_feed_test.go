@@ -65,11 +65,16 @@ func NewMockFeedServer() *MockFeedServer {
 		})
 		m.requestCount++
 
-		// Simulate delay if set (copy to local var to avoid race after unlock)
+		// Simulate delay if set (copy to local var to avoid race after unlock).
+		// Respect client cancellation so a timed-out request returns promptly
+		// instead of blocking the handler (and Server.Close) for the full delay.
 		delay := m.responseDelay
 		if delay > 0 {
 			m.mutex.Unlock()
-			time.Sleep(delay)
+			select {
+			case <-time.After(delay):
+			case <-r.Context().Done():
+			}
 			m.mutex.Lock()
 		}
 
@@ -128,11 +133,16 @@ func NewMockFeedServerTLS() *MockFeedServer {
 		})
 		m.requestCount++
 
-		// Simulate delay if set (copy to local var to avoid race after unlock)
+		// Simulate delay if set (copy to local var to avoid race after unlock).
+		// Respect client cancellation so a timed-out request returns promptly
+		// instead of blocking the handler (and Server.Close) for the full delay.
 		delay := m.responseDelay
 		if delay > 0 {
 			m.mutex.Unlock()
-			time.Sleep(delay)
+			select {
+			case <-time.After(delay):
+			case <-r.Context().Done():
+			}
 			m.mutex.Lock()
 		}
 
@@ -635,7 +645,10 @@ func TestDataFeedTimeout(t *testing.T) {
 
 	t.Run("should timeout when feed takes too long", func(t *testing.T) {
 		mockServer.ClearRequests()
-		mockServer.SetDelay(5 * time.Second) // Delay longer than timeout
+		// Delay must be safely longer than the hardcoded 5s feed timeout so the
+		// client deadline always fires first; an equal delay races the timeout
+		// and makes this test flaky.
+		mockServer.SetDelay(10 * time.Second)
 		mockServer.SetResponse(map[string]interface{}{
 			"message": "should not see this",
 		})
