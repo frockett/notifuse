@@ -184,7 +184,11 @@ func (r *workspaceRepository) List(ctx context.Context) ([]*domain.Workspace, er
 	}
 	defer func() { _ = rows.Close() }()
 
-	var workspaces []*domain.Workspace
+	// Initialize as an empty (non-nil) slice so an installation with no
+	// workspaces serializes to `[]` rather than `null`. The root user hits
+	// this path directly (see WorkspaceService.ListWorkspaces), and a null
+	// value crashes the console which accesses `workspaces.length`.
+	workspaces := []*domain.Workspace{}
 	for rows.Next() {
 		workspace, err := domain.ScanWorkspace(rows)
 		if err != nil {

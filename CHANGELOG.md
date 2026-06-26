@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [34.1] - 2026-06-25
+
+- **Fix**: Workspace SMTP integrations now connect to servers that advertise only `AUTH LOGIN` (such as Azure Communication Services) — the raw SMTP sender hardcoded `AUTH PLAIN` and was rejected with a 504 before credentials were ever checked. It now reads the AUTH mechanisms advertised in EHLO and uses LOGIN when PLAIN isn't offered, preferring PLAIN when both are available (#368).
+- **Fix**: Unsubscribing from the notification center works again. The widget's "Unsubscribe" action and per-list toggle (and the console) now post to a dedicated `/unsubscribe` endpoint, while `/unsubscribe-oneclick` is reserved for the RFC 8058 mail-client one-click carried in the `List-Unsubscribe` header (it still accepts the legacy JSON body as a backward-compatible shim). When v34.0 made `/unsubscribe-oneclick` strictly RFC 8058 for the Gmail/Yahoo one-click fix, the notification center's JSON request was rejected with `400 "Invalid request"` and contacts stayed subscribed (#371).
+- **Fix**: A freshly installed root account no longer crashes the console on first login. Before any workspace existed, `user.me` returned `"workspaces": null` instead of `[]` for the `ROOT_EMAIL` user — the root path returns the workspace list straight from the database, which is a nil slice when empty — and the console crashed with `Cannot read properties of null (reading 'length')` instead of redirecting to workspace creation. The repository now returns an empty (non-nil) slice so the API always serializes `[]`, and the console normalizes a null `workspaces` to an empty array as a safeguard (#367).
+
 ## [34.0] - 2026-06-20
 
 - **Feature**: Single Sign-On via OpenID Connect (OIDC) alongside magic-code login — off by default and enabled per deployment with `OIDC_*` env vars, the setup wizard, or Settings → SSO (client secret encrypted at rest), so the sign-in page shows an SSO button only when it is turned on. Invited-users-only by default with opt-in just-in-time provisioning gated by a verified-email domain allowlist; identities are keyed on the durable issuer+subject pair (never email alone) and login still requires a workspace invite or `ROOT_EMAIL` for access. Uses Authorization Code + PKCE and works with any compliant provider (Google Workspace, Keycloak, Okta, …); adds the `federated_identities` system table (migration v34).

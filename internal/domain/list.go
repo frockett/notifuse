@@ -2,7 +2,9 @@ package domain
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"io"
 	"net/url"
 	"time"
 
@@ -354,6 +356,37 @@ func (r *UnsubscribeFromListsRequest) FromOneClickURLParams(queryParams url.Valu
 	r.EmailHMAC = queryParams.Get("email_hmac")
 	r.ListIDs = queryParams["lids"]
 	r.MessageID = queryParams.Get("mid")
+
+	if r.WorkspaceID == "" {
+		return fmt.Errorf("wid is required")
+	}
+
+	if r.Email == "" {
+		return fmt.Errorf("email is required")
+	}
+
+	if len(r.ListIDs) == 0 {
+		return fmt.Errorf("lids is required")
+	}
+
+	return nil
+}
+
+// FromJSONBody parses a notification-center unsubscribe request from the first-party
+// SPA's JSON body (the widget's "Unsubscribe" action and per-list toggle, and the
+// console). Unlike the mail-client one-click POST (see FromOneClickURLParams), the SPA
+// sends the identifying params as a JSON body with no query string and no
+// "List-Unsubscribe=One-Click" token; the struct's json tags map the body keys
+// (wid, email, email_hmac, lids, mid).
+//
+// email_hmac is deliberately not required here, matching FromOneClickURLParams:
+// authentication is owned by ListService.UnsubscribeFromLists, which verifies the HMAC
+// against the workspace secret key. This method only validates that the request
+// structurally identifies a contact and list(s) to act on.
+func (r *UnsubscribeFromListsRequest) FromJSONBody(body io.Reader) error {
+	if err := json.NewDecoder(body).Decode(r); err != nil {
+		return fmt.Errorf("invalid request body: %w", err)
+	}
 
 	if r.WorkspaceID == "" {
 		return fmt.Errorf("wid is required")

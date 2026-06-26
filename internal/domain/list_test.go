@@ -3,6 +3,7 @@ package domain
 import (
 	"database/sql"
 	"net/url"
+	"strings"
 	"testing"
 	"time"
 
@@ -325,6 +326,57 @@ func TestUnsubscribeFromListsRequest_FromOneClickURLParams(t *testing.T) {
 		t.Run("rejects "+tc.name, func(t *testing.T) {
 			var req UnsubscribeFromListsRequest
 			assert.Error(t, req.FromOneClickURLParams(tc.vals))
+		})
+	}
+}
+
+func TestUnsubscribeFromListsRequest_FromJSONBody(t *testing.T) {
+	// The struct's json tags map the SPA body keys: wid, email, email_hmac, lids, mid.
+	t.Run("parses all fields from the JSON body", func(t *testing.T) {
+		body := `{"wid":"ws123","email":"user@example.com","email_hmac":"deadbeef","lids":["list1","list2"],"mid":"msg-1"}`
+		var req UnsubscribeFromListsRequest
+		err := req.FromJSONBody(strings.NewReader(body))
+		assert.NoError(t, err)
+		assert.Equal(t, "ws123", req.WorkspaceID)
+		assert.Equal(t, "user@example.com", req.Email)
+		assert.Equal(t, "deadbeef", req.EmailHMAC)
+		assert.Equal(t, []string{"list1", "list2"}, req.ListIDs)
+		assert.Equal(t, "msg-1", req.MessageID)
+	})
+
+	t.Run("email_hmac and mid are optional at parse time", func(t *testing.T) {
+		// Authentication (email_hmac) is verified by the service, and mid is only used
+		// for analytics; the parser only requires enough to identify contact + lists.
+		body := `{"wid":"ws123","email":"user@example.com","lids":["list1"]}`
+		var req UnsubscribeFromListsRequest
+		err := req.FromJSONBody(strings.NewReader(body))
+		assert.NoError(t, err)
+		assert.Empty(t, req.EmailHMAC)
+		assert.Empty(t, req.MessageID)
+	})
+
+	t.Run("ignores unknown fields", func(t *testing.T) {
+		body := `{"wid":"ws123","email":"user@example.com","lids":["list1"],"foo":"bar"}`
+		var req UnsubscribeFromListsRequest
+		assert.NoError(t, req.FromJSONBody(strings.NewReader(body)))
+	})
+
+	errorCases := []struct {
+		name string
+		body string
+	}{
+		{"missing wid", `{"email":"user@example.com","lids":["list1"]}`},
+		{"missing email", `{"wid":"ws123","lids":["list1"]}`},
+		{"missing lids", `{"wid":"ws123","email":"user@example.com"}`},
+		{"empty lids array", `{"wid":"ws123","email":"user@example.com","lids":[]}`},
+		{"empty object", `{}`},
+		{"malformed json", `{"wid":`},
+		{"empty body", ``},
+	}
+	for _, tc := range errorCases {
+		t.Run("rejects "+tc.name, func(t *testing.T) {
+			var req UnsubscribeFromListsRequest
+			assert.Error(t, req.FromJSONBody(strings.NewReader(tc.body)))
 		})
 	}
 }

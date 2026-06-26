@@ -27,7 +27,9 @@ export interface GetCurrentUserResponse {
     timezone: string
     language: string
   }
-  workspaces: Workspace[]
+  // The backend may return null (not []) when the user has no workspaces,
+  // e.g. a freshly installed root account. Callers must normalize to [].
+  workspaces: Workspace[] | null
 }
 
 /**
