@@ -230,6 +230,11 @@ export function CreateTemplateDrawer({
     return createDefaultBlocks()
   })
 
+  // Always-current snapshot of the tree, so async callers (the AI assistant reading
+  // the tree after its edits) never see a stale value captured in an old closure.
+  const visualEditorTreeRef = useRef(visualEditorTree)
+  visualEditorTreeRef.current = visualEditorTree
+
   // Add Form.useWatch for the email fields - must be called before conditional returns
   const senderID = Form.useWatch(['email', 'sender_id'], form)
   const emailSubject = Form.useWatch(['email', 'subject'], form)
@@ -1155,8 +1160,37 @@ export function CreateTemplateDrawer({
               currentPreviewText={emailPreview}
               onUpdateSubject={(subject) => form.setFieldValue(['email', 'subject'], subject)}
               onUpdatePreviewText={(preview) => form.setFieldValue(['email', 'subject_preview'], preview)}
+              validateOnComplete={async () => {
+                // Compile the freshly-edited tree; surface MJML errors so a broken
+                // generation is never presented as success.
+                try {
+                  const response = await templatesApi.compile({
+                    workspace_id: workspace.id,
+                    message_id: 'preview',
+                    visual_editor_tree: visualEditorTreeRef.current,
+                    test_data: {},
+                    channel: 'email',
+                    tracking_settings: {
+                      enable_tracking: workspace.settings?.email_tracking_enabled || false,
+                      endpoint: workspace.settings?.custom_endpoint_url || undefined,
+                      workspace_id: workspace.id,
+                      message_id: 'preview'
+                    }
+                  })
+                  if (response.error) {
+                    const details = (response.error.details || [])
+                      .map((d) => (d.line ? `• line ${d.line}: ${d.message}` : `• ${d.message}`))
+                      .join('\n')
+                    const errorText = [response.error.message, details].filter(Boolean).join('\n')
+                    return { ok: false, errorText: errorText || 'MJML compilation failed' }
+                  }
+                  return { ok: true }
+                } catch (error) {
+                  return { ok: false, errorText: (error as Error).message || 'Compilation failed' }
+                }
+              }}
               callbacks={{
-                getEmailTree: () => visualEditorTree,
+                getEmailTree: () => visualEditorTreeRef.current,
                 setEmailTree: setVisualEditorTree,
                 onAddBlock: (parentId, blockType, position, content, attributes) => {
                   // Use functional updater to ensure we have the latest state

@@ -2352,6 +2352,65 @@ func TestWorkspaceService_UpdateIntegration(t *testing.T) {
 		require.NoError(t, err)
 	})
 
+	t.Run("update openai LLM integration preserves key and carries reasoning_effort", func(t *testing.T) {
+		openaiIntegrationID := "openai123"
+		expectedUser := &domain.User{ID: userID}
+		expectedUserWorkspace := &domain.UserWorkspace{
+			UserID:      userID,
+			WorkspaceID: workspaceID,
+			Role:        "owner",
+		}
+
+		// Existing OpenAI integration with an encrypted key and no effort set.
+		existingIntegration := domain.Integration{
+			ID:   openaiIntegrationID,
+			Name: "Original OpenAI",
+			Type: domain.IntegrationTypeLLM,
+			LLMProvider: &domain.LLMProvider{
+				Kind: domain.LLMProviderKindOpenAI,
+				OpenAI: &domain.OpenAISettings{
+					EncryptedAPIKey: "encrypted-existing-openai-key",
+					Model:           "gpt-4.1",
+				},
+			},
+			CreatedAt: time.Now().Add(-24 * time.Hour),
+			UpdatedAt: time.Now().Add(-24 * time.Hour),
+		}
+
+		expectedWorkspace := &domain.Workspace{
+			ID:           workspaceID,
+			Name:         "Test Workspace",
+			Integrations: []domain.Integration{existingIntegration},
+		}
+
+		mockAuthService.EXPECT().AuthenticateUserForWorkspace(ctx, workspaceID).Return(ctx, expectedUser, expectedUserWorkspace, nil)
+		mockRepo.EXPECT().GetByID(ctx, workspaceID).Return(expectedWorkspace, nil)
+		mockRepo.EXPECT().Update(ctx, gomock.Any()).DoAndReturn(func(ctx context.Context, workspace *domain.Workspace) error {
+			require.Equal(t, 1, len(workspace.Integrations))
+			openai := workspace.Integrations[0].LLMProvider.OpenAI
+			require.NotNil(t, openai)
+			// API key preserved (none provided), and reasoning_effort persisted.
+			require.Equal(t, "encrypted-existing-openai-key", openai.EncryptedAPIKey)
+			require.Equal(t, "high", openai.ReasoningEffort)
+			return nil
+		})
+
+		err := service.UpdateIntegration(ctx, domain.UpdateIntegrationRequest{
+			WorkspaceID:   workspaceID,
+			IntegrationID: openaiIntegrationID,
+			Name:          "Updated OpenAI",
+			LLMProvider: &domain.LLMProvider{
+				Kind: domain.LLMProviderKindOpenAI,
+				OpenAI: &domain.OpenAISettings{
+					APIKey:          "", // Empty - should preserve existing encrypted key
+					Model:           "gpt-4.1",
+					ReasoningEffort: "high",
+				},
+			},
+		})
+		require.NoError(t, err)
+	})
+
 	t.Run("successful update firecrawl integration replaces API key", func(t *testing.T) {
 		firecrawlIntegrationID := "firecrawl456"
 		expectedUser := &domain.User{

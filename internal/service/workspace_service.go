@@ -1462,7 +1462,12 @@ func (s *WorkspaceService) UpdateIntegration(ctx context.Context, req domain.Upd
 					existingIntegration.LLMProvider.Anthropic.EncryptedAPIKey
 			}
 
-			// Preserve OpenAI encrypted API key if not provided in update
+			// Preserve OpenAI encrypted API key if not provided in update.
+			// NOTE: only the secret (API key) is preserved here. Non-secret fields like
+			// model/base_url/reasoning_effort are taken verbatim from req (the whole
+			// OpenAI struct above is overwritten), so the frontend must always resend
+			// them or they reset to their zero value. Any future SECRET field needs its
+			// own preserve-on-blank branch like this one.
 			if req.LLMProvider.OpenAI != nil &&
 				req.LLMProvider.OpenAI.APIKey == "" &&
 				req.LLMProvider.OpenAI.EncryptedAPIKey == "" &&

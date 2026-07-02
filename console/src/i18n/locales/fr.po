@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/ai-assistant/useAIAssistant.tsx:121
+#: src/components/ai-assistant/useAIAssistant.tsx:145
 msgid " - Done"
 msgstr " - Terminé"
 
-#: src/components/ai-assistant/useAIAssistant.tsx:121
+#: src/components/ai-assistant/useAIAssistant.tsx:145
 msgid " - Failed"
 msgstr " - Échoué"
 
@@ -30,7 +30,7 @@ msgstr " (En pause)"
 msgid "... and {0} more emails"
 msgstr "... et {0} emails de plus"
 
-#: src/components/ai-assistant/useAIAssistant.tsx:53
+#: src/components/ai-assistant/useAIAssistant.tsx:56
 msgid "(Cancelled)"
 msgstr "(Annulé)"
 
@@ -208,7 +208,7 @@ msgstr "{clicks} clics sur {recipients} destinataires"
 msgid "{label} copied to clipboard"
 msgstr "{label} copié dans le presse-papiers"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:574
+#: src/components/templates/CreateTemplateDrawer.tsx:579
 msgid "{langName} translation is missing required fields (subject and preview)"
 msgstr ""
 
@@ -296,7 +296,7 @@ msgstr "0 ouvertures sur 0 destinataires"
 msgid "1. Audience"
 msgstr "1. Audience"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:646
+#: src/components/templates/CreateTemplateDrawer.tsx:651
 msgid "1. Settings"
 msgstr "1. Paramètres"
 
@@ -304,12 +304,12 @@ msgstr "1. Paramètres"
 msgid "100 - Thin"
 msgstr "100 - Fin"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:652
+#: src/components/templates/CreateTemplateDrawer.tsx:657
 msgid "2. Template"
 msgstr "2. Modèle"
 
 #. placeholder {0}: workspace.settings.default_language
-#: src/components/templates/CreateTemplateDrawer.tsx:651
+#: src/components/templates/CreateTemplateDrawer.tsx:656
 msgid "2. Template ({0})"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr "200 - Extra fin"
 msgid "3. Data Feeds"
 msgstr "3. Flux de données"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:658
+#: src/components/templates/CreateTemplateDrawer.tsx:663
 msgid "3. Translations"
 msgstr ""
 
@@ -439,10 +439,10 @@ msgstr "Activer l automation ?"
 
 #: src/components/automations/config/ListStatusBranchConfigForm.tsx:48
 #: src/components/automations/nodes/ListStatusBranchNode.tsx:59
-#: src/components/contacts/ContactDetailsDrawer.tsx:581
+#: src/components/contacts/ContactDetailsDrawer.tsx:582
 #: src/components/contacts/SegmentsFilter.tsx:53
 #: src/components/lists/ListStats.tsx:66
-#: src/pages/ContactsPage.tsx:382
+#: src/pages/ContactsPage.tsx:388
 msgid "Active"
 msgstr "Actif"
 
@@ -451,11 +451,11 @@ msgid "Active filters"
 msgstr "Filtres actifs"
 
 #: src/components/analytics/NewContactsTable.tsx:88
-#: src/pages/ContactsPage.tsx:549
+#: src/pages/ContactsPage.tsx:555
 msgid "Active subscriber"
 msgstr "Abonné actif"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1045
+#: src/components/contacts/ContactDetailsDrawer.tsx:1046
 #: src/components/segment/form_leaf.tsx:264
 #: src/components/segment/input.tsx:716
 #: src/components/segment/table_tag.tsx:30
@@ -466,7 +466,7 @@ msgstr "Activité"
 #: src/components/broadcasts/HeadersEditor.tsx:54
 #: src/components/broadcasts/HeadersEditor.tsx:102
 #: src/components/segment/input_json_path.tsx:98
-#: src/pages/ContactsPage.tsx:1052
+#: src/pages/ContactsPage.tsx:1059
 msgid "Add"
 msgstr "Ajouter"
 
@@ -606,7 +606,7 @@ msgstr "Ajouter des éléments sociaux à ce bloc social"
 
 #: src/components/contacts/BulkActionsBar.tsx:92
 #: src/components/contacts/BulkActionsBar.tsx:134
-#: src/pages/ContactsPage.tsx:265
+#: src/pages/ContactsPage.tsx:271
 msgid "Add to list"
 msgstr ""
 
@@ -628,19 +628,19 @@ msgid "Add Webhook"
 msgstr "Ajouter un webhook"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:117
-#: src/pages/ContactsPage.tsx:423
-#: src/pages/ContactsPage.tsx:708
+#: src/pages/ContactsPage.tsx:429
+#: src/pages/ContactsPage.tsx:714
 msgid "Address"
 msgstr "Adresse"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:119
-#: src/components/contacts/ContactDetailsDrawer.tsx:444
+#: src/components/contacts/ContactDetailsDrawer.tsx:445
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:97
 msgid "Address Line 1"
 msgstr "Adresse ligne 1"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:120
-#: src/components/contacts/ContactDetailsDrawer.tsx:445
+#: src/components/contacts/ContactDetailsDrawer.tsx:446
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:98
 msgid "Address Line 2"
 msgstr "Adresse ligne 2"
@@ -856,7 +856,7 @@ msgid "API Identifier"
 msgstr "Identifiant API"
 
 #: src/components/integrations/FirecrawlIntegration.tsx:84
-#: src/components/integrations/LLMIntegration.tsx:168
+#: src/components/integrations/LLMIntegration.tsx:175
 #: src/components/settings/Integrations.tsx:1421
 #: src/components/settings/Integrations.tsx:1472
 #: src/components/settings/Integrations.tsx:1835
@@ -1001,6 +1001,10 @@ msgstr "Êtes-vous sûr de vouloir utiliser ce fichier ?"
 #: src/components/segment/input_json_path.tsx:54
 msgid "Array index: {segment}"
 msgstr "Index de tableau : {segment}"
+
+#: src/components/ai-assistant/useAIAssistant.tsx:286
+msgid "Ask me to fix these issues."
+msgstr ""
 
 #: src/components/blog/BlogAIAssistant.tsx:41
 msgid "Ask me to help write your blog..."
@@ -1227,7 +1231,7 @@ msgstr "Taille de l arrière-plan"
 msgid "Background Type"
 msgstr "Type d arrière-plan"
 
-#: src/components/integrations/LLMIntegration.tsx:207
+#: src/components/integrations/LLMIntegration.tsx:214
 #: src/components/settings/Integrations.tsx:1415
 msgid "Base URL"
 msgstr ""
@@ -1309,7 +1313,7 @@ msgstr "Nom du bloc"
 msgid "Block saved as \"{0}\""
 msgstr "Bloc enregistré sous \"{0}\""
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1101
+#: src/components/templates/CreateTemplateDrawer.tsx:1106
 msgid "Block Settings Panel"
 msgstr "Panneau des paramètres du bloc"
 
@@ -1403,7 +1407,7 @@ msgstr "La catégorie et tous ses articles associés seront dépubliés du web."
 #: src/components/email_builder/blocks/MjGroupBlock.tsx:62
 #: src/components/email_builder/blocks/MjSocialElementBlock.tsx:366
 #: src/components/email_builder/ui/BorderInput.tsx:375
-#: src/components/email_builder/ui/PaddingInput.tsx:184
+#: src/components/email_builder/ui/PaddingInput.tsx:187
 msgid "Bottom"
 msgstr "Bas"
 
@@ -1451,12 +1455,12 @@ msgstr "Type de rebond"
 #: src/components/automations/config/TriggerConfigForm.tsx:71
 #: src/components/automations/config/TriggerConfigForm.tsx:93
 #: src/components/broadcasts/BroadcastStats.tsx:283
-#: src/components/contacts/ContactDetailsDrawer.tsx:584
+#: src/components/contacts/ContactDetailsDrawer.tsx:585
 #: src/components/lists/ListStats.tsx:134
 #: src/components/messages/MessageHistoryTab.tsx:166
 #: src/components/messages/MessageHistoryTab.tsx:171
 #: src/components/messages/MessageHistoryTable.tsx:298
-#: src/pages/ContactsPage.tsx:385
+#: src/pages/ContactsPage.tsx:391
 #: src/pages/TransactionalNotificationsPage.tsx:249
 msgid "Bounced"
 msgstr "Rejeté"
@@ -1590,7 +1594,7 @@ msgstr "En construction"
 msgid "Building segment"
 msgstr "Construction du segment"
 
-#: src/pages/ContactsPage.tsx:1033
+#: src/pages/ContactsPage.tsx:1039
 msgid "Bulk Update"
 msgstr "Mise à jour en masse"
 
@@ -1638,8 +1642,8 @@ msgstr "Taille du bouton"
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:328
 #: src/components/contacts/BulkActionProgressModal.tsx:60
 #: src/components/contacts/BulkUpdateDrawer.tsx:576
-#: src/components/contacts/ContactDetailsDrawer.tsx:1113
-#: src/components/contacts/ContactDetailsDrawer.tsx:1145
+#: src/components/contacts/ContactDetailsDrawer.tsx:1114
+#: src/components/contacts/ContactDetailsDrawer.tsx:1146
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:812
 #: src/components/contacts/ContactUpsertDrawer.tsx:499
 #: src/components/contacts/DeleteContactModal.tsx:30
@@ -1678,7 +1682,7 @@ msgstr "Taille du bouton"
 #: src/components/settings/WebhooksSettings.tsx:213
 #: src/components/settings/WorkspaceMembers.tsx:550
 #: src/components/settings/WorkspaceMembers.tsx:595
-#: src/components/templates/CreateTemplateDrawer.tsx:503
+#: src/components/templates/CreateTemplateDrawer.tsx:508
 #: src/components/templates/SendTemplateModal.tsx:268
 #: src/components/templates/TemplateTranslationsTab.tsx:254
 #: src/components/transactional/UpsertTransactionalNotificationDrawer.tsx:173
@@ -1742,7 +1746,7 @@ msgstr "Catégories"
 #: src/components/blog/PostsTable.tsx:236
 #: src/components/blog/ThemeEditorDrawer.tsx:428
 #: src/components/blog/ThemePresetPreviewDrawer.tsx:75
-#: src/components/templates/CreateTemplateDrawer.tsx:720
+#: src/components/templates/CreateTemplateDrawer.tsx:725
 #: src/pages/TemplatesPage.tsx:175
 msgid "Category"
 msgstr "Catégorie"
@@ -1796,12 +1800,12 @@ msgstr "Centre droite"
 msgid "Change provider"
 msgstr "Changer de fournisseur"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1020
+#: src/components/contacts/ContactDetailsDrawer.tsx:1021
 msgid "Change Status"
 msgstr "Changer le statut"
 
 #. placeholder {0}: selectedList?.name || 'List'
-#: src/components/contacts/ContactDetailsDrawer.tsx:1095
+#: src/components/contacts/ContactDetailsDrawer.tsx:1096
 msgid "Change Status for {0}"
 msgstr "Changer le statut pour {0}"
 
@@ -1938,11 +1942,11 @@ msgstr "Cloner"
 msgid "Clone Block"
 msgstr "Cloner le bloc"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:488
+#: src/components/templates/CreateTemplateDrawer.tsx:493
 msgid "Clone email template"
 msgstr "Cloner le modèle d email"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:479
+#: src/components/templates/CreateTemplateDrawer.tsx:484
 #: src/pages/TemplatesPage.tsx:266
 msgid "Clone Template"
 msgstr "Cloner le modèle"
@@ -1971,7 +1975,7 @@ msgstr "Sous-titres (CC)"
 msgid "Code"
 msgstr ""
 
-#: src/components/templates/CreateTemplateDrawer.tsx:768
+#: src/components/templates/CreateTemplateDrawer.tsx:773
 msgid "Code (MJML)"
 msgstr ""
 
@@ -2039,11 +2043,11 @@ msgstr "Plainte email"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:72
 #: src/components/automations/config/TriggerConfigForm.tsx:94
-#: src/components/contacts/ContactDetailsDrawer.tsx:585
+#: src/components/contacts/ContactDetailsDrawer.tsx:586
 #: src/components/messages/MessageHistoryTab.tsx:182
 #: src/components/messages/MessageHistoryTab.tsx:184
 #: src/components/messages/MessageHistoryTable.tsx:306
-#: src/pages/ContactsPage.tsx:386
+#: src/pages/ContactsPage.tsx:392
 msgid "Complained"
 msgstr "A porté plainte"
 
@@ -2215,7 +2219,7 @@ msgstr "Contact créé avec succès"
 msgid "Contact deleted successfully"
 msgstr "Contact supprimé avec succès"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:622
+#: src/components/contacts/ContactDetailsDrawer.tsx:623
 msgid "Contact Details"
 msgstr "Détails du contact"
 
@@ -2260,7 +2264,7 @@ msgid "Contact updated successfully"
 msgstr "Contact mis à jour avec succès"
 
 #: src/layouts/WorkspaceLayout.tsx:236
-#: src/pages/ContactsPage.tsx:988
+#: src/pages/ContactsPage.tsx:994
 msgid "Contacts"
 msgstr "Contacts"
 
@@ -2295,7 +2299,7 @@ msgstr "Couleur du conteneur"
 msgid "Container Padding"
 msgstr "Espacement du conteneur"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1087
+#: src/components/templates/CreateTemplateDrawer.tsx:1092
 msgid "Content Structure Tree"
 msgstr "Arborescence de la structure du contenu"
 
@@ -2332,18 +2336,18 @@ msgstr "Copier le point d accès webhook"
 msgid "Core Fields"
 msgstr "Champs principaux"
 
-#: src/components/ai-assistant/AIAssistantChat.tsx:307
+#: src/components/ai-assistant/AIAssistantChat.tsx:330
 msgid "Cost"
 msgstr "Coût"
 
 #: src/components/analytics/NewContactsTable.tsx:178
 #: src/components/automations/config/TriggerConfigForm.tsx:121
-#: src/components/contacts/ContactDetailsDrawer.tsx:446
+#: src/components/contacts/ContactDetailsDrawer.tsx:447
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:94
 #: src/components/contacts/ExportContactsModal.tsx:65
-#: src/pages/ContactsPage.tsx:366
-#: src/pages/ContactsPage.tsx:420
-#: src/pages/ContactsPage.tsx:690
+#: src/pages/ContactsPage.tsx:372
+#: src/pages/ContactsPage.tsx:426
+#: src/pages/ContactsPage.tsx:696
 msgid "Country"
 msgstr "Pays"
 
@@ -2367,7 +2371,7 @@ msgstr "Créer une diffusion"
 msgid "Create a notification"
 msgstr "Créer une notification"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:489
+#: src/components/templates/CreateTemplateDrawer.tsx:494
 msgid "Create an email template"
 msgstr "Créer un modèle d email"
 
@@ -2442,7 +2446,7 @@ msgstr "Créer un nouveau thème - {0}"
 msgid "Create Notification"
 msgstr "Créer une notification"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:479
+#: src/components/templates/CreateTemplateDrawer.tsx:484
 msgid "Create Template"
 msgstr "Créer un modèle"
 
@@ -2505,11 +2509,11 @@ msgstr "créé"
 msgid "Created"
 msgstr "Créé"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:535
+#: src/components/contacts/ContactDetailsDrawer.tsx:536
 #: src/components/messages/MessageHistoryTable.tsx:135
 #: src/components/messages/MessageHistoryTable.tsx:336
-#: src/pages/ContactsPage.tsx:425
-#: src/pages/ContactsPage.tsx:728
+#: src/pages/ContactsPage.tsx:431
+#: src/pages/ContactsPage.tsx:734
 msgid "Created At"
 msgstr "Créé le"
 
@@ -2599,7 +2603,7 @@ msgstr "Date personnalisée 5"
 msgid "Custom Date Fields"
 msgstr "Champs de date personnalisés"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:888
+#: src/components/contacts/ContactDetailsDrawer.tsx:889
 msgid "Custom Datetime Fields"
 msgstr "Champs de date/heure personnalisés"
 
@@ -2677,7 +2681,7 @@ msgid "Custom JSON 5"
 msgstr "JSON personnalisé 5"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:157
-#: src/components/contacts/ContactDetailsDrawer.tsx:910
+#: src/components/contacts/ContactDetailsDrawer.tsx:911
 msgid "Custom JSON Fields"
 msgstr "Champs JSON personnalisés"
 
@@ -2706,15 +2710,15 @@ msgid "Custom Number 5"
 msgstr "Nombre personnalisé 5"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:137
-#: src/components/contacts/ContactDetailsDrawer.tsx:866
+#: src/components/contacts/ContactDetailsDrawer.tsx:867
 msgid "Custom Number Fields"
 msgstr "Champs numériques personnalisés"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:828
+#: src/components/templates/CreateTemplateDrawer.tsx:833
 msgid "Custom sender (marketing email provider)"
 msgstr "Expéditeur personnalisé (fournisseur d email marketing)"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:828
+#: src/components/templates/CreateTemplateDrawer.tsx:833
 msgid "Custom sender (transactional email provider)"
 msgstr "Expéditeur personnalisé (fournisseur d email transactionnel)"
 
@@ -2743,7 +2747,7 @@ msgid "Custom String 5"
 msgstr "Chaîne personnalisée 5"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:127
-#: src/components/contacts/ContactDetailsDrawer.tsx:844
+#: src/components/contacts/ContactDetailsDrawer.tsx:845
 msgid "Custom String Fields"
 msgstr "Champs de chaîne personnalisés"
 
@@ -2801,6 +2805,7 @@ msgid "default"
 msgstr "par défaut"
 
 #: src/components/email_builder/ui/FontStyleInput.tsx:232
+#: src/components/integrations/LLMIntegration.tsx:228
 #: src/components/settings/Integrations.tsx:383
 msgid "Default"
 msgstr "Par défaut"
@@ -2867,7 +2872,7 @@ msgstr "Délai"
 #: src/components/settings/Integrations.tsx:1457
 #: src/components/settings/WebhookCard.tsx:239
 #: src/pages/BroadcastsPage.tsx:1602
-#: src/pages/ContactsPage.tsx:934
+#: src/pages/ContactsPage.tsx:940
 #: src/pages/ListsPage.tsx:328
 msgid "Delete"
 msgstr "Supprimer"
@@ -2912,7 +2917,7 @@ msgstr "Supprimer le contact"
 
 #: src/components/contacts/BulkActionsBar.tsx:215
 #: src/components/contacts/BulkUpdateDrawer.tsx:596
-#: src/pages/ContactsPage.tsx:254
+#: src/pages/ContactsPage.tsx:260
 msgid "Delete contacts"
 msgstr "Supprimer les contacts"
 
@@ -3256,7 +3261,7 @@ msgstr "ex. Utilisateurs actifs uniquement"
 msgid "e.g., Company Name, Industry, etc."
 msgstr "ex. Nom de l entreprise, Secteur, etc."
 
-#: src/components/integrations/LLMIntegration.tsx:162
+#: src/components/integrations/LLMIntegration.tsx:169
 msgid "e.g., My Anthropic Integration"
 msgstr "ex. Mon intégration Anthropic"
 
@@ -3264,11 +3269,11 @@ msgstr "ex. Mon intégration Anthropic"
 msgid "e.g., My Firecrawl Integration"
 msgstr "ex. Mon intégration Firecrawl"
 
-#: src/components/integrations/LLMIntegration.tsx:161
+#: src/components/integrations/LLMIntegration.tsx:168
 msgid "e.g., My Google Gemini Integration"
 msgstr ""
 
-#: src/components/integrations/LLMIntegration.tsx:159
+#: src/components/integrations/LLMIntegration.tsx:166
 msgid "e.g., My OpenAI Integration"
 msgstr ""
 
@@ -3304,7 +3309,7 @@ msgstr "modifier"
 #: src/components/settings/Integrations.tsx:1372
 #: src/components/settings/Integrations.tsx:1441
 #: src/components/settings/WebhookCard.tsx:245
-#: src/pages/ContactsPage.tsx:928
+#: src/pages/ContactsPage.tsx:934
 #: src/pages/TransactionalNotificationsPage.tsx:155
 msgid "Edit"
 msgstr "Modifier"
@@ -3352,7 +3357,7 @@ msgstr "Modifier CSS"
 msgid "Edit Custom Field Label"
 msgstr "Modifier l étiquette de champ personnalisé"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:486
+#: src/components/templates/CreateTemplateDrawer.tsx:491
 msgid "Edit email template"
 msgstr "Modifier le modèle d email"
 
@@ -3403,7 +3408,7 @@ msgstr "Modifier le segment"
 msgid "Edit Sender"
 msgstr "Modifier l expéditeur"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:479
+#: src/components/templates/CreateTemplateDrawer.tsx:484
 #: src/pages/TemplatesPage.tsx:244
 msgid "Edit Template"
 msgstr "Modifier le modèle"
@@ -3438,7 +3443,7 @@ msgstr "Modifier le webhook"
 msgid "Editable markup"
 msgstr "Balisage modifiable"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:760
+#: src/components/templates/CreateTemplateDrawer.tsx:765
 msgid "Editor mode"
 msgstr ""
 
@@ -3477,8 +3482,8 @@ msgstr "email"
 #: src/components/settings/Integrations.tsx:2252
 #: src/components/settings/WorkspaceMembers.tsx:78
 #: src/components/timeline/ContactTimeline.tsx:511
-#: src/pages/ContactsPage.tsx:359
-#: src/pages/ContactsPage.tsx:526
+#: src/pages/ContactsPage.tsx:365
+#: src/pages/ContactsPage.tsx:532
 #: src/pages/SignInPage.tsx:208
 #: src/pages/SignInPage.tsx:215
 msgid "Email"
@@ -3507,7 +3512,7 @@ msgid "Email Body Payload"
 msgstr "Contenu du corps de l email"
 
 #: src/components/analytics/NewContactsTable.tsx:105
-#: src/pages/ContactsPage.tsx:566
+#: src/pages/ContactsPage.tsx:572
 msgid "Email bounced"
 msgstr "Email rejeté"
 
@@ -3562,18 +3567,18 @@ msgstr "Configuration du fournisseur d email nécessaire"
 msgid "Email Provider Required"
 msgstr "Fournisseur d email requis"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:780
+#: src/components/templates/CreateTemplateDrawer.tsx:785
 #: src/components/templates/TemplateTranslationsTab.tsx:216
 msgid "Email subject"
 msgstr "Objet de l email"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:846
+#: src/components/templates/CreateTemplateDrawer.tsx:851
 #: src/components/templates/TemplateTranslationsTab.tsx:272
 msgid "Email Subject"
 msgstr "Objet de l email"
 
 #. placeholder {0}: workspace.settings.default_language
-#: src/components/templates/CreateTemplateDrawer.tsx:780
+#: src/components/templates/CreateTemplateDrawer.tsx:785
 msgid "Email subject ({0})"
 msgstr ""
 
@@ -3891,7 +3896,7 @@ msgid "Error loading preview"
 msgstr "Erreur lors du chargement de l aperçu"
 
 #: src/components/templates/CreateTemplateDrawer.tsx:226
-#: src/components/templates/CreateTemplateDrawer.tsx:384
+#: src/components/templates/CreateTemplateDrawer.tsx:389
 msgid "Error loading template: Invalid template data"
 msgstr "Erreur lors du chargement du modèle : données de modèle invalides"
 
@@ -3906,7 +3911,7 @@ msgid "Error:"
 msgstr "Erreur :"
 
 #. placeholder {0}: event.error
-#: src/components/ai-assistant/useAIAssistant.tsx:143
+#: src/components/ai-assistant/useAIAssistant.tsx:175
 msgid "Error: {0}"
 msgstr "Erreur : {0}"
 
@@ -4000,7 +4005,7 @@ msgstr "Expire :"
 #: src/components/contacts/ExportContactsModal.tsx:323
 #: src/components/email_builder/MjmlCodeEditor.tsx:627
 #: src/components/templates/ImportExportButton.tsx:416
-#: src/pages/ContactsPage.tsx:1011
+#: src/pages/ContactsPage.tsx:1017
 msgid "Export"
 msgstr "Exporter"
 
@@ -4021,15 +4026,19 @@ msgid "Exporting all contacts"
 msgstr "Export de tous les contacts"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:111
-#: src/components/contacts/ContactDetailsDrawer.tsx:452
+#: src/components/contacts/ContactDetailsDrawer.tsx:453
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:90
 #: src/components/contacts/ExportContactsModal.tsx:53
 #: src/components/messages/MessageHistoryTab.tsx:226
 #: src/components/messages/MessageHistoryTable.tsx:128
 #: src/components/messages/MessageHistoryTable.tsx:154
-#: src/pages/ContactsPage.tsx:360
+#: src/pages/ContactsPage.tsx:366
 msgid "External ID"
 msgstr "ID externe"
+
+#: src/components/integrations/LLMIntegration.tsx:234
+msgid "Extra high"
+msgstr ""
 
 #: src/components/timeline/ContactTimeline.tsx:744
 msgid "failed"
@@ -4067,7 +4076,7 @@ msgstr "Échec de l acceptation de l invitation"
 msgid "Failed to activate automation"
 msgstr "Échec de l activation de l automation"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:316
+#: src/components/contacts/ContactDetailsDrawer.tsx:317
 msgid "Failed to add to list: {error}"
 msgstr "Échec de l ajout à la liste : {error}"
 
@@ -4134,7 +4143,7 @@ msgid "Failed to create segment"
 msgstr "Échec de la création du segment"
 
 #. placeholder {0}: error.message
-#: src/components/templates/CreateTemplateDrawer.tsx:281
+#: src/components/templates/CreateTemplateDrawer.tsx:286
 msgid "Failed to create template: {0}"
 msgstr "Échec de la création du modèle : {0}"
 
@@ -4370,7 +4379,7 @@ msgid "Failed to save Firecrawl integration"
 msgstr "Échec de l enregistrement de l intégration Firecrawl"
 
 #: src/components/integrations/FirecrawlIntegration.tsx:69
-#: src/components/integrations/LLMIntegration.tsx:145
+#: src/components/integrations/LLMIntegration.tsx:152
 #: src/components/integrations/SupabaseIntegration.tsx:123
 #: src/components/settings/Integrations.tsx:979
 msgid "Failed to save integration"
@@ -4388,7 +4397,7 @@ msgstr ""
 msgid "Failed to save Supabase integration"
 msgstr "Échec de l enregistrement de l intégration Supabase"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:463
+#: src/components/templates/CreateTemplateDrawer.tsx:468
 msgid "Failed to save template block"
 msgstr "Échec de l enregistrement du bloc de modèle"
 
@@ -4475,7 +4484,7 @@ msgstr "Échec de la mise à jour de la catégorie : {0}"
 msgid "Failed to update custom field label"
 msgstr "Échec de la mise à jour de l étiquette de champ personnalisé"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:351
+#: src/components/contacts/ContactDetailsDrawer.tsx:352
 msgid "Failed to update field"
 msgstr "Échec de la mise à jour du champ"
 
@@ -4510,7 +4519,7 @@ msgid "Failed to update status: {error}"
 msgstr "Échec de la mise à jour du statut : {error}"
 
 #. placeholder {0}: error.message
-#: src/components/templates/CreateTemplateDrawer.tsx:281
+#: src/components/templates/CreateTemplateDrawer.tsx:286
 msgid "Failed to update template: {0}"
 msgstr "Échec de la mise à jour du modèle : {0}"
 
@@ -4556,7 +4565,7 @@ msgid "Fetching data..."
 msgstr "Récupération des données..."
 
 #. placeholder {0}: toolInput.url
-#: src/components/ai-assistant/useAIAssistant.tsx:105
+#: src/components/ai-assistant/useAIAssistant.tsx:129
 msgid "Fetching: {0}"
 msgstr "Récupération : {0}"
 
@@ -4644,7 +4653,7 @@ msgstr "Conditions de filtre"
 msgid "Filters"
 msgstr "Filtres"
 
-#: src/pages/ContactsPage.tsx:1065
+#: src/pages/ContactsPage.tsx:1072
 msgid "Filters:"
 msgstr "Filtres :"
 
@@ -4666,12 +4675,12 @@ msgid "Firecrawl integration saved successfully"
 msgstr "Intégration Firecrawl enregistrée avec succès"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:107
-#: src/components/contacts/ContactDetailsDrawer.tsx:440
+#: src/components/contacts/ContactDetailsDrawer.tsx:441
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:91
 #: src/components/contacts/ExportContactsModal.tsx:56
-#: src/pages/ContactsPage.tsx:361
-#: src/pages/ContactsPage.tsx:416
-#: src/pages/ContactsPage.tsx:663
+#: src/pages/ContactsPage.tsx:367
+#: src/pages/ContactsPage.tsx:422
+#: src/pages/ContactsPage.tsx:669
 msgid "First Name"
 msgstr "Prénom"
 
@@ -4813,10 +4822,10 @@ msgstr "Accès complet"
 msgid "Full content"
 msgstr ""
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:442
-#: src/pages/ContactsPage.tsx:363
-#: src/pages/ContactsPage.tsx:418
-#: src/pages/ContactsPage.tsx:677
+#: src/components/contacts/ContactDetailsDrawer.tsx:443
+#: src/pages/ContactsPage.tsx:369
+#: src/pages/ContactsPage.tsx:424
+#: src/pages/ContactsPage.tsx:683
 msgid "Full Name"
 msgstr "Nom complet"
 
@@ -4837,7 +4846,7 @@ msgstr "Plein écran"
 #~ msgid "gemini-2.5-flash, gemini-3.1-pro-preview, or a custom model ID"
 #~ msgstr ""
 
-#: src/components/integrations/LLMIntegration.tsx:224
+#: src/components/integrations/LLMIntegration.tsx:249
 msgid "gemini-3.1-pro-preview or a custom model ID"
 msgstr ""
 
@@ -4912,7 +4921,7 @@ msgstr "Objectif :"
 msgid "Google Workspace / Gmail"
 msgstr "Google Workspace / Gmail"
 
-#: src/components/integrations/LLMIntegration.tsx:203
+#: src/components/integrations/LLMIntegration.tsx:210
 msgid "gpt-4.1, gpt-5.4, o4-mini, or custom model name"
 msgstr ""
 
@@ -4998,6 +5007,10 @@ msgstr "Masquer"
 msgid "Hide Details"
 msgstr "Masquer les détails"
 
+#: src/components/integrations/LLMIntegration.tsx:233
+msgid "High"
+msgstr ""
+
 #: src/components/blog_editor/menus/block-actions/BlockActionsMenu.tsx:138
 msgid "Hold for drag"
 msgstr "Maintenez pour glisser"
@@ -5073,11 +5086,11 @@ msgstr "https://fonts.googleapis.com/css?family=... ou {{ font_url }}"
 msgid "i.e: Big spenders..."
 msgstr "ex. : Gros dépenseurs..."
 
-#: src/components/templates/CreateTemplateDrawer.tsx:672
+#: src/components/templates/CreateTemplateDrawer.tsx:677
 msgid "i.e: Welcome Email"
 msgstr "ex. : Email de bienvenue"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:713
+#: src/components/templates/CreateTemplateDrawer.tsx:718
 msgid "i.e: welcome-email"
 msgstr "ex. : email-de-bienvenue"
 
@@ -5138,7 +5151,7 @@ msgstr "L ID doit être alphanumérique"
 msgid "ID must be less than 32 characters"
 msgstr "L ID doit faire moins de 32 caractères"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:694
+#: src/components/templates/CreateTemplateDrawer.tsx:699
 msgid "ID must contain only lowercase letters, numbers, underscores, and hyphens"
 msgstr "L ID ne doit contenir que des lettres minuscules, des chiffres, des tirets bas et des tirets"
 
@@ -5221,7 +5234,7 @@ msgstr ""
 
 #: src/components/email_builder/MjmlCodeEditor.tsx:615
 #: src/components/templates/ImportExportButton.tsx:387
-#: src/pages/ContactsPage.tsx:1004
+#: src/pages/ContactsPage.tsx:1010
 msgid "Import"
 msgstr "Importer"
 
@@ -5230,7 +5243,7 @@ msgstr "Importer"
 msgid "Import / Export"
 msgstr "Importer / Exporter"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1130
+#: src/components/templates/CreateTemplateDrawer.tsx:1135
 msgid "Import & Export Templates"
 msgstr "Importer et exporter des modèles"
 
@@ -5379,7 +5392,7 @@ msgstr "Bordure intérieure"
 msgid "Inner border radius"
 msgstr "Rayon de bordure intérieur"
 
-#: src/components/ai-assistant/AIAssistantChat.tsx:300
+#: src/components/ai-assistant/AIAssistantChat.tsx:323
 msgid "Input"
 msgstr "Entrée"
 
@@ -5415,7 +5428,7 @@ msgid "Integration ID:"
 msgstr "ID d intégration :"
 
 #: src/components/integrations/FirecrawlIntegration.tsx:76
-#: src/components/integrations/LLMIntegration.tsx:152
+#: src/components/integrations/LLMIntegration.tsx:159
 #: src/components/integrations/SupabaseIntegration.tsx:130
 #: src/components/settings/Integrations.tsx:1508
 msgid "Integration Name"
@@ -5572,10 +5585,10 @@ msgstr "Italique"
 msgid "Items per feed"
 msgstr ""
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:449
+#: src/components/contacts/ContactDetailsDrawer.tsx:450
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:101
-#: src/pages/ContactsPage.tsx:424
-#: src/pages/ContactsPage.tsx:722
+#: src/pages/ContactsPage.tsx:430
+#: src/pages/ContactsPage.tsx:728
 msgid "Job Title"
 msgstr "Poste"
 
@@ -5632,14 +5645,14 @@ msgstr "L étiquette doit faire au maximum 100 caractères"
 #: src/components/analytics/NewContactsTable.tsx:166
 #: src/components/automations/config/TriggerConfigForm.tsx:113
 #: src/components/blog_editor/toolbars/components/CodeBlockToolbar.tsx:221
-#: src/components/contacts/ContactDetailsDrawer.tsx:451
+#: src/components/contacts/ContactDetailsDrawer.tsx:452
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:96
 #: src/components/contacts/ExportContactsModal.tsx:68
 #: src/components/templates/SendTemplateModal.tsx:326
 #: src/components/templates/TemplatePreviewDrawer.tsx:340
-#: src/pages/ContactsPage.tsx:365
-#: src/pages/ContactsPage.tsx:421
-#: src/pages/ContactsPage.tsx:696
+#: src/pages/ContactsPage.tsx:371
+#: src/pages/ContactsPage.tsx:427
+#: src/pages/ContactsPage.tsx:702
 msgid "Language"
 msgstr "Langue"
 
@@ -5676,12 +5689,12 @@ msgid "Last modified"
 msgstr "Dernière modification"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:108
-#: src/components/contacts/ContactDetailsDrawer.tsx:441
+#: src/components/contacts/ContactDetailsDrawer.tsx:442
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:92
 #: src/components/contacts/ExportContactsModal.tsx:59
-#: src/pages/ContactsPage.tsx:362
-#: src/pages/ContactsPage.tsx:417
-#: src/pages/ContactsPage.tsx:670
+#: src/pages/ContactsPage.tsx:368
+#: src/pages/ContactsPage.tsx:423
+#: src/pages/ContactsPage.tsx:676
 msgid "Last Name"
 msgstr "Nom de famille"
 
@@ -5694,7 +5707,7 @@ msgid "Learn how to enable SMTP bridge"
 msgstr "Apprendre comment activer le relais SMTP"
 
 #: src/components/integrations/FirecrawlIntegration.tsx:86
-#: src/components/integrations/LLMIntegration.tsx:170
+#: src/components/integrations/LLMIntegration.tsx:177
 msgid "Leave blank to keep the existing API key"
 msgstr "Laissez vide pour conserver la clé API existante"
 
@@ -5721,7 +5734,7 @@ msgstr "a quitté"
 #: src/components/automations/config/TriggerConfigForm.tsx:82
 #: src/components/email_builder/ui/BorderInput.tsx:380
 #: src/components/email_builder/ui/FontStyleInput.tsx:145
-#: src/components/email_builder/ui/PaddingInput.tsx:196
+#: src/components/email_builder/ui/PaddingInput.tsx:199
 msgid "Left"
 msgstr "Gauche"
 
@@ -5734,7 +5747,7 @@ msgstr "De gauche à droite"
 msgid "Let users sign in with an external identity provider (Google Workspace, Keycloak, Okta, …) alongside magic codes."
 msgstr ""
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1083
+#: src/components/templates/CreateTemplateDrawer.tsx:1088
 msgid "Let's take a quick tour to help you get started with building beautiful emails using MJML."
 msgstr "Faisons une visite rapide pour vous aider à commencer à créer de beaux emails avec MJML."
 
@@ -5808,7 +5821,7 @@ msgstr ""
 #: src/components/messages/MessageHistoryTable.tsx:215
 #: src/components/messages/MessageHistoryTable.tsx:229
 #: src/pages/BroadcastsPage.tsx:944
-#: src/pages/ContactsPage.tsx:369
+#: src/pages/ContactsPage.tsx:375
 msgid "List"
 msgstr "Liste"
 
@@ -5827,13 +5840,13 @@ msgid "List ID"
 msgstr "ID de liste"
 
 #. placeholder {0}: record.list_id
-#: src/components/contacts/ContactDetailsDrawer.tsx:975
+#: src/components/contacts/ContactDetailsDrawer.tsx:976
 msgid "List ID: {0}"
 msgstr "ID de liste : {0}"
 
 #: src/components/automations/nodes/ListStatusBranchNode.tsx:38
 #: src/components/contacts/ExportContactsModal.tsx:80
-#: src/pages/ContactsPage.tsx:379
+#: src/pages/ContactsPage.tsx:385
 msgid "List Status"
 msgstr "Statut de liste"
 
@@ -5843,7 +5856,7 @@ msgstr "Statut de liste"
 msgid "List subscription"
 msgstr "Abonnement à la liste"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:948
+#: src/components/contacts/ContactDetailsDrawer.tsx:949
 msgid "List Subscriptions"
 msgstr "Abonnements aux listes"
 
@@ -5863,8 +5876,8 @@ msgstr "Liste :"
 
 #: src/components/analytics/NewContactsTable.tsx:73
 #: src/layouts/WorkspaceLayout.tsx:246
-#: src/pages/ContactsPage.tsx:414
-#: src/pages/ContactsPage.tsx:534
+#: src/pages/ContactsPage.tsx:420
+#: src/pages/ContactsPage.tsx:540
 #: src/pages/ListsPage.tsx:155
 msgid "Lists"
 msgstr "Listes"
@@ -5885,7 +5898,7 @@ msgstr "Intégration LLM enregistrée avec succès"
 #: src/components/messages/MessageHistoryTable.tsx:445
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:554
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:506
-#: src/pages/ContactsPage.tsx:1154
+#: src/pages/ContactsPage.tsx:1161
 msgid "Load More"
 msgstr "Charger plus"
 
@@ -5936,8 +5949,8 @@ msgstr "Chargement du statut webhook..."
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:499
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:440
 #: src/layouts/RootLayout.tsx:90
-#: src/pages/ContactsPage.tsx:521
-#: src/pages/ContactsPage.tsx:1146
+#: src/pages/ContactsPage.tsx:527
+#: src/pages/ContactsPage.tsx:1153
 #: src/pages/ListsPage.tsx:149
 #: src/pages/LogsPage.tsx:18
 #: src/pages/TemplatesPage.tsx:147
@@ -5970,6 +5983,10 @@ msgstr "Logs"
 #: src/components/blog_editor/components/youtube/YoutubeNodeView.tsx:419
 msgid "Loop"
 msgstr "Boucle"
+
+#: src/components/integrations/LLMIntegration.tsx:231
+msgid "Low"
+msgstr ""
 
 #: src/components/email_builder/ui/FontStyleInput.tsx:131
 msgid "lowercase"
@@ -6014,7 +6031,7 @@ msgid "Map your CSV columns to contact fields. The"
 msgstr "Mappez vos colonnes CSV aux champs de contact. Le"
 
 #: src/components/analytics/NewContactsTable.tsx:110
-#: src/pages/ContactsPage.tsx:571
+#: src/pages/ContactsPage.tsx:577
 msgid "Marked as spam"
 msgstr "Marqué comme spam"
 
@@ -6038,7 +6055,7 @@ msgstr "Fournisseur marketing"
 msgid "Matched"
 msgstr "Correspondant"
 
-#: src/pages/ContactsPage.tsx:641
+#: src/pages/ContactsPage.tsx:647
 msgid "Matched on:"
 msgstr "Correspondance sur :"
 
@@ -6056,6 +6073,10 @@ msgstr "Maximum 20 pièces jointes autorisées"
 
 #: src/components/settings/BlogSettings.tsx:404
 msgid "Maximum number of posts to include in the RSS/JSON feed (1–20)"
+msgstr ""
+
+#: src/components/integrations/LLMIntegration.tsx:232
+msgid "Medium"
 msgstr ""
 
 #: src/components/settings/WorkspaceMembers.tsx:331
@@ -6087,7 +6108,7 @@ msgstr "ID du message"
 msgid "Message Stream"
 msgstr ""
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1071
+#: src/components/contacts/ContactDetailsDrawer.tsx:1072
 msgid "Messages"
 msgstr "Messages"
 
@@ -6117,6 +6138,10 @@ msgstr "Milieu"
 #: src/components/blog/PostDrawer.tsx:814
 msgid "min"
 msgstr "min"
+
+#: src/components/integrations/LLMIntegration.tsx:230
+msgid "Minimal"
+msgstr ""
 
 #: src/components/automations/AutomationFlowEditor.tsx:409
 msgid "Minimap"
@@ -6205,7 +6230,7 @@ msgstr "Modèle MJML importé et converti avec succès"
 msgid "MJML Validation Failed"
 msgstr "Échec de la validation MJML"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1115
+#: src/components/templates/CreateTemplateDrawer.tsx:1120
 msgid "Mobile & Desktop Preview"
 msgstr "Aperçu mobile et bureau"
 
@@ -6217,9 +6242,9 @@ msgstr "Point de rupture mobile"
 msgid "Mobile view (400px)"
 msgstr "Vue mobile (400px)"
 
-#: src/components/integrations/LLMIntegration.tsx:188
-#: src/components/integrations/LLMIntegration.tsx:199
-#: src/components/integrations/LLMIntegration.tsx:218
+#: src/components/integrations/LLMIntegration.tsx:195
+#: src/components/integrations/LLMIntegration.tsx:206
+#: src/components/integrations/LLMIntegration.tsx:243
 #: src/components/settings/Integrations.tsx:1405
 msgid "Model"
 msgstr "Modèle"
@@ -6297,7 +6322,7 @@ msgstr "Nouvelle catégorie"
 msgid "New Contacts"
 msgstr "Nouveaux contacts"
 
-#: src/components/ai-assistant/AIAssistantChat.tsx:294
+#: src/components/ai-assistant/AIAssistantChat.tsx:317
 msgid "New conversation"
 msgstr "Nouvelle conversation"
 
@@ -6338,8 +6363,8 @@ msgstr "Nouvel espace de travail"
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:333
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:343
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:354
-#: src/components/templates/CreateTemplateDrawer.tsx:508
-#: src/components/templates/CreateTemplateDrawer.tsx:529
+#: src/components/templates/CreateTemplateDrawer.tsx:513
+#: src/components/templates/CreateTemplateDrawer.tsx:534
 msgid "Next"
 msgstr "Suivant"
 
@@ -6419,7 +6444,7 @@ msgstr "Pas de catégorie"
 msgid "No conditions"
 msgstr "Pas de conditions"
 
-#: src/pages/ContactsPage.tsx:1145
+#: src/pages/ContactsPage.tsx:1152
 msgid "No contacts found. Add some contacts to get started."
 msgstr "Aucun contact trouvé. Ajoutez des contacts pour commencer."
 
@@ -6640,6 +6665,7 @@ msgstr "Non actif"
 #: src/components/email_builder/ui/ColorPickerWithPresets.tsx:31
 #: src/components/email_builder/ui/FontStyleInput.tsx:129
 #: src/components/email_builder/ui/FontStyleInput.tsx:136
+#: src/components/integrations/LLMIntegration.tsx:229
 msgid "None"
 msgstr "Aucun"
 
@@ -6711,7 +6737,7 @@ msgstr "Nom de la notification"
 msgid "Notification updated successfully"
 msgstr "Notification mise à jour avec succès"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:848
+#: src/components/templates/CreateTemplateDrawer.tsx:853
 #: src/components/templates/TemplateTranslationsTab.tsx:274
 msgid "Now"
 msgstr "Maintenant"
@@ -6793,7 +6819,7 @@ msgid "Only one breakpoint per email template is allowed"
 msgstr "Un seul point de rupture par modèle d email est autorisé"
 
 #: src/components/integrations/FirecrawlIntegration.tsx:47
-#: src/components/integrations/LLMIntegration.tsx:99
+#: src/components/integrations/LLMIntegration.tsx:103
 #: src/components/integrations/SupabaseIntegration.tsx:77
 msgid "Only workspace owners can modify integrations"
 msgstr "Seuls les propriétaires de l espace de travail peuvent modifier les intégrations"
@@ -6879,7 +6905,11 @@ msgstr ""
 msgid "Optional bearer token"
 msgstr "Jeton bearer optionnel"
 
-#: src/components/integrations/LLMIntegration.tsx:209
+#: src/components/integrations/LLMIntegration.tsx:224
+msgid "Optional. Controls how much reasoning models think. Leave as Default for non-reasoning models; some providers ignore it."
+msgstr ""
+
+#: src/components/integrations/LLMIntegration.tsx:216
 msgid "Optional. For OpenAI-compatible providers (Ollama, vLLM, LiteLLM, Azure, etc.). Leave empty for the default OpenAI endpoint."
 msgstr ""
 
@@ -6909,7 +6939,7 @@ msgstr "Autre"
 msgid "Outgoing Webhooks"
 msgstr "Webhooks sortants"
 
-#: src/components/ai-assistant/AIAssistantChat.tsx:301
+#: src/components/ai-assistant/AIAssistantChat.tsx:324
 msgid "Output"
 msgstr "Sortie"
 
@@ -6995,18 +7025,18 @@ msgstr "Payload :"
 
 #: src/components/automations/config/AddToListConfigForm.tsx:18
 #: src/components/automations/config/TriggerConfigForm.tsx:73
-#: src/components/contacts/ContactDetailsDrawer.tsx:582
+#: src/components/contacts/ContactDetailsDrawer.tsx:583
 #: src/components/lists/ListStats.tsx:90
 #: src/components/settings/WorkspaceMembers.tsx:116
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:79
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:236
 #: src/pages/BroadcastsPage.tsx:346
-#: src/pages/ContactsPage.tsx:383
+#: src/pages/ContactsPage.tsx:389
 msgid "Pending"
 msgstr "En attente"
 
 #: src/components/analytics/NewContactsTable.tsx:93
-#: src/pages/ContactsPage.tsx:554
+#: src/pages/ContactsPage.tsx:560
 msgid "Pending confirmation"
 msgstr "En attente de confirmation"
 
@@ -7041,13 +7071,13 @@ msgid "Permissions updated successfully"
 msgstr "Permissions mises à jour avec succès"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:109
-#: src/components/contacts/ContactDetailsDrawer.tsx:443
+#: src/components/contacts/ContactDetailsDrawer.tsx:444
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:93
 #: src/components/contacts/ExportContactsModal.tsx:62
 #: src/components/email_builder/ui/tiptap/components/TiptapToolbar.tsx:339
-#: src/pages/ContactsPage.tsx:364
-#: src/pages/ContactsPage.tsx:419
-#: src/pages/ContactsPage.tsx:684
+#: src/pages/ContactsPage.tsx:370
+#: src/pages/ContactsPage.tsx:425
+#: src/pages/ContactsPage.tsx:690
 msgid "Phone"
 msgstr "Téléphone"
 
@@ -7121,7 +7151,7 @@ msgstr "Veuillez entrer un ID de liste"
 msgid "Please enter a list name"
 msgstr "Veuillez entrer un nom de liste"
 
-#: src/components/integrations/LLMIntegration.tsx:201
+#: src/components/integrations/LLMIntegration.tsx:208
 msgid "Please enter a model name"
 msgstr ""
 
@@ -7202,7 +7232,7 @@ msgid "Please enter an email address"
 msgstr "Veuillez entrer une adresse email"
 
 #: src/components/integrations/FirecrawlIntegration.tsx:78
-#: src/components/integrations/LLMIntegration.tsx:154
+#: src/components/integrations/LLMIntegration.tsx:161
 #: src/components/integrations/SupabaseIntegration.tsx:132
 msgid "Please enter integration name"
 msgstr "Veuillez entrer le nom de l intégration"
@@ -7216,7 +7246,7 @@ msgid "Please enter workspace name"
 msgstr "Veuillez entrer le nom de l espace de travail"
 
 #: src/components/integrations/FirecrawlIntegration.tsx:87
-#: src/components/integrations/LLMIntegration.tsx:172
+#: src/components/integrations/LLMIntegration.tsx:179
 msgid "Please enter your API key"
 msgstr "Veuillez entrer votre clé API"
 
@@ -7254,7 +7284,7 @@ msgid "Please select a JSON file"
 msgstr "Veuillez sélectionner un fichier JSON"
 
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:524
-#: src/components/contacts/ContactDetailsDrawer.tsx:1130
+#: src/components/contacts/ContactDetailsDrawer.tsx:1131
 #: src/components/segment/form_leaf.tsx:168
 msgid "Please select a list"
 msgstr "Veuillez sélectionner une liste"
@@ -7263,7 +7293,7 @@ msgstr "Veuillez sélectionner une liste"
 msgid "Please select a list for unsubscribe operation"
 msgstr "Veuillez sélectionner une liste pour l opération de désinscription"
 
-#: src/components/integrations/LLMIntegration.tsx:190
+#: src/components/integrations/LLMIntegration.tsx:197
 msgid "Please select a model"
 msgstr "Veuillez sélectionner un modèle"
 
@@ -7272,7 +7302,7 @@ msgstr "Veuillez sélectionner un modèle"
 msgid "Please select a page size"
 msgstr "Veuillez sélectionner une taille de page"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1104
+#: src/components/contacts/ContactDetailsDrawer.tsx:1105
 #: src/components/segment/form_leaf.tsx:196
 msgid "Please select a status"
 msgstr "Veuillez sélectionner un statut"
@@ -7328,7 +7358,7 @@ msgstr "Veuillez sélectionner au moins un type d événement"
 msgid "Please select operator"
 msgstr "Veuillez sélectionner un opérateur"
 
-#: src/components/integrations/LLMIntegration.tsx:220
+#: src/components/integrations/LLMIntegration.tsx:245
 msgid "Please select or enter a model"
 msgstr ""
 
@@ -7380,7 +7410,7 @@ msgid "Post updated successfully"
 msgstr "Article mis à jour avec succès"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:123
-#: src/components/contacts/ContactDetailsDrawer.tsx:448
+#: src/components/contacts/ContactDetailsDrawer.tsx:449
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:99
 msgid "Postcode"
 msgstr "Code postal"
@@ -7469,7 +7499,7 @@ msgstr ""
 msgid "Preview Text Settings"
 msgstr "Paramètres du texte de prévisualisation"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:847
+#: src/components/templates/CreateTemplateDrawer.tsx:852
 #: src/components/templates/TemplateTranslationsTab.tsx:273
 msgid "Preview text will appear here..."
 msgstr "Le texte de prévisualisation apparaîtra ici..."
@@ -7482,15 +7512,15 @@ msgstr "Prévisualiser ce thème dans un nouvel onglet"
 msgid "Preview will appear here after compilation"
 msgstr ""
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1108
+#: src/components/templates/CreateTemplateDrawer.tsx:1113
 msgid "Preview Your Email"
 msgstr "Prévisualisez votre email"
 
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:340
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:351
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:362
-#: src/components/templates/CreateTemplateDrawer.tsx:513
-#: src/components/templates/CreateTemplateDrawer.tsx:534
+#: src/components/templates/CreateTemplateDrawer.tsx:518
+#: src/components/templates/CreateTemplateDrawer.tsx:539
 msgid "Previous"
 msgstr "Précédent"
 
@@ -7671,6 +7701,10 @@ msgstr "Prêt à utiliser"
 msgid "Reason:"
 msgstr "Raison :"
 
+#: src/components/integrations/LLMIntegration.tsx:222
+msgid "Reasoning effort"
+msgstr ""
+
 #: src/components/contacts/SegmentsFilter.tsx:128
 msgid "Rebuild"
 msgstr "Reconstruire"
@@ -7738,11 +7772,11 @@ msgstr "Rétablir"
 msgid "Redo (Ctrl+Shift+Z)"
 msgstr "Rétablir (Ctrl+Shift+Z)"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:629
+#: src/components/contacts/ContactDetailsDrawer.tsx:630
 #: src/components/messages/MessageHistoryTable.tsx:360
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:429
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:414
-#: src/pages/ContactsPage.tsx:900
+#: src/pages/ContactsPage.tsx:906
 #: src/pages/ListsPage.tsx:158
 msgid "Refresh"
 msgstr "Actualiser"
@@ -7755,7 +7789,7 @@ msgstr "Actualiser la diffusion"
 msgid "Refresh the list"
 msgstr "Actualiser la liste"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:679
+#: src/components/contacts/ContactDetailsDrawer.tsx:680
 msgid "Refreshing contact data..."
 msgstr "Actualisation des données du contact..."
 
@@ -7807,7 +7841,7 @@ msgstr "Supprimer le champ"
 
 #: src/components/contacts/BulkActionsBar.tsx:94
 #: src/components/contacts/BulkActionsBar.tsx:148
-#: src/pages/ContactsPage.tsx:304
+#: src/pages/ContactsPage.tsx:310
 msgid "Remove from list"
 msgstr ""
 
@@ -7877,7 +7911,7 @@ msgstr ""
 #~ msgid "Reply forwarding route is set up. Inbound replies also require your domain's MX records to point at Mailgun."
 #~ msgstr ""
 
-#: src/components/templates/CreateTemplateDrawer.tsx:819
+#: src/components/templates/CreateTemplateDrawer.tsx:824
 #: src/components/templates/TemplatePreviewDrawer.tsx:289
 msgid "Reply to"
 msgstr "Répondre à"
@@ -8027,7 +8061,7 @@ msgstr "Crête"
 
 #: src/components/email_builder/ui/BorderInput.tsx:370
 #: src/components/email_builder/ui/FontStyleInput.tsx:153
-#: src/components/email_builder/ui/PaddingInput.tsx:169
+#: src/components/email_builder/ui/PaddingInput.tsx:172
 msgid "Right"
 msgstr "Droite"
 
@@ -8132,8 +8166,8 @@ msgstr "Mode bac à sable"
 #: src/components/settings/Integrations.tsx:2427
 #: src/components/settings/SystemSettingsDrawer.tsx:239
 #: src/components/settings/WebhooksSettings.tsx:215
-#: src/components/templates/CreateTemplateDrawer.tsx:524
-#: src/components/templates/CreateTemplateDrawer.tsx:545
+#: src/components/templates/CreateTemplateDrawer.tsx:529
+#: src/components/templates/CreateTemplateDrawer.tsx:550
 #: src/components/transactional/UpsertTransactionalNotificationDrawer.tsx:182
 msgid "Save"
 msgstr "Enregistrer"
@@ -8255,7 +8289,7 @@ msgid "Searches the web and returns relevant URLs"
 msgstr "Recherche sur le web et retourne les URLs pertinentes"
 
 #. placeholder {0}: toolInput.query
-#: src/components/ai-assistant/useAIAssistant.tsx:107
+#: src/components/ai-assistant/useAIAssistant.tsx:131
 msgid "Searching: \"{0}\""
 msgstr "Recherche : \"{0}\""
 
@@ -8318,8 +8352,8 @@ msgstr "Arbre du segment réinitialisé"
 
 #: src/components/contacts/SegmentsFilter.tsx:228
 #: src/pages/BroadcastsPage.tsx:925
-#: src/pages/ContactsPage.tsx:415
-#: src/pages/ContactsPage.tsx:615
+#: src/pages/ContactsPage.tsx:421
+#: src/pages/ContactsPage.tsx:621
 msgid "Segments"
 msgstr "Segments"
 
@@ -8354,7 +8388,7 @@ msgstr "Sélectionner un champ"
 #: src/components/automations/nodes/ListStatusBranchNode.tsx:50
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:529
 #: src/components/contacts/BulkActionsBar.tsx:203
-#: src/components/contacts/ContactDetailsDrawer.tsx:1137
+#: src/components/contacts/ContactDetailsDrawer.tsx:1138
 #: src/components/segment/form_leaf.tsx:170
 msgid "Select a list"
 msgstr "Sélectionner une liste"
@@ -8371,7 +8405,7 @@ msgstr "Sélectionnez une liste pour activer les nœuds email"
 msgid "Select a list..."
 msgstr "Sélectionner une liste..."
 
-#: src/components/integrations/LLMIntegration.tsx:192
+#: src/components/integrations/LLMIntegration.tsx:199
 msgid "Select a model"
 msgstr "Sélectionner un modèle"
 
@@ -8423,7 +8457,7 @@ msgstr "Sélectionner la région AWS"
 msgid "Select Block to Update"
 msgstr "Sélectionner le bloc à mettre à jour"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:724
+#: src/components/templates/CreateTemplateDrawer.tsx:729
 msgid "Select category"
 msgstr "Sélectionner une catégorie"
 
@@ -8510,7 +8544,7 @@ msgstr "Sélectionner une langue..."
 msgid "Select list"
 msgstr "Sélectionner une liste"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1129
+#: src/components/contacts/ContactDetailsDrawer.tsx:1130
 msgid "Select List"
 msgstr "Sélectionner une liste"
 
@@ -8685,13 +8719,13 @@ msgstr "Envoyer un email de test"
 msgid "Send transactional notifications using SMTP bridge. Perfect for integrating with existing email systems or applications that support SMTP."
 msgstr "Envoyez des notifications transactionnelles via le relais SMTP. Parfait pour l intégration avec des systèmes email existants ou des applications qui supportent SMTP."
 
-#: src/components/templates/CreateTemplateDrawer.tsx:775
+#: src/components/templates/CreateTemplateDrawer.tsx:780
 #: src/components/templates/SendTemplateModal.tsx:303
 #: src/pages/TemplatesPage.tsx:181
 msgid "Sender"
 msgstr "Expéditeur"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:845
+#: src/components/templates/CreateTemplateDrawer.tsx:850
 #: src/components/templates/TemplateTranslationsTab.tsx:271
 msgid "Sender Name"
 msgstr "Nom de l expéditeur"
@@ -9191,14 +9225,14 @@ msgid "STARTTLS required"
 msgstr "STARTTLS requis"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:122
-#: src/components/contacts/ContactDetailsDrawer.tsx:447
+#: src/components/contacts/ContactDetailsDrawer.tsx:448
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:100
 msgid "State"
 msgstr "État"
 
 #: src/components/blog/PostsTable.tsx:245
 #: src/components/blog/RecentThemesTable.tsx:122
-#: src/components/contacts/ContactDetailsDrawer.tsx:981
+#: src/components/contacts/ContactDetailsDrawer.tsx:982
 #: src/components/messages/MessageHistoryTab.tsx:580
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:76
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:363
@@ -9211,7 +9245,7 @@ msgid "status changed"
 msgstr "statut modifié"
 
 #: src/components/analytics/NewContactsTable.tsx:114
-#: src/pages/ContactsPage.tsx:575
+#: src/pages/ContactsPage.tsx:581
 msgid "Status unknown"
 msgstr "Statut inconnu"
 
@@ -9249,14 +9283,14 @@ msgid "Subject"
 msgstr "Sujet"
 
 #: src/components/email_builder/blocks/MjPreviewBlock.tsx:33
-#: src/components/templates/CreateTemplateDrawer.tsx:798
+#: src/components/templates/CreateTemplateDrawer.tsx:803
 #: src/components/templates/TemplatePreviewDrawer.tsx:310
 #: src/components/templates/TemplateTranslationsTab.tsx:220
 msgid "Subject preview"
 msgstr "Aperçu du sujet"
 
 #. placeholder {0}: workspace.settings.default_language
-#: src/components/templates/CreateTemplateDrawer.tsx:798
+#: src/components/templates/CreateTemplateDrawer.tsx:803
 msgid "Subject preview ({0})"
 msgstr ""
 
@@ -9264,13 +9298,13 @@ msgstr ""
 msgid "Submitting batch request to the server..."
 msgstr ""
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1143
+#: src/components/contacts/ContactDetailsDrawer.tsx:1144
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:958
-#: src/components/contacts/ContactDetailsDrawer.tsx:1038
-#: src/components/contacts/ContactDetailsDrawer.tsx:1121
+#: src/components/contacts/ContactDetailsDrawer.tsx:959
+#: src/components/contacts/ContactDetailsDrawer.tsx:1039
+#: src/components/contacts/ContactDetailsDrawer.tsx:1122
 msgid "Subscribe to List"
 msgstr "S'abonner à la liste"
 
@@ -9292,11 +9326,11 @@ msgid "Subscribed"
 msgstr "Abonné"
 
 #: src/components/analytics/NewContactsTable.tsx:132
-#: src/components/contacts/ContactDetailsDrawer.tsx:992
+#: src/components/contacts/ContactDetailsDrawer.tsx:993
 msgid "Subscribed on"
 msgstr "Abonné le"
 
-#: src/pages/ContactsPage.tsx:593
+#: src/pages/ContactsPage.tsx:599
 msgid "Subscribed on:"
 msgstr "Abonné le :"
 
@@ -9317,12 +9351,12 @@ msgstr "Abonnement"
 msgid "Subscription ID:"
 msgstr "ID d'abonnement :"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:970
+#: src/components/contacts/ContactDetailsDrawer.tsx:971
 msgid "Subscription list"
 msgstr "Liste d'abonnement"
 
 #: src/components/automations/config/AddToListConfigForm.tsx:49
-#: src/components/contacts/ContactDetailsDrawer.tsx:1103
+#: src/components/contacts/ContactDetailsDrawer.tsx:1104
 msgid "Subscription Status"
 msgstr "Statut d'abonnement"
 
@@ -9373,7 +9407,7 @@ msgstr ""
 msgid "Supports reply_to, cc, bcc, and attachments"
 msgstr "Prend en charge reply_to, cc, bcc et les pièces jointes"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1110
+#: src/components/templates/CreateTemplateDrawer.tsx:1115
 msgid "Switch to Preview mode to see how your email will look to recipients. This shows the final rendered version with all styling applied."
 msgstr "Passez en mode Aperçu pour voir à quoi ressemblera votre email pour les destinataires. Cela affiche la version finale rendue avec tous les styles appliqués."
 
@@ -9451,24 +9485,24 @@ msgid "Template {0}"
 msgstr "Modèle d'email {0}"
 
 #. placeholder {0}: existingBlock?.name || nameOrId
-#: src/components/templates/CreateTemplateDrawer.tsx:449
+#: src/components/templates/CreateTemplateDrawer.tsx:454
 msgid "Template block \"{0}\" deleted successfully"
 msgstr "Bloc de modèle \"{0}\" supprimé avec succès"
 
 #. placeholder {0}: existingBlock.name
-#: src/components/templates/CreateTemplateDrawer.tsx:441
+#: src/components/templates/CreateTemplateDrawer.tsx:446
 msgid "Template block \"{0}\" updated successfully"
 msgstr "Bloc de modèle \"{0}\" mis à jour avec succès"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:427
+#: src/components/templates/CreateTemplateDrawer.tsx:432
 msgid "Template block \"{nameOrId}\" saved successfully"
 msgstr "Bloc de modèle \"{nameOrId}\" enregistré avec succès"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:432
+#: src/components/templates/CreateTemplateDrawer.tsx:437
 msgid "Template block not found"
 msgstr "Bloc de modèle introuvable"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:275
+#: src/components/templates/CreateTemplateDrawer.tsx:280
 msgid "Template created successfully"
 msgstr "Modèle d'email créé avec succès"
 
@@ -9477,7 +9511,7 @@ msgstr "Modèle d'email créé avec succès"
 msgid "Template Data"
 msgstr "Données du modèle"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1122
+#: src/components/templates/CreateTemplateDrawer.tsx:1127
 msgid "Template Data & Liquid Templating"
 msgstr "Données du modèle et templating Liquid"
 
@@ -9493,11 +9527,11 @@ msgstr "Erreur de modèle"
 msgid "Template ID"
 msgstr "ID du modèle"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:686
+#: src/components/templates/CreateTemplateDrawer.tsx:691
 msgid "Template ID (utm_content)"
 msgstr "ID du modèle (utm_content)"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:701
+#: src/components/templates/CreateTemplateDrawer.tsx:706
 msgid "Template ID already exists"
 msgstr "L'ID du modèle existe déjà"
 
@@ -9505,7 +9539,7 @@ msgstr "L'ID du modèle existe déjà"
 msgid "Template imported successfully"
 msgstr "Modèle d'email importé avec succès"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:670
+#: src/components/templates/CreateTemplateDrawer.tsx:675
 msgid "Template name"
 msgstr "Nom du modèle"
 
@@ -9517,7 +9551,7 @@ msgstr "Modèle d'email défini"
 msgid "Template structure data is missing or invalid."
 msgstr "Les données de structure du modèle sont manquantes ou invalides."
 
-#: src/components/templates/CreateTemplateDrawer.tsx:275
+#: src/components/templates/CreateTemplateDrawer.tsx:280
 msgid "Template updated successfully"
 msgstr "Modèle d'email mis à jour avec succès"
 
@@ -9539,8 +9573,8 @@ msgstr "Modèles d'email"
 msgid "Templates using this sender will need to be updated to use a different sender."
 msgstr "Les modèles utilisant cet expéditeur devront être mis à jour pour utiliser un expéditeur différent."
 
-#: src/components/templates/CreateTemplateDrawer.tsx:794
-#: src/components/templates/CreateTemplateDrawer.tsx:812
+#: src/components/templates/CreateTemplateDrawer.tsx:799
+#: src/components/templates/CreateTemplateDrawer.tsx:817
 msgid "Templating markup allowed"
 msgstr "Balisage de templating autorisé"
 
@@ -9734,6 +9768,10 @@ msgstr "Le corps de l'email doit contenir un JSON valide correspondant au format
 msgid "The following validation errors were found in your import:"
 msgstr "Les erreurs de validation suivantes ont été trouvées dans votre import :"
 
+#: src/components/ai-assistant/useAIAssistant.tsx:283
+msgid "The generated email has issues that prevent it from rendering:"
+msgstr ""
+
 #: src/components/settings/Integrations.tsx:1773
 #: src/pages/SetupWizard.tsx:524
 msgid "The hostname your server identifies itself as when connecting to the SMTP server. Defaults to the SMTP host value if empty."
@@ -9750,6 +9788,10 @@ msgstr ""
 #: src/pages/AnalyticsPage.tsx:69
 msgid "The requested workspace could not be found."
 msgstr "L'espace de travail demandé est introuvable."
+
+#: src/components/ai-assistant/useAIAssistant.tsx:167
+msgid "The response was cut off because it reached the token limit. Lower the reasoning effort, simplify the request, or raise the token limit, then try again."
+msgstr ""
 
 #: src/components/segment/button_upsert.tsx:310
 msgid "The segment has been created!"
@@ -9823,6 +9865,10 @@ msgstr ""
 msgid "These parameters are automatically added to the URL of the broadcast. They are used by web analytics tools to analyze the performance of your campaign."
 msgstr "Ces paramètres sont automatiquement ajoutés à l'URL de la diffusion. Ils sont utilisés par les outils d'analyse web pour analyser les performances de votre campagne."
 
+#: src/components/ai-assistant/AIAssistantChat.tsx:251
+msgid "Thinking"
+msgstr ""
+
 #: src/components/automations/AutomationCard.tsx:153
 #: src/components/blog/DeletePostModal.tsx:36
 #: src/components/contacts/DeleteContactModal.tsx:54
@@ -9861,7 +9907,7 @@ msgstr "Ceci apparaît dans les onglets du navigateur lors de la visualisation d
 msgid "This cannot be undone."
 msgstr "Cette action est irréversible."
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1029
+#: src/components/contacts/ContactDetailsDrawer.tsx:1030
 msgid "This contact is not subscribed to any lists"
 msgstr "Ce contact n'est abonné à aucune liste"
 
@@ -9889,15 +9935,15 @@ msgstr "Cet ID sera utilisé lors du déclenchement de la notification via API"
 msgid "This invitation link is invalid or has expired."
 msgstr "Ce lien d'invitation est invalide ou a expiré."
 
-#: src/components/templates/CreateTemplateDrawer.tsx:687
+#: src/components/templates/CreateTemplateDrawer.tsx:692
 msgid "This is the ID that will be used as the utm_content parameter in the links URL to track the template"
 msgstr "C'est l'ID qui sera utilisé comme paramètre utm_content dans l'URL des liens pour suivre le modèle"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1089
+#: src/components/templates/CreateTemplateDrawer.tsx:1094
 msgid "This is your content structure tree. You can drag and drop blocks to reorganize your email layout. Click the + buttons to add new blocks, or drag blocks from one section to another."
 msgstr "Ceci est votre arborescence de structure de contenu. Vous pouvez glisser-déposer les blocs pour réorganiser la mise en page de votre email. Cliquez sur les boutons + pour ajouter de nouveaux blocs, ou faites glisser les blocs d'une section à une autre."
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1096
+#: src/components/templates/CreateTemplateDrawer.tsx:1101
 msgid "This is your visual email editor. Click on any element in your email to select it. Selected elements will be highlighted with a blue border and show editing options."
 msgstr "Ceci est votre éditeur d'email visuel. Cliquez sur n'importe quel élément de votre email pour le sélectionner. Les éléments sélectionnés seront surlignés avec une bordure bleue et afficheront les options d'édition."
 
@@ -9982,7 +10028,7 @@ msgstr "Heure"
 msgid "timeframe"
 msgstr "période"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1053
+#: src/components/contacts/ContactDetailsDrawer.tsx:1054
 msgid "Timeline"
 msgstr "Chronologie"
 
@@ -10000,12 +10046,12 @@ msgstr "Horodatage"
 #: src/components/automations/config/TriggerConfigForm.tsx:112
 #: src/components/blog/PublishModal.tsx:184
 #: src/components/broadcasts/SendOrScheduleModal.tsx:265
-#: src/components/contacts/ContactDetailsDrawer.tsx:450
+#: src/components/contacts/ContactDetailsDrawer.tsx:451
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:95
 #: src/components/settings/GeneralSettings.tsx:130
 #: src/components/settings/GeneralSettings.tsx:189
-#: src/pages/ContactsPage.tsx:422
-#: src/pages/ContactsPage.tsx:702
+#: src/pages/ContactsPage.tsx:428
+#: src/pages/ContactsPage.tsx:708
 msgid "Timezone"
 msgstr "Fuseau horaire"
 
@@ -10013,8 +10059,8 @@ msgstr "Fuseau horaire"
 msgid "Timezone used for dates"
 msgstr "Fuseau horaire utilisé pour les dates"
 
-#: src/pages/ContactsPage.tsx:595
-#: src/pages/ContactsPage.tsx:644
+#: src/pages/ContactsPage.tsx:601
+#: src/pages/ContactsPage.tsx:650
 msgid "Timezone:"
 msgstr "Fuseau horaire :"
 
@@ -10089,7 +10135,7 @@ msgstr "Pour utiliser le {0}, vous devez configurer l'intégration Anthropic dan
 msgid "TODO"
 msgstr "À FAIRE"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1117
+#: src/components/templates/CreateTemplateDrawer.tsx:1122
 msgid "Toggle between mobile and desktop views to see how your email appears on different devices. Mobile view shows a 400px width while desktop shows the full width."
 msgstr "Basculez entre les vues mobile et bureau pour voir comment votre email apparaît sur différents appareils. La vue mobile affiche une largeur de 400px tandis que la vue bureau affiche la largeur complète."
 
@@ -10111,7 +10157,7 @@ msgstr "Texte de l'info-bulle"
 #: src/components/email_builder/blocks/MjGroupBlock.tsx:60
 #: src/components/email_builder/blocks/MjSocialElementBlock.tsx:364
 #: src/components/email_builder/ui/BorderInput.tsx:365
-#: src/components/email_builder/ui/PaddingInput.tsx:157
+#: src/components/email_builder/ui/PaddingInput.tsx:160
 msgid "Top"
 msgstr "Haut"
 
@@ -10283,8 +10329,8 @@ msgid "Unknown"
 msgstr "Inconnu"
 
 #: src/components/analytics/NewContactsTable.tsx:125
-#: src/pages/ContactsPage.tsx:586
-#: src/pages/ContactsPage.tsx:634
+#: src/pages/ContactsPage.tsx:592
+#: src/pages/ContactsPage.tsx:640
 msgid "Unknown date"
 msgstr "Date inconnue"
 
@@ -10360,22 +10406,22 @@ msgstr "DÉSABONNER"
 #: src/components/contacts/BulkUpdateDrawer.tsx:595
 #: src/components/segment/form_leaf.tsx:298
 #: src/components/segment/input.tsx:730
-#: src/pages/ContactsPage.tsx:326
+#: src/pages/ContactsPage.tsx:332
 msgid "Unsubscribe from list"
 msgstr "Désabonner de la liste"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:68
 #: src/components/automations/config/TriggerConfigForm.tsx:95
-#: src/components/contacts/ContactDetailsDrawer.tsx:583
+#: src/components/contacts/ContactDetailsDrawer.tsx:584
 #: src/components/messages/MessageHistoryTab.tsx:195
 #: src/components/messages/MessageHistoryTab.tsx:200
 #: src/components/messages/MessageHistoryTable.tsx:314
-#: src/pages/ContactsPage.tsx:384
+#: src/pages/ContactsPage.tsx:390
 msgid "Unsubscribed"
 msgstr "Désabonné"
 
 #: src/components/analytics/NewContactsTable.tsx:98
-#: src/pages/ContactsPage.tsx:559
+#: src/pages/ContactsPage.tsx:565
 msgid "Unsubscribed from list"
 msgstr "Désabonné de la liste"
 
@@ -10410,7 +10456,7 @@ msgstr "Mettre à jour le lien"
 msgid "Update segment"
 msgstr "Mettre à jour le segment"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:1111
+#: src/components/contacts/ContactDetailsDrawer.tsx:1112
 msgid "Update Status"
 msgstr "Mettre à jour le statut"
 
@@ -10425,7 +10471,7 @@ msgstr "mis à jour"
 msgid "Updated"
 msgstr "Mis à jour"
 
-#: src/components/contacts/ContactDetailsDrawer.tsx:536
+#: src/components/contacts/ContactDetailsDrawer.tsx:537
 msgid "Updated At"
 msgstr "Mis à jour le"
 
@@ -10532,11 +10578,11 @@ msgstr "Utilisez le nom de la police dans les éléments de texte :"
 msgid "Use the save button in the block toolbar to save blocks"
 msgstr "Utilisez le bouton enregistrer dans la barre d'outils du bloc pour sauvegarder les blocs"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1124
+#: src/components/templates/CreateTemplateDrawer.tsx:1129
 msgid "Use the Template Data tab to define dynamic content for your emails. Add variables like {{ name }} or {{ company }} in your email content, then define their values here. The Liquid templating engine supports conditionals, loops, and filters for powerful personalization."
 msgstr "Utilisez l'onglet Données du modèle pour définir le contenu dynamique de vos emails. Ajoutez des variables comme {{ name }} ou {{ company }} dans votre contenu email, puis définissez leurs valeurs ici. Le moteur de templating Liquid prend en charge les conditionnels, boucles et filtres pour une personnalisation puissante."
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1132
+#: src/components/templates/CreateTemplateDrawer.tsx:1137
 msgid "Use this button to import saved email templates or export your finished emails. You can import JSON/MJML templates or export as HTML, MJML, or JSON for future use."
 msgstr "Utilisez ce bouton pour importer des modèles d'email enregistrés ou exporter vos emails terminés. Vous pouvez importer des modèles JSON/MJML ou exporter en HTML, MJML ou JSON pour une utilisation future."
 
@@ -10588,7 +10634,7 @@ msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #. placeholder {0}: event.tool_name
-#: src/components/ai-assistant/useAIAssistant.tsx:103
+#: src/components/ai-assistant/useAIAssistant.tsx:127
 msgid "Using {0}..."
 msgstr "Utilisation de {0}..."
 
@@ -10654,7 +10700,7 @@ msgstr "Version"
 msgid "VERSION NOTES (OPTIONAL)"
 msgstr "NOTES DE VERSION (OPTIONNEL)"
 
-#: src/pages/ContactsPage.tsx:642
+#: src/pages/ContactsPage.tsx:648
 msgid "Version:"
 msgstr "Version :"
 
@@ -10696,11 +10742,11 @@ msgstr "Voir la documentation et le guide de configuration du relais SMTP"
 msgid "Visibility"
 msgstr "Visibilité"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:767
+#: src/components/templates/CreateTemplateDrawer.tsx:772
 msgid "Visual"
 msgstr ""
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1094
+#: src/components/templates/CreateTemplateDrawer.tsx:1099
 msgid "Visual Email Editor"
 msgstr "Éditeur d'email visuel"
 
@@ -10799,7 +10845,7 @@ msgstr "Épaisseur"
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1081
+#: src/components/templates/CreateTemplateDrawer.tsx:1086
 msgid "Welcome to Email Builder!"
 msgstr "Bienvenue dans l'éditeur d'email !"
 
@@ -10835,7 +10881,7 @@ msgstr "Lorsqu'activé, la création d'utilisateur sera rejetée si une adresse 
 msgid "When off (recommended), only already-invited users can sign in via SSO. When on, a verified email in an allowed domain creates an account automatically."
 msgstr ""
 
-#: src/components/templates/CreateTemplateDrawer.tsx:1103
+#: src/components/templates/CreateTemplateDrawer.tsx:1108
 msgid "When you select a block, its settings appear here. Modify colors, text, spacing, alignment, and other properties to customize your email design."
 msgstr "Lorsque vous sélectionnez un bloc, ses paramètres apparaissent ici. Modifiez les couleurs, le texte, l'espacement, l'alignement et d'autres propriétés pour personnaliser le design de votre email."
 
@@ -11060,8 +11106,8 @@ msgid "You don't have write permission for broadcasts"
 msgstr "Vous n'avez pas la permission d'écriture pour les diffusions"
 
 #: src/components/contacts/BulkActionsBar.tsx:52
-#: src/pages/ContactsPage.tsx:1023
-#: src/pages/ContactsPage.tsx:1042
+#: src/pages/ContactsPage.tsx:1029
+#: src/pages/ContactsPage.tsx:1048
 msgid "You don't have write permission for contacts"
 msgstr "Vous n'avez pas la permission d'écriture pour les contacts"
 

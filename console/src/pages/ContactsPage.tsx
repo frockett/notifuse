@@ -246,6 +246,12 @@ export function ContactsPage() {
     handleEditClose()
   }
 
+  // Refresh the list (and total count) after a contact is created from the "Add" drawer.
+  const handleContactCreate = () => {
+    queryClient.invalidateQueries({ queryKey: ['contacts', workspaceId] })
+    queryClient.invalidateQueries({ queryKey: ['total-contacts', workspaceId] })
+  }
+
   // Bulk action handlers — always snapshot the selection at call time so a
   // mid-operation selection change (e.g. an optimistic cache update) can't
   // shrink the working set.
@@ -1046,6 +1052,7 @@ export function ContactsPage() {
             <div>
               <ContactUpsertDrawer
                 workspace={currentWorkspace}
+                onSuccess={handleContactCreate}
                 buttonProps={{
                   buttonContent: (
                     <>
