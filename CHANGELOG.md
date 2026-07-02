@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [34.2] - 2026-06-26
 
+- **Security**: Bumped the console's `echarts` dependency to 6.1.0 to resolve a cross-site scripting (XSS) advisory (GHSA-fgmj-fm8m-jvvx) flagged by Dependabot.
 - **Fix**: Resolved intermittent `pq: password authentication failed` / "failed to get workspace connection" errors under load. The workspace connection manager health-check-pinged the cached pool on every query and evicted, closed, and rebuilt it (re-hitting the `postgres` admin database) on any slow ping or transient blip; it now reuses cached pools and creates them without a global lock (#380).
 
 - **Fix**: Adding a contact (or adding a contact to a list from the details drawer) now refreshes the contacts list immediately instead of requiring a hard page reload. The "Add" contact drawer never invalidated the React Query cache on success, and the "add to list" action only refreshed the contact details — both now invalidate the contacts list (and total count) so the new contact appears right away (#364).

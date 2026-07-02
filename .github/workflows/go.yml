@@ -145,8 +145,10 @@ jobs:
             sleep 2
           done
 
-          # Run integration tests only with more timeout
-          go test -race -coverprofile=coverage-integration.txt -covermode=atomic -timeout=15m ./tests/integration/... -v
+          # Run integration tests only with more timeout. The -race suite runs
+          # close to 15m on the hosted runner; 20m gives headroom against the
+          # panic-on-timeout that intermittently fails otherwise-passing runs.
+          go test -race -coverprofile=coverage-integration.txt -covermode=atomic -timeout=20m ./tests/integration/... -v
 
       # - name: Upload integration test coverage to Codecov
       #   uses: codecov/codecov-action@v3
