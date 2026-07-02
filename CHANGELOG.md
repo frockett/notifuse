@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [34.2] - 2026-06-26
+
+- **Fix**: Resolved intermittent `pq: password authentication failed` / "failed to get workspace connection" errors under load. The workspace connection manager health-check-pinged the cached pool on every query and evicted, closed, and rebuilt it (re-hitting the `postgres` admin database) on any slow ping or transient blip; it now reuses cached pools and creates them without a global lock (#380).
+
+- **Fix**: Adding a contact (or adding a contact to a list from the details drawer) now refreshes the contacts list immediately instead of requiring a hard page reload. The "Add" contact drawer never invalidated the React Query cache on success, and the "add to list" action only refreshed the contact details — both now invalidate the contacts list (and total count) so the new contact appears right away (#364).
+- **Improvement**: AI Email Designer reliability with reasoning models (e.g. DeepSeek) — thinking now streams into a collapsible panel, the preview refreshes immediately after AI edits, a generated email that doesn't compile surfaces the MJML error instead of silently looking successful, hitting the token limit shows a non-destructive warning instead of wiping the answer, and OpenAI-compatible integrations gain a reasoning-effort selector (#363).
+
 ## [34.1] - 2026-06-25
 
 - **Fix**: Workspace SMTP integrations now connect to servers that advertise only `AUTH LOGIN` (such as Azure Communication Services) — the raw SMTP sender hardcoded `AUTH PLAIN` and was rejected with a 504 before credentials were ever checked. It now reads the AUTH mechanisms advertised in EHLO and uses LOGIN when PLAIN isn't offered, preferring PLAIN when both are available (#368).
