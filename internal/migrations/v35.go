@@ -8,40 +8,43 @@ import (
 	"github.com/Notifuse/notifuse/internal/domain"
 )
 
-// V26Migration fixes invalid 'subscribed' status values and recomputes automation stats.
+// V35Migration repairs automation "add to list" nodes that stored the invalid
+// status value 'subscribed' instead of the canonical 'active'.
 //
-// Bugs fixed:
-// 1. Automation add_to_list nodes used 'subscribed' instead of 'active' status
-// 2. Automation stats could be reset to 0 when updating automation
+// The v26 migration performed the same repair, but the console kept emitting
+// 'subscribed' for new/edited add_to_list nodes afterwards, so automations built
+// since then reintroduced the invalid value. This migration re-runs the value
+// repair (paired with the console fix that now stores 'active') and recomputes
+// automation stats so dashboards reflect the corrected data.
 //
 // This migration:
-// 1. Updates contact_lists records with status='subscribed' -> 'active'
-// 2. Updates automation nodes with status='subscribed' in their config -> 'active'
-// 3. Updates contact_timeline changes JSON containing 'subscribed' -> 'active'
-// 4. Recomputes automation stats from actual contact_automations data
-type V26Migration struct{}
+//  1. Updates contact_lists records with status='subscribed' -> 'active'
+//  2. Updates automation nodes with status='subscribed' in their config -> 'active'
+//  3. Updates contact_timeline changes JSON containing 'subscribed' -> 'active'
+//  4. Recomputes automation stats from actual contact_automations data
+type V35Migration struct{}
 
-func (m *V26Migration) GetMajorVersion() float64 {
-	return 26.0
+func (m *V35Migration) GetMajorVersion() float64 {
+	return 35.0
 }
 
-func (m *V26Migration) HasSystemUpdate() bool {
+func (m *V35Migration) HasSystemUpdate() bool {
 	return false
 }
 
-func (m *V26Migration) HasWorkspaceUpdate() bool {
+func (m *V35Migration) HasWorkspaceUpdate() bool {
 	return true
 }
 
-func (m *V26Migration) ShouldRestartServer() bool {
+func (m *V35Migration) ShouldRestartServer() bool {
 	return false
 }
 
-func (m *V26Migration) UpdateSystem(ctx context.Context, cfg *config.Config, db DBExecutor) error {
+func (m *V35Migration) UpdateSystem(ctx context.Context, cfg *config.Config, db DBExecutor) error {
 	return nil
 }
 
-func (m *V26Migration) UpdateWorkspace(ctx context.Context, cfg *config.Config, workspace *domain.Workspace, db DBExecutor) error {
+func (m *V35Migration) UpdateWorkspace(ctx context.Context, cfg *config.Config, workspace *domain.Workspace, db DBExecutor) error {
 	// Step 1: Fix contact_lists with invalid 'subscribed' status
 	_, err := db.ExecContext(ctx, `
 		UPDATE contact_lists
@@ -127,5 +130,5 @@ func (m *V26Migration) UpdateWorkspace(ctx context.Context, cfg *config.Config, 
 }
 
 func init() {
-	Register(&V26Migration{})
+	Register(&V35Migration{})
 }

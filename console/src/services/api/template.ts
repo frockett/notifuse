@@ -91,6 +91,9 @@ export interface UpdateTemplateRequest {
   test_data?: Record<string, unknown>
   settings?: Record<string, unknown>
   translations?: Record<string, TemplateTranslation>
+  // Revision the edit is based on; the server rejects the save with 409 if the
+  // template has advanced past this. Omit to keep last-writer-wins behavior.
+  base_version?: number
 }
 
 export interface DeleteTemplateRequest {

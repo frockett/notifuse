@@ -340,6 +340,20 @@ func (n *AutomationNode) Validate() error {
 		return fmt.Errorf("config is required")
 	}
 
+	// Reject a definitively-invalid add_to_list subscription status at save time,
+	// so the enum drift that used to fail per-contact at execution surfaces
+	// immediately instead. Incompleteness (e.g. no list picked yet) is left to
+	// runtime so partially-configured drafts remain savable.
+	if n.Type == NodeTypeAddToList {
+		if statusRaw, ok := n.Config["status"]; ok {
+			if status, ok := statusRaw.(string); ok && status != "" {
+				if status != string(ContactListStatusActive) && status != string(ContactListStatusPending) {
+					return fmt.Errorf("invalid add_to_list status: %s (must be %s or %s)", status, ContactListStatusActive, ContactListStatusPending)
+				}
+			}
+		}
+	}
+
 	return nil
 }
 
