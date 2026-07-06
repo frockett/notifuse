@@ -193,8 +193,12 @@ export function ContactsPage() {
       )
       return { previous }
     },
-    onSuccess: () => {
+    onSuccess: (_data, deletedEmail) => {
       message.success(t`Contact deleted successfully`)
+      // Drop the deleted contact from the bulk selection so the selection bar
+      // count stays accurate and follow-up bulk actions (e.g. add-to-list,
+      // which upserts) can't operate on — or resurrect — a deleted contact.
+      setSelectedEmails((prev) => prev.filter((email) => email !== deletedEmail))
       // Close modal and reset state
       setDeleteModalVisible(false)
       setContactToDelete(null)
@@ -1130,9 +1134,14 @@ export function ContactsPage() {
         onRow={(record) => ({
           onClick: (e) => {
             if (!permissions?.contacts?.write) return
+            const target = e.target as HTMLElement
+            // React synthetic events bubble through portals along the component
+            // tree, so clicks inside the row's dropdown menu or details drawer
+            // (rendered under document.body) land here too — their DOM target
+            // is outside the row, and such a click must not toggle selection.
+            if (!e.currentTarget.contains(target)) return
             // Ignore clicks inside the selection column (checkbox handles itself)
             // or the fixed-right actions column (dropdown + detail drawer).
-            const target = e.target as HTMLElement
             if (
               target.closest(
                 '.ant-table-selection-column, .ant-table-cell-fix-right'
