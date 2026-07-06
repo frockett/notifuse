@@ -60,6 +60,7 @@ import { SendOrScheduleModal } from '../components/broadcasts/SendOrScheduleModa
 import { useAuth, useWorkspacePermissions } from '../contexts/AuthContext'
 import TemplatePreviewDrawer from '../components/templates/TemplatePreviewDrawer'
 import { BroadcastStats, ProgressStats } from '../components/broadcasts/BroadcastStats'
+import { BroadcastLinkStats } from '../components/broadcasts/BroadcastLinkStats'
 import { SendingProgress } from '../components/broadcasts/SendingProgress'
 import { Integration, List, Sender } from '../services/api/types'
 import SendTemplateModal from '../components/templates/SendTemplateModal'
@@ -914,6 +915,12 @@ const BroadcastCard: React.FC<BroadcastCardProps> = ({
                 rowClassName={(record) => (record.isWinner ? 'bg-green-50' : '')}
               />
             </div>
+
+            <BroadcastLinkStats
+              workspaceId={workspaceId}
+              broadcastId={broadcast.id}
+              enabled={showDetails}
+            />
 
             <Row gutter={32}>
               <Col span={8}>

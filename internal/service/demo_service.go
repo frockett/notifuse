@@ -1859,16 +1859,25 @@ func (s *DemoService) updateOpenedMessagesForBatch(ctx context.Context, workspac
 	return nil
 }
 
+// demoClickedURLs are deterministic destination URLs recorded with demo clicks
+// so demo workspaces show a populated per-link click table
+var demoClickedURLs = []string{
+	"https://example.com/products/new-arrivals",
+	"https://example.com/blog/getting-started",
+	"https://example.com/pricing",
+}
+
 // updateClickedMessagesForBatch updates message_history records with clicked_at timestamps
 func (s *DemoService) updateClickedMessagesForBatch(ctx context.Context, workspaceID string, messagesData []messageEngagementData) error {
-	for _, data := range messagesData {
+	for i, data := range messagesData {
 		if !data.engagement.shouldClick {
 			continue
 		}
 
 		// Use SetClicked to update the message (triggers timeline entry)
 		// SetClicked also sets opened_at if not already set
-		if err := s.messageHistoryRepo.SetClicked(ctx, workspaceID, data.message.ID, data.engagement.clickedTime); err != nil {
+		clickedURL := demoClickedURLs[i%len(demoClickedURLs)]
+		if err := s.messageHistoryRepo.SetClicked(ctx, workspaceID, data.message.ID, data.engagement.clickedTime, clickedURL); err != nil {
 			s.logger.WithField("message_id", data.message.ID).WithField("error", err.Error()).Debug("Failed to set clicked status")
 		}
 	}

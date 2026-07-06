@@ -17,11 +17,20 @@ import (
 // repair (paired with the console fix that now stores 'active') and recomputes
 // automation stats so dashboards reflect the corrected data.
 //
+// It also adds per-link click tracking storage and opts the built-in Supabase
+// auth notifications out of click tracking.
+//
 // This migration:
 //  1. Updates contact_lists records with status='subscribed' -> 'active'
 //  2. Updates automation nodes with status='subscribed' in their config -> 'active'
 //  3. Updates contact_timeline changes JSON containing 'subscribed' -> 'active'
 //  4. Recomputes automation stats from actual contact_automations data
+//  5. Adds the message_history.clicked_links JSONB column, a per-message map of
+//     clicked destination URL -> {count, first_at, last_at} that powers the
+//     per-link click breakdown in broadcast reports
+//  6. Sets tracking_mode "disabled" on the Supabase transactional notifications
+//     so their one-time auth links (magic link, recovery, invite, ...) are no
+//     longer rewritten through the click-tracking redirect
 type V35Migration struct{}
 
 func (m *V35Migration) GetMajorVersion() float64 {
@@ -124,6 +133,36 @@ func (m *V35Migration) UpdateWorkspace(ctx context.Context, cfg *config.Config, 
 	`)
 	if err != nil {
 		return fmt.Errorf("failed to recompute automation stats: %w", err)
+	}
+
+	// Step 5: Add the clicked_links column (nullable, no default: instant, no
+	// table rewrite; existing rows read as SQL NULL until their first click)
+	_, err = db.ExecContext(ctx, `
+		ALTER TABLE message_history ADD COLUMN IF NOT EXISTS clicked_links JSONB
+	`)
+	if err != nil {
+		return fmt.Errorf("failed to add clicked_links column: %w", err)
+	}
+
+	// Step 6: Opt the Supabase auth notifications out of tracking (tracking_mode
+	// "disabled" is the tri-state's full veto: no redirect, no pixel, no UTM).
+	// The '_' in the LIKE pattern is escaped so only real 'supabase_*' IDs match
+	// (a bare '_' is a single-character wildcard), and integration_id IS NOT NULL
+	// restricts the fix to integration-created notifications — a user-created
+	// notification that merely has a supabase_-style ID must not be opted out.
+	// The jsonb_typeof guard protects against jsonb-null (or other
+	// non-object) tracking_settings values: '||' on a non-object degrades to
+	// array concatenation, which would corrupt the value and break the
+	// notification's Scan. Such rows are left untouched.
+	_, err = db.ExecContext(ctx, `
+		UPDATE transactional_notifications
+		SET tracking_settings = (COALESCE(tracking_settings, '{}'::jsonb) - 'disable_tracking') || '{"tracking_mode": "disabled"}'::jsonb
+		WHERE id LIKE 'supabase\_%'
+		  AND integration_id IS NOT NULL
+		  AND (tracking_settings IS NULL OR jsonb_typeof(tracking_settings) = 'object')
+	`)
+	if err != nil {
+		return fmt.Errorf("failed to update supabase notification tracking settings: %w", err)
 	}
 
 	return nil

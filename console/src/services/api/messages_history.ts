@@ -157,3 +157,36 @@ export function getBroadcastStats(
 
   return api.get<BroadcastStatsResult>(`/api/messages.broadcastStats?${queryParams.toString()}`)
 }
+
+/**
+ * Per-URL click stats for a broadcast
+ * Matches LinkClickStats from the backend
+ */
+export interface LinkClickStats {
+  url: string
+  total_clicks: number
+  unique_clicks: number
+}
+
+/**
+ * Response from the broadcast link stats endpoint
+ */
+export interface BroadcastLinkStatsResult {
+  link_stats: LinkClickStats[]
+}
+
+/**
+ * Gets per-link click statistics for a specific broadcast
+ */
+export function getBroadcastLinkStats(
+  workspaceId: string,
+  broadcastId: string
+): Promise<BroadcastLinkStatsResult> {
+  const queryParams = new URLSearchParams()
+  queryParams.append('workspace_id', workspaceId)
+  queryParams.append('broadcast_id', broadcastId)
+
+  return api.get<BroadcastLinkStatsResult>(
+    `/api/messages.broadcastLinkStats?${queryParams.toString()}`
+  )
+}

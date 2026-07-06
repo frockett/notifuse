@@ -69,6 +69,14 @@ func TestV35Migration_UpdateWorkspace_Success(t *testing.T) {
 	mock.ExpectExec(`UPDATE automations a`).
 		WillReturnResult(sqlmock.NewResult(0, 10))
 
+	// Step 5: Expect clicked_links column addition
+	mock.ExpectExec(`ALTER TABLE message_history ADD COLUMN IF NOT EXISTS clicked_links JSONB`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+
+	// Step 6: Expect supabase notifications tracking opt-out
+	mock.ExpectExec(`UPDATE transactional_notifications`).
+		WillReturnResult(sqlmock.NewResult(0, 6))
+
 	err = m.UpdateWorkspace(context.Background(), cfg, workspace, db)
 	assert.NoError(t, err)
 	assert.NoError(t, mock.ExpectationsWereMet())
@@ -91,6 +99,10 @@ func TestV35Migration_UpdateWorkspace_HandlesEmptyTables(t *testing.T) {
 	mock.ExpectExec(`UPDATE contact_timeline`).
 		WillReturnResult(sqlmock.NewResult(0, 0))
 	mock.ExpectExec(`UPDATE automations a`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`ALTER TABLE message_history ADD COLUMN IF NOT EXISTS clicked_links JSONB`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE transactional_notifications`).
 		WillReturnResult(sqlmock.NewResult(0, 0))
 
 	err = m.UpdateWorkspace(context.Background(), cfg, workspace, db)
@@ -177,4 +189,56 @@ func TestV35Migration_UpdateWorkspace_StatsRecomputeError(t *testing.T) {
 	err = m.UpdateWorkspace(context.Background(), cfg, workspace, db)
 	assert.Error(t, err)
 	assert.Contains(t, err.Error(), "failed to recompute automation stats")
+}
+
+func TestV35Migration_UpdateWorkspace_AddClickedLinksColumnError(t *testing.T) {
+	db, mock, err := sqlmock.New()
+	require.NoError(t, err)
+	defer db.Close()
+
+	m := &V35Migration{}
+	cfg := &config.Config{}
+	workspace := &domain.Workspace{ID: "test-workspace"}
+
+	mock.ExpectExec(`UPDATE contact_lists`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE automations`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE contact_timeline`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE automations a`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`ALTER TABLE message_history ADD COLUMN IF NOT EXISTS clicked_links JSONB`).
+		WillReturnError(assert.AnError)
+
+	err = m.UpdateWorkspace(context.Background(), cfg, workspace, db)
+	assert.Error(t, err)
+	assert.Contains(t, err.Error(), "failed to add clicked_links column")
+}
+
+func TestV35Migration_UpdateWorkspace_TrackingSettingsError(t *testing.T) {
+	db, mock, err := sqlmock.New()
+	require.NoError(t, err)
+	defer db.Close()
+
+	m := &V35Migration{}
+	cfg := &config.Config{}
+	workspace := &domain.Workspace{ID: "test-workspace"}
+
+	mock.ExpectExec(`UPDATE contact_lists`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE automations`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE contact_timeline`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE automations a`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`ALTER TABLE message_history ADD COLUMN IF NOT EXISTS clicked_links JSONB`).
+		WillReturnResult(sqlmock.NewResult(0, 0))
+	mock.ExpectExec(`UPDATE transactional_notifications`).
+		WillReturnError(assert.AnError)
+
+	err = m.UpdateWorkspace(context.Background(), cfg, workspace, db)
+	assert.Error(t, err)
+	assert.Contains(t, err.Error(), "failed to update supabase notification tracking settings")
 }

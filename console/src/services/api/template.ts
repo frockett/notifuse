@@ -136,6 +136,9 @@ export interface MjmlCompileError {
 
 export interface TrackingSettings {
   enable_tracking: boolean
+  // Per-notification tri-state: 'inherit' (or absent) follows the workspace
+  // setting, 'disabled' suppresses all link rewriting (click/open tracking and UTM)
+  tracking_mode?: 'inherit' | 'disabled'
   endpoint?: string
   utm_source?: string
   utm_medium?: string

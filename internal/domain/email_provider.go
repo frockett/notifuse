@@ -449,7 +449,7 @@ type EmailServiceInterface interface {
 	TestEmailProvider(ctx context.Context, workspaceID string, provider EmailProvider, to string) error
 	SendEmail(ctx context.Context, request SendEmailProviderRequest, isMarketing bool) error
 	SendEmailForTemplate(ctx context.Context, request SendEmailRequest) error
-	VisitLink(ctx context.Context, messageID string, workspaceID string) error
+	VisitLink(ctx context.Context, messageID string, workspaceID string, clickedURL string, requestHost string) error
 	OpenEmail(ctx context.Context, messageID string, workspaceID string) error
 }
 

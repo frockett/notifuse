@@ -202,6 +202,7 @@ func InitializeWorkspaceDatabase(db *sql.DB) error {
 			message_data JSONB NOT NULL,
 			channel_options JSONB,
 			attachments JSONB,
+			clicked_links JSONB,
 			sent_at TIMESTAMP WITH TIME ZONE NOT NULL,
 			delivered_at TIMESTAMP WITH TIME ZONE,
 			failed_at TIMESTAMP WITH TIME ZONE,
