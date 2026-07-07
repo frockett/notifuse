@@ -442,7 +442,7 @@ msgstr "Ativar automacao?"
 #: src/components/contacts/ContactDetailsDrawer.tsx:582
 #: src/components/contacts/SegmentsFilter.tsx:53
 #: src/components/lists/ListStats.tsx:66
-#: src/pages/ContactsPage.tsx:388
+#: src/pages/ContactsPage.tsx:392
 msgid "Active"
 msgstr "Ativo"
 
@@ -451,7 +451,7 @@ msgid "Active filters"
 msgstr "Filtros ativos"
 
 #: src/components/analytics/NewContactsTable.tsx:88
-#: src/pages/ContactsPage.tsx:555
+#: src/pages/ContactsPage.tsx:559
 msgid "Active subscriber"
 msgstr "Assinante ativo"
 
@@ -466,7 +466,7 @@ msgstr "Atividade"
 #: src/components/broadcasts/HeadersEditor.tsx:54
 #: src/components/broadcasts/HeadersEditor.tsx:102
 #: src/components/segment/input_json_path.tsx:98
-#: src/pages/ContactsPage.tsx:1059
+#: src/pages/ContactsPage.tsx:1063
 msgid "Add"
 msgstr "Adicionar"
 
@@ -606,7 +606,7 @@ msgstr "Adicione elementos sociais a este bloco social"
 
 #: src/components/contacts/BulkActionsBar.tsx:92
 #: src/components/contacts/BulkActionsBar.tsx:134
-#: src/pages/ContactsPage.tsx:271
+#: src/pages/ContactsPage.tsx:275
 msgid "Add to list"
 msgstr ""
 
@@ -628,8 +628,8 @@ msgid "Add Webhook"
 msgstr "Adicionar Webhook"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:117
-#: src/pages/ContactsPage.tsx:429
-#: src/pages/ContactsPage.tsx:714
+#: src/pages/ContactsPage.tsx:433
+#: src/pages/ContactsPage.tsx:718
 msgid "Address"
 msgstr "Endereco"
 
@@ -723,7 +723,7 @@ msgstr "Alinhamento"
 
 #: src/components/analytics/EmailMetricsChart.tsx:284
 #: src/pages/BroadcastsPage.tsx:1447
-#: src/pages/TemplatesPage.tsx:77
+#: src/pages/TemplatesPage.tsx:124
 msgid "All"
 msgstr "Todos"
 
@@ -945,7 +945,7 @@ msgstr ""
 msgid "Are you sure you want to delete this node?"
 msgstr "Tem certeza que deseja excluir este no?"
 
-#: src/pages/TemplatesPage.tsx:302
+#: src/pages/TemplatesPage.tsx:358
 msgid "Are you sure you want to delete this template?"
 msgstr "Tem certeza que deseja excluir este template?"
 
@@ -1321,7 +1321,7 @@ msgstr "Painel de Configuracoes do Bloco"
 msgid "Block type:"
 msgstr "Tipo de bloco:"
 
-#: src/pages/TemplatesPage.tsx:84
+#: src/pages/TemplatesPage.tsx:131
 msgid "Blocklist"
 msgstr "Lista de Bloqueio"
 
@@ -1429,7 +1429,7 @@ msgstr "retorno"
 
 #: src/components/timeline/ContactTimeline.tsx:580
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:72
-#: src/pages/TemplatesPage.tsx:83
+#: src/pages/TemplatesPage.tsx:130
 msgid "Bounce"
 msgstr "Retorno"
 
@@ -1460,7 +1460,7 @@ msgstr "Tipo de Retorno"
 #: src/components/messages/MessageHistoryTab.tsx:166
 #: src/components/messages/MessageHistoryTab.tsx:171
 #: src/components/messages/MessageHistoryTable.tsx:298
-#: src/pages/ContactsPage.tsx:391
+#: src/pages/ContactsPage.tsx:395
 #: src/pages/TransactionalNotificationsPage.tsx:249
 msgid "Bounced"
 msgstr "Retornado"
@@ -1594,7 +1594,7 @@ msgstr "Construindo"
 msgid "Building segment"
 msgstr "Construindo segmento"
 
-#: src/pages/ContactsPage.tsx:1039
+#: src/pages/ContactsPage.tsx:1043
 msgid "Bulk Update"
 msgstr "Atualizacao em Massa"
 
@@ -1691,7 +1691,7 @@ msgstr "Tamanho do Botao"
 #: src/pages/BroadcastsPage.tsx:895
 #: src/pages/BroadcastsPage.tsx:1599
 #: src/pages/ListsPage.tsx:318
-#: src/pages/TemplatesPage.tsx:310
+#: src/pages/TemplatesPage.tsx:366
 #: src/pages/TransactionalNotificationsPage.tsx:147
 msgid "Cancel"
 msgstr "Cancelar"
@@ -1747,7 +1747,7 @@ msgstr "Categorias"
 #: src/components/blog/ThemeEditorDrawer.tsx:428
 #: src/components/blog/ThemePresetPreviewDrawer.tsx:75
 #: src/components/templates/CreateTemplateDrawer.tsx:841
-#: src/pages/TemplatesPage.tsx:175
+#: src/pages/TemplatesPage.tsx:231
 msgid "Category"
 msgstr "Categoria"
 
@@ -1951,7 +1951,7 @@ msgid "Clone email template"
 msgstr "Clonar template de email"
 
 #: src/components/templates/CreateTemplateDrawer.tsx:595
-#: src/pages/TemplatesPage.tsx:266
+#: src/pages/TemplatesPage.tsx:322
 msgid "Clone Template"
 msgstr "Clonar Template"
 
@@ -1975,7 +1975,7 @@ msgid "Closed Captions (CC)"
 msgstr "Legendas (CC)"
 
 #: src/components/email_builder/MjmlCodeEditor.tsx:662
-#: src/pages/TemplatesPage.tsx:168
+#: src/pages/TemplatesPage.tsx:224
 msgid "Code"
 msgstr ""
 
@@ -2051,7 +2051,7 @@ msgstr "Reclamou do email"
 #: src/components/messages/MessageHistoryTab.tsx:182
 #: src/components/messages/MessageHistoryTab.tsx:184
 #: src/components/messages/MessageHistoryTable.tsx:306
-#: src/pages/ContactsPage.tsx:392
+#: src/pages/ContactsPage.tsx:396
 msgid "Complained"
 msgstr "Reclamado"
 
@@ -2268,7 +2268,7 @@ msgid "Contact updated successfully"
 msgstr "Contato atualizado com sucesso"
 
 #: src/layouts/WorkspaceLayout.tsx:236
-#: src/pages/ContactsPage.tsx:994
+#: src/pages/ContactsPage.tsx:998
 msgid "Contacts"
 msgstr "Contatos"
 
@@ -2355,9 +2355,9 @@ msgstr ""
 #: src/components/contacts/ContactDetailsDrawer.tsx:447
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:94
 #: src/components/contacts/ExportContactsModal.tsx:65
-#: src/pages/ContactsPage.tsx:372
-#: src/pages/ContactsPage.tsx:426
-#: src/pages/ContactsPage.tsx:696
+#: src/pages/ContactsPage.tsx:376
+#: src/pages/ContactsPage.tsx:430
+#: src/pages/ContactsPage.tsx:700
 msgid "Country"
 msgstr "País"
 
@@ -2505,7 +2505,7 @@ msgstr "Crie sua primeira notificação para começar"
 msgid "Create Your First Post"
 msgstr "Crie Sua Primeira Postagem"
 
-#: src/pages/TemplatesPage.tsx:396
+#: src/pages/TemplatesPage.tsx:464
 msgid "Create your first template to get started"
 msgstr "Crie seu primeiro template para começar"
 
@@ -2515,15 +2515,15 @@ msgstr "criado"
 
 #: src/components/automations/config/TriggerConfigForm.tsx:58
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:403
-#: src/pages/TemplatesPage.tsx:219
+#: src/pages/TemplatesPage.tsx:275
 msgid "Created"
 msgstr "Criado"
 
 #: src/components/contacts/ContactDetailsDrawer.tsx:536
 #: src/components/messages/MessageHistoryTable.tsx:135
 #: src/components/messages/MessageHistoryTable.tsx:336
-#: src/pages/ContactsPage.tsx:431
-#: src/pages/ContactsPage.tsx:734
+#: src/pages/ContactsPage.tsx:435
+#: src/pages/ContactsPage.tsx:738
 msgid "Created At"
 msgstr "Criado Em"
 
@@ -2810,7 +2810,7 @@ msgid "Deduplication:"
 msgstr "Deduplicação:"
 
 #: src/components/templates/SendTemplateModal.tsx:66
-#: src/pages/TemplatesPage.tsx:196
+#: src/pages/TemplatesPage.tsx:252
 msgid "default"
 msgstr "padrão"
 
@@ -2882,7 +2882,7 @@ msgstr "Atraso"
 #: src/components/settings/Integrations.tsx:1457
 #: src/components/settings/WebhookCard.tsx:239
 #: src/pages/BroadcastsPage.tsx:1609
-#: src/pages/ContactsPage.tsx:940
+#: src/pages/ContactsPage.tsx:944
 #: src/pages/ListsPage.tsx:328
 msgid "Delete"
 msgstr "Excluir"
@@ -2927,7 +2927,7 @@ msgstr "Excluir Contato"
 
 #: src/components/contacts/BulkActionsBar.tsx:215
 #: src/components/contacts/BulkUpdateDrawer.tsx:596
-#: src/pages/ContactsPage.tsx:260
+#: src/pages/ContactsPage.tsx:264
 msgid "Delete contacts"
 msgstr "Excluir contatos"
 
@@ -2975,11 +2975,11 @@ msgstr "Excluir Postagem"
 msgid "Delete segment"
 msgstr "Excluir segmento"
 
-#: src/pages/TemplatesPage.tsx:289
+#: src/pages/TemplatesPage.tsx:345
 msgid "Delete Template"
 msgstr "Excluir Template"
 
-#: src/pages/TemplatesPage.tsx:299
+#: src/pages/TemplatesPage.tsx:355
 msgid "Delete template?"
 msgstr "Excluir template?"
 
@@ -3323,7 +3323,7 @@ msgstr "editar"
 #: src/components/settings/Integrations.tsx:1372
 #: src/components/settings/Integrations.tsx:1441
 #: src/components/settings/WebhookCard.tsx:245
-#: src/pages/ContactsPage.tsx:934
+#: src/pages/ContactsPage.tsx:938
 #: src/pages/TransactionalNotificationsPage.tsx:155
 msgid "Edit"
 msgstr "Editar"
@@ -3423,7 +3423,7 @@ msgid "Edit Sender"
 msgstr "Editar Remetente"
 
 #: src/components/templates/CreateTemplateDrawer.tsx:595
-#: src/pages/TemplatesPage.tsx:244
+#: src/pages/TemplatesPage.tsx:300
 msgid "Edit Template"
 msgstr "Editar Template"
 
@@ -3496,8 +3496,8 @@ msgstr "email"
 #: src/components/settings/Integrations.tsx:2252
 #: src/components/settings/WorkspaceMembers.tsx:78
 #: src/components/timeline/ContactTimeline.tsx:511
-#: src/pages/ContactsPage.tsx:365
-#: src/pages/ContactsPage.tsx:532
+#: src/pages/ContactsPage.tsx:369
+#: src/pages/ContactsPage.tsx:536
 #: src/pages/SignInPage.tsx:208
 #: src/pages/SignInPage.tsx:215
 msgid "Email"
@@ -3526,7 +3526,7 @@ msgid "Email Body Payload"
 msgstr "Conteúdo do Corpo do Email"
 
 #: src/components/analytics/NewContactsTable.tsx:105
-#: src/pages/ContactsPage.tsx:572
+#: src/pages/ContactsPage.tsx:576
 msgid "Email bounced"
 msgstr "Email rejeitado"
 
@@ -4019,7 +4019,7 @@ msgstr "Expira:"
 #: src/components/contacts/ExportContactsModal.tsx:323
 #: src/components/email_builder/MjmlCodeEditor.tsx:627
 #: src/components/templates/ImportExportButton.tsx:416
-#: src/pages/ContactsPage.tsx:1017
+#: src/pages/ContactsPage.tsx:1021
 msgid "Export"
 msgstr "Exportar"
 
@@ -4046,7 +4046,7 @@ msgstr "Exportando todos os contatos"
 #: src/components/messages/MessageHistoryTab.tsx:226
 #: src/components/messages/MessageHistoryTable.tsx:128
 #: src/components/messages/MessageHistoryTable.tsx:154
-#: src/pages/ContactsPage.tsx:366
+#: src/pages/ContactsPage.tsx:370
 msgid "External ID"
 msgstr "ID Externo"
 
@@ -4178,7 +4178,7 @@ msgstr "Falha ao excluir broadcast"
 msgid "Failed to delete category"
 msgstr "Falha ao excluir categoria"
 
-#: src/pages/ContactsPage.tsx:207
+#: src/pages/ContactsPage.tsx:211
 msgid "Failed to delete contact"
 msgstr "Falha ao excluir contato"
 
@@ -4210,7 +4210,7 @@ msgstr "Falha ao excluir post"
 msgid "Failed to delete segment"
 msgstr "Falha ao excluir segmento"
 
-#: src/pages/TemplatesPage.tsx:123
+#: src/pages/TemplatesPage.tsx:170
 msgid "Failed to delete template: {errorMsg}"
 msgstr "Falha ao excluir template: {errorMsg}"
 
@@ -4667,7 +4667,7 @@ msgstr "Condições do Filtro"
 msgid "Filters"
 msgstr "Filtros"
 
-#: src/pages/ContactsPage.tsx:1072
+#: src/pages/ContactsPage.tsx:1076
 msgid "Filters:"
 msgstr "Filtros:"
 
@@ -4692,9 +4692,9 @@ msgstr "Integração Firecrawl salva com sucesso"
 #: src/components/contacts/ContactDetailsDrawer.tsx:441
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:91
 #: src/components/contacts/ExportContactsModal.tsx:56
-#: src/pages/ContactsPage.tsx:367
-#: src/pages/ContactsPage.tsx:422
-#: src/pages/ContactsPage.tsx:669
+#: src/pages/ContactsPage.tsx:371
+#: src/pages/ContactsPage.tsx:426
+#: src/pages/ContactsPage.tsx:673
 msgid "First Name"
 msgstr "Nome"
 
@@ -4841,9 +4841,9 @@ msgid "Full content"
 msgstr ""
 
 #: src/components/contacts/ContactDetailsDrawer.tsx:443
-#: src/pages/ContactsPage.tsx:369
-#: src/pages/ContactsPage.tsx:424
-#: src/pages/ContactsPage.tsx:683
+#: src/pages/ContactsPage.tsx:373
+#: src/pages/ContactsPage.tsx:428
+#: src/pages/ContactsPage.tsx:687
 msgid "Full Name"
 msgstr "Nome Completo"
 
@@ -5153,7 +5153,7 @@ msgstr "ID só pode conter letras minúsculas, números e underscores"
 msgid "ID doesn't match"
 msgstr "ID não corresponde"
 
-#: src/pages/TemplatesPage.tsx:164
+#: src/pages/TemplatesPage.tsx:220
 msgid "ID for API:"
 msgstr "ID para API:"
 
@@ -5252,7 +5252,7 @@ msgstr ""
 
 #: src/components/email_builder/MjmlCodeEditor.tsx:615
 #: src/components/templates/ImportExportButton.tsx:387
-#: src/pages/ContactsPage.tsx:1010
+#: src/pages/ContactsPage.tsx:1014
 msgid "Import"
 msgstr "Importar"
 
@@ -5605,8 +5605,8 @@ msgstr ""
 
 #: src/components/contacts/ContactDetailsDrawer.tsx:450
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:101
-#: src/pages/ContactsPage.tsx:430
-#: src/pages/ContactsPage.tsx:728
+#: src/pages/ContactsPage.tsx:434
+#: src/pages/ContactsPage.tsx:732
 msgid "Job Title"
 msgstr "Cargo"
 
@@ -5672,9 +5672,9 @@ msgstr "O rótulo deve ter no máximo 100 caracteres"
 #: src/components/contacts/ExportContactsModal.tsx:68
 #: src/components/templates/SendTemplateModal.tsx:326
 #: src/components/templates/TemplatePreviewDrawer.tsx:340
-#: src/pages/ContactsPage.tsx:371
-#: src/pages/ContactsPage.tsx:427
-#: src/pages/ContactsPage.tsx:702
+#: src/pages/ContactsPage.tsx:375
+#: src/pages/ContactsPage.tsx:431
+#: src/pages/ContactsPage.tsx:706
 msgid "Language"
 msgstr "Idioma"
 
@@ -5714,9 +5714,9 @@ msgstr "Última modificação"
 #: src/components/contacts/ContactDetailsDrawer.tsx:442
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:92
 #: src/components/contacts/ExportContactsModal.tsx:59
-#: src/pages/ContactsPage.tsx:368
-#: src/pages/ContactsPage.tsx:423
-#: src/pages/ContactsPage.tsx:676
+#: src/pages/ContactsPage.tsx:372
+#: src/pages/ContactsPage.tsx:427
+#: src/pages/ContactsPage.tsx:680
 msgid "Last Name"
 msgstr "Sobrenome"
 
@@ -5847,7 +5847,7 @@ msgstr ""
 #: src/components/messages/MessageHistoryTable.tsx:215
 #: src/components/messages/MessageHistoryTable.tsx:229
 #: src/pages/BroadcastsPage.tsx:951
-#: src/pages/ContactsPage.tsx:375
+#: src/pages/ContactsPage.tsx:379
 msgid "List"
 msgstr "Lista"
 
@@ -5872,7 +5872,7 @@ msgstr "ID da Lista: {0}"
 
 #: src/components/automations/nodes/ListStatusBranchNode.tsx:38
 #: src/components/contacts/ExportContactsModal.tsx:80
-#: src/pages/ContactsPage.tsx:385
+#: src/pages/ContactsPage.tsx:389
 msgid "List Status"
 msgstr "Status da Lista"
 
@@ -5902,8 +5902,8 @@ msgstr "Lista:"
 
 #: src/components/analytics/NewContactsTable.tsx:73
 #: src/layouts/WorkspaceLayout.tsx:246
-#: src/pages/ContactsPage.tsx:420
-#: src/pages/ContactsPage.tsx:540
+#: src/pages/ContactsPage.tsx:424
+#: src/pages/ContactsPage.tsx:544
 #: src/pages/ListsPage.tsx:155
 msgid "Lists"
 msgstr "Listas"
@@ -5924,7 +5924,7 @@ msgstr "Integração LLM salva com sucesso"
 #: src/components/messages/MessageHistoryTable.tsx:445
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:554
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:506
-#: src/pages/ContactsPage.tsx:1161
+#: src/pages/ContactsPage.tsx:1170
 msgid "Load More"
 msgstr "Carregar Mais"
 
@@ -5980,11 +5980,11 @@ msgstr "Carregando status do webhook..."
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:499
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:440
 #: src/layouts/RootLayout.tsx:90
-#: src/pages/ContactsPage.tsx:527
-#: src/pages/ContactsPage.tsx:1153
+#: src/pages/ContactsPage.tsx:531
+#: src/pages/ContactsPage.tsx:1162
 #: src/pages/ListsPage.tsx:149
 #: src/pages/LogsPage.tsx:18
-#: src/pages/TemplatesPage.tsx:147
+#: src/pages/TemplatesPage.tsx:203
 #: src/pages/TransactionalNotificationsPage.tsx:381
 msgid "Loading..."
 msgstr "Carregando..."
@@ -6062,11 +6062,11 @@ msgid "Map your CSV columns to contact fields. The"
 msgstr "Mapeie suas colunas CSV para campos de contato. O"
 
 #: src/components/analytics/NewContactsTable.tsx:110
-#: src/pages/ContactsPage.tsx:577
+#: src/pages/ContactsPage.tsx:581
 msgid "Marked as spam"
 msgstr "Marcado como spam"
 
-#: src/pages/TemplatesPage.tsx:78
+#: src/pages/TemplatesPage.tsx:125
 msgid "Marketing"
 msgstr "Marketing"
 
@@ -6086,7 +6086,7 @@ msgstr "Provedor de Marketing"
 msgid "Matched"
 msgstr "Correspondente"
 
-#: src/pages/ContactsPage.tsx:647
+#: src/pages/ContactsPage.tsx:651
 msgid "Matched on:"
 msgstr "Correspondeu em:"
 
@@ -6475,7 +6475,7 @@ msgstr "Sem categoria"
 msgid "No conditions"
 msgstr "Sem condições"
 
-#: src/pages/ContactsPage.tsx:1152
+#: src/pages/ContactsPage.tsx:1161
 msgid "No contacts found. Add some contacts to get started."
 msgstr "Nenhum contato encontrado. Adicione alguns contatos para começar."
 
@@ -6636,7 +6636,7 @@ msgid "No specific details provided."
 msgstr "Nenhum detalhe específico fornecido."
 
 #: src/components/templates/TemplateSelectorInput.tsx:258
-#: src/pages/TemplatesPage.tsx:394
+#: src/pages/TemplatesPage.tsx:462
 msgid "No templates found"
 msgstr "Nenhum template encontrado"
 
@@ -6645,9 +6645,13 @@ msgstr "Nenhum template encontrado"
 msgid "No templates found for {0} category"
 msgstr "Nenhum template encontrado para categoria {0}"
 
-#: src/pages/TemplatesPage.tsx:422
+#: src/pages/TemplatesPage.tsx:490
 msgid "No templates found for category \"{selectedCategory}\""
 msgstr "Nenhum template encontrado para categoria \"{selectedCategory}\""
+
+#: src/pages/TemplatesPage.tsx:454
+msgid "No templates match your search"
+msgstr ""
 
 #: src/components/blog/RecentThemesTable.tsx:211
 msgid "No themes yet"
@@ -6748,7 +6752,7 @@ msgstr "Não definido"
 msgid "Note: mj-raw components can only be placed directly in mj-body or mj-head, not inside mj-wrapper. Consider moving the mj-raw content outside the wrapper or converting it to appropriate MJML components."
 msgstr "Nota: Componentes mj-raw só podem ser colocados diretamente em mj-body ou mj-head, não dentro de mj-wrapper. Considere mover o conteúdo mj-raw para fora do wrapper ou convertê-lo para componentes MJML apropriados."
 
-#: src/pages/TemplatesPage.tsx:304
+#: src/pages/TemplatesPage.tsx:360
 msgid "Note: The template will be hidden from your workspace but preserved to maintain the ability to preview previously sent broadcasts and messages that used this template."
 msgstr "Nota: O template será ocultado do seu workspace mas preservado para manter a capacidade de pré-visualizar broadcasts e mensagens enviados anteriormente que usaram este template."
 
@@ -6926,7 +6930,7 @@ msgstr ""
 msgid "Operation Complete"
 msgstr "Operação Concluída"
 
-#: src/pages/TemplatesPage.tsx:81
+#: src/pages/TemplatesPage.tsx:128
 msgid "Opt-in"
 msgstr "Opt-in"
 
@@ -6966,7 +6970,7 @@ msgstr "Ou selecione uma fonte popular do Google"
 
 #: src/components/blog_editor/menus/suggestion/SlashPopoverContent.tsx:74
 #: src/components/settings/WebhooksSettings.tsx:305
-#: src/pages/TemplatesPage.tsx:85
+#: src/pages/TemplatesPage.tsx:132
 msgid "Other"
 msgstr "Outro"
 
@@ -7071,12 +7075,12 @@ msgstr "Payload:"
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:79
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:236
 #: src/pages/BroadcastsPage.tsx:347
-#: src/pages/ContactsPage.tsx:389
+#: src/pages/ContactsPage.tsx:393
 msgid "Pending"
 msgstr "Pendente"
 
 #: src/components/analytics/NewContactsTable.tsx:93
-#: src/pages/ContactsPage.tsx:560
+#: src/pages/ContactsPage.tsx:564
 msgid "Pending confirmation"
 msgstr "Aguardando confirmação"
 
@@ -7123,9 +7127,9 @@ msgstr "Permissões atualizadas com sucesso"
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:93
 #: src/components/contacts/ExportContactsModal.tsx:62
 #: src/components/email_builder/ui/tiptap/components/TiptapToolbar.tsx:339
-#: src/pages/ContactsPage.tsx:370
-#: src/pages/ContactsPage.tsx:425
-#: src/pages/ContactsPage.tsx:690
+#: src/pages/ContactsPage.tsx:374
+#: src/pages/ContactsPage.tsx:429
+#: src/pages/ContactsPage.tsx:694
 msgid "Phone"
 msgstr "Telefone"
 
@@ -7535,7 +7539,7 @@ msgid "Preview template"
 msgstr "Visualizar template"
 
 #: src/pages/BroadcastsPage.tsx:857
-#: src/pages/TemplatesPage.tsx:330
+#: src/pages/TemplatesPage.tsx:386
 msgid "Preview Template"
 msgstr "Visualizar Template"
 
@@ -7824,7 +7828,7 @@ msgstr "Refazer (Ctrl+Shift+Z)"
 #: src/components/messages/MessageHistoryTable.tsx:360
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:429
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:414
-#: src/pages/ContactsPage.tsx:906
+#: src/pages/ContactsPage.tsx:910
 #: src/pages/ListsPage.tsx:158
 msgid "Refresh"
 msgstr "Atualizar"
@@ -7893,7 +7897,7 @@ msgstr "Remover campo"
 
 #: src/components/contacts/BulkActionsBar.tsx:94
 #: src/components/contacts/BulkActionsBar.tsx:148
-#: src/pages/ContactsPage.tsx:310
+#: src/pages/ContactsPage.tsx:314
 msgid "Remove from list"
 msgstr ""
 
@@ -8029,7 +8033,7 @@ msgstr "Redefinir"
 msgid "Reset formatting"
 msgstr "Redefinir formatação"
 
-#: src/pages/TemplatesPage.tsx:427
+#: src/pages/TemplatesPage.tsx:495
 msgid "reset the filter"
 msgstr "redefinir o filtro"
 
@@ -8324,6 +8328,7 @@ msgid "Screen width below which mobile layout is activated. Common values: 480px
 msgstr "Largura da tela abaixo da qual o layout móvel é ativado. Valores comuns: 480px, 600px, 768px"
 
 #: src/pages/BroadcastsPage.tsx:1457
+#: src/pages/TemplatesPage.tsx:435
 msgid "Search by name"
 msgstr ""
 
@@ -8404,8 +8409,8 @@ msgstr "Árvore do segmento redefinida"
 
 #: src/components/contacts/SegmentsFilter.tsx:228
 #: src/pages/BroadcastsPage.tsx:932
-#: src/pages/ContactsPage.tsx:421
-#: src/pages/ContactsPage.tsx:621
+#: src/pages/ContactsPage.tsx:425
+#: src/pages/ContactsPage.tsx:625
 msgid "Segments"
 msgstr "Segmentos"
 
@@ -8763,7 +8768,7 @@ msgstr "Enviar Teste"
 #: src/components/templates/SendTemplateModal.tsx:263
 #: src/components/templates/SendTemplateModal.tsx:277
 #: src/pages/BroadcastsPage.tsx:841
-#: src/pages/TemplatesPage.tsx:320
+#: src/pages/TemplatesPage.tsx:376
 msgid "Send Test Email"
 msgstr "Enviar Email de Teste"
 
@@ -8773,7 +8778,7 @@ msgstr "Envie notificações transacionais usando SMTP bridge. Perfeito para int
 
 #: src/components/templates/CreateTemplateDrawer.tsx:896
 #: src/components/templates/SendTemplateModal.tsx:303
-#: src/pages/TemplatesPage.tsx:181
+#: src/pages/TemplatesPage.tsx:237
 msgid "Sender"
 msgstr "Remetente"
 
@@ -9311,7 +9316,7 @@ msgid "status changed"
 msgstr "status alterado"
 
 #: src/components/analytics/NewContactsTable.tsx:114
-#: src/pages/ContactsPage.tsx:581
+#: src/pages/ContactsPage.tsx:585
 msgid "Status unknown"
 msgstr "Status desconhecido"
 
@@ -9344,7 +9349,7 @@ msgstr "Atributos de Estilo"
 #: src/components/templates/TemplatePreviewDrawer.tsx:305
 #: src/components/templates/TemplateTranslationsTab.tsx:212
 #: src/pages/BroadcastsPage.tsx:726
-#: src/pages/TemplatesPage.tsx:202
+#: src/pages/TemplatesPage.tsx:258
 msgid "Subject"
 msgstr "Assunto"
 
@@ -9397,7 +9402,7 @@ msgstr "Inscrito"
 msgid "Subscribed on"
 msgstr "Inscrito em"
 
-#: src/pages/ContactsPage.tsx:599
+#: src/pages/ContactsPage.tsx:603
 msgid "Subscribed on:"
 msgstr "Inscrito em:"
 
@@ -9542,7 +9547,7 @@ msgstr ""
 #: src/components/messages/MessageHistoryTable.tsx:172
 #: src/pages/BroadcastsPage.tsx:721
 #: src/pages/BroadcastsPage.tsx:723
-#: src/pages/TemplatesPage.tsx:152
+#: src/pages/TemplatesPage.tsx:208
 msgid "Template"
 msgstr "Template"
 
@@ -9586,7 +9591,7 @@ msgstr "Dados do Template"
 msgid "Template Data & Liquid Templating"
 msgstr "Dados do Template e Liquid Templating"
 
-#: src/pages/TemplatesPage.tsx:117
+#: src/pages/TemplatesPage.tsx:164
 msgid "Template deleted successfully"
 msgstr "Template excluído com sucesso"
 
@@ -9636,7 +9641,7 @@ msgid "Template:"
 msgstr "Template:"
 
 #: src/layouts/WorkspaceLayout.tsx:272
-#: src/pages/TemplatesPage.tsx:348
+#: src/pages/TemplatesPage.tsx:404
 msgid "Templates"
 msgstr "Templates"
 
@@ -10046,7 +10051,7 @@ msgstr "Este segmento usa filtros de data relativos e será recalculado automati
 msgid "This template is already used in another variation"
 msgstr "Este template já está sendo usado em outra variação"
 
-#: src/pages/TemplatesPage.tsx:286
+#: src/pages/TemplatesPage.tsx:342
 msgid "This template is managed by an integration and cannot be deleted"
 msgstr "Este template é gerenciado por uma integração e não pode ser excluído"
 
@@ -10137,8 +10142,8 @@ msgstr "Timestamp"
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:95
 #: src/components/settings/GeneralSettings.tsx:130
 #: src/components/settings/GeneralSettings.tsx:189
-#: src/pages/ContactsPage.tsx:428
-#: src/pages/ContactsPage.tsx:708
+#: src/pages/ContactsPage.tsx:432
+#: src/pages/ContactsPage.tsx:712
 msgid "Timezone"
 msgstr "Fuso Horário"
 
@@ -10146,8 +10151,8 @@ msgstr "Fuso Horário"
 msgid "Timezone used for dates"
 msgstr "Fuso horário usado para datas"
 
-#: src/pages/ContactsPage.tsx:601
-#: src/pages/ContactsPage.tsx:650
+#: src/pages/ContactsPage.tsx:605
+#: src/pages/ContactsPage.tsx:654
 msgid "Timezone:"
 msgstr "Fuso Horário:"
 
@@ -10300,7 +10305,7 @@ msgstr "O rastreamento (aberturas e cliques) deve estar habilitado nas configura
 #: src/components/analytics/EmailMetricsChart.tsx:286
 #: src/components/webhooks/InboundWebhookEventsTab.tsx:408
 #: src/layouts/WorkspaceLayout.tsx:319
-#: src/pages/TemplatesPage.tsx:79
+#: src/pages/TemplatesPage.tsx:126
 msgid "Transactional"
 msgstr "Transacional"
 
@@ -10351,7 +10356,7 @@ msgstr "Disparar em alterações de campos específicos"
 msgid "Try adjusting your search or status filter"
 msgstr ""
 
-#: src/pages/TemplatesPage.tsx:425
+#: src/pages/TemplatesPage.tsx:493
 msgid "Try selecting a different category or"
 msgstr "Tente selecionar uma categoria diferente ou"
 
@@ -10428,8 +10433,8 @@ msgid "Unknown"
 msgstr "Desconhecido"
 
 #: src/components/analytics/NewContactsTable.tsx:125
-#: src/pages/ContactsPage.tsx:592
-#: src/pages/ContactsPage.tsx:640
+#: src/pages/ContactsPage.tsx:596
+#: src/pages/ContactsPage.tsx:644
 msgid "Unknown date"
 msgstr "Data desconhecida"
 
@@ -10492,7 +10497,7 @@ msgstr "Desins"
 msgid "Unsub."
 msgstr "Desins."
 
-#: src/pages/TemplatesPage.tsx:82
+#: src/pages/TemplatesPage.tsx:129
 msgid "Unsubscribe"
 msgstr "Cancelar Assinatura"
 
@@ -10505,7 +10510,7 @@ msgstr "CANCELAR ASSINATURA"
 #: src/components/contacts/BulkUpdateDrawer.tsx:595
 #: src/components/segment/form_leaf.tsx:298
 #: src/components/segment/input.tsx:730
-#: src/pages/ContactsPage.tsx:332
+#: src/pages/ContactsPage.tsx:336
 msgid "Unsubscribe from list"
 msgstr "Cancelar assinatura da lista"
 
@@ -10515,12 +10520,12 @@ msgstr "Cancelar assinatura da lista"
 #: src/components/messages/MessageHistoryTab.tsx:195
 #: src/components/messages/MessageHistoryTab.tsx:200
 #: src/components/messages/MessageHistoryTable.tsx:314
-#: src/pages/ContactsPage.tsx:390
+#: src/pages/ContactsPage.tsx:394
 msgid "Unsubscribed"
 msgstr "Não Inscrito"
 
 #: src/components/analytics/NewContactsTable.tsx:98
-#: src/pages/ContactsPage.tsx:565
+#: src/pages/ContactsPage.tsx:569
 msgid "Unsubscribed from list"
 msgstr "Assinatura cancelada da lista"
 
@@ -10804,7 +10809,7 @@ msgstr "Versão"
 msgid "VERSION NOTES (OPTIONAL)"
 msgstr "NOTAS DA VERSÃO (OPCIONAL)"
 
-#: src/pages/ContactsPage.tsx:648
+#: src/pages/ContactsPage.tsx:652
 msgid "Version:"
 msgstr "Versão:"
 
@@ -10945,7 +10950,7 @@ msgstr "URL do Website"
 msgid "Weight"
 msgstr "Peso"
 
-#: src/pages/TemplatesPage.tsx:80
+#: src/pages/TemplatesPage.tsx:127
 msgid "Welcome"
 msgstr "Boas-vindas"
 
@@ -11161,7 +11166,7 @@ msgstr "Sim, limpar"
 msgid "Yes, delete"
 msgstr "Sim, excluir"
 
-#: src/pages/TemplatesPage.tsx:308
+#: src/pages/TemplatesPage.tsx:364
 #: src/pages/TransactionalNotificationsPage.tsx:146
 msgid "Yes, Delete"
 msgstr "Sim, Excluir"
@@ -11214,8 +11219,8 @@ msgid "You don't have write permission for broadcasts"
 msgstr "Você não tem permissão de escrita para broadcasts"
 
 #: src/components/contacts/BulkActionsBar.tsx:52
-#: src/pages/ContactsPage.tsx:1029
-#: src/pages/ContactsPage.tsx:1048
+#: src/pages/ContactsPage.tsx:1033
+#: src/pages/ContactsPage.tsx:1052
 msgid "You don't have write permission for contacts"
 msgstr "Você não tem permissão de escrita para contatos"
 
@@ -11227,10 +11232,10 @@ msgstr "Você não tem permissão de escrita para contatos"
 msgid "You don't have write permission for lists"
 msgstr "Você não tem permissão de escrita para listas"
 
-#: src/pages/TemplatesPage.tsx:243
-#: src/pages/TemplatesPage.tsx:265
-#: src/pages/TemplatesPage.tsx:288
-#: src/pages/TemplatesPage.tsx:353
+#: src/pages/TemplatesPage.tsx:299
+#: src/pages/TemplatesPage.tsx:321
+#: src/pages/TemplatesPage.tsx:344
+#: src/pages/TemplatesPage.tsx:409
 msgid "You don't have write permission for templates"
 msgstr "Você não tem permissão de escrita para templates"
 
@@ -11258,7 +11263,7 @@ msgid "You must configure a Custom Endpoint URL in General Settings above before
 msgstr "Você deve configurar uma URL de Endpoint Personalizado nas Configurações Gerais acima antes de habilitar o blog."
 
 #: src/pages/BroadcastsPage.tsx:840
-#: src/pages/TemplatesPage.tsx:319
+#: src/pages/TemplatesPage.tsx:375
 msgid "You need read template and write contact permissions to send test emails"
 msgstr "Você precisa de permissões de leitura de template e escrita de contato para enviar emails de teste"
 

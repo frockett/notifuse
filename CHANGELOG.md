@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 - **Fix**: Adding a contact (or adding a contact to a list from the details drawer) now refreshes the contacts list immediately instead of requiring a hard page reload. The "Add" contact drawer never invalidated the React Query cache on success, and the "add to list" action only refreshed the contact details — both now invalidate the contacts list (and total count) so the new contact appears right away (#364).
 - **Improvement**: Faster email rendering — Liquid engines are now reused across blocks via a pool instead of being rebuilt for every block, and constant regexes are compiled once, cutting per-block Liquid processing time by ~3× (~8× under concurrent sends) during broadcasts (#381).
 - **Improvement**: AI Email Designer reliability with reasoning models (e.g. DeepSeek) — thinking now streams into a collapsible panel, the preview refreshes immediately after AI edits, a generated email that doesn't compile surfaces the MJML error instead of silently looking successful, hitting the token limit shows a non-destructive warning instead of wiping the answer, and OpenAI-compatible integrations gain a reasoning-effort selector (#363).
+- **Feature**: Search templates by name on the templates list — a debounced name search beside the category filter, persisted in the URL, mirroring the broadcasts search (the already-loaded list is filtered client-side).
 
 ## [34.1] - 2026-06-25
 
