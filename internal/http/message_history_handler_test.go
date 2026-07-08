@@ -920,6 +920,26 @@ func TestMessageHistoryHandler_handleBroadcastVariationStats(t *testing.T) {
 
 		assert.Equal(t, http.StatusBadRequest, w.Code)
 	})
+
+	t.Run("permission error returns 403", func(t *testing.T) {
+		handler, mockService, _, mockTracer, _ := setupMessageHistoryHandlerTest(t)
+		req := httptest.NewRequest(http.MethodGet, "/api/messages.broadcastVariationStats?workspace_id=ws123&broadcast_id=bc123&template_id=tpl-1", nil)
+		w := httptest.NewRecorder()
+
+		mockSpan := &trace.Span{}
+		mockTracer.EXPECT().
+			StartSpan(gomock.Any(), "MessageHistoryHandler.handleBroadcastVariationStats").
+			Return(context.Background(), mockSpan)
+		mockTracer.EXPECT().EndSpan(mockSpan, nil)
+
+		mockService.EXPECT().
+			GetBroadcastVariationStats(gomock.Any(), "ws123", "bc123", "tpl-1").
+			Return(nil, domain.NewPermissionError(domain.PermissionResourceMessageHistory, domain.PermissionTypeRead, "denied"))
+
+		handler.handleBroadcastVariationStats(w, req)
+
+		assert.Equal(t, http.StatusForbidden, w.Code)
+	})
 }
 
 func TestMessageHistoryHandler_handleBroadcastLinkStats_TemplateFilter(t *testing.T) {

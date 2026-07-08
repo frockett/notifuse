@@ -112,6 +112,10 @@ func (h *MessageHistoryHandler) handleList(w http.ResponseWriter, r *http.Reques
 	// Call service to get the messages with pagination and filtering
 	result, err := h.service.ListMessages(ctx, workspaceID, params)
 	if err != nil {
+		if _, ok := err.(*domain.PermissionError); ok {
+			WriteJSONError(w, err.Error(), http.StatusForbidden)
+			return
+		}
 		// codecov:ignore:start
 		h.logger.Error(err.Error())
 		if span != nil {
@@ -155,6 +159,10 @@ func (h *MessageHistoryHandler) handleBroadcastStats(w http.ResponseWriter, r *h
 
 	stats, err := h.service.GetBroadcastStats(ctx, workspaceID, broadcastID)
 	if err != nil {
+		if _, ok := err.(*domain.PermissionError); ok {
+			WriteJSONError(w, err.Error(), http.StatusForbidden)
+			return
+		}
 		h.logger.WithField("error", err.Error()).Error("Failed to get stats")
 		WriteJSONError(w, "Failed to get stats", http.StatusInternalServerError)
 		return
@@ -201,6 +209,10 @@ func (h *MessageHistoryHandler) handleBroadcastVariationStats(w http.ResponseWri
 
 	stats, err := h.service.GetBroadcastVariationStats(ctx, workspaceID, broadcastID, templateID)
 	if err != nil {
+		if _, ok := err.(*domain.PermissionError); ok {
+			WriteJSONError(w, err.Error(), http.StatusForbidden)
+			return
+		}
 		h.logger.WithField("error", err.Error()).Error("Failed to get variation stats")
 		WriteJSONError(w, "Failed to get variation stats", http.StatusInternalServerError)
 		return
@@ -245,6 +257,10 @@ func (h *MessageHistoryHandler) handleBroadcastLinkStats(w http.ResponseWriter, 
 
 	linkStats, err := h.service.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, templateID)
 	if err != nil {
+		if _, ok := err.(*domain.PermissionError); ok {
+			WriteJSONError(w, err.Error(), http.StatusForbidden)
+			return
+		}
 		h.logger.WithField("error", err.Error()).Error("Failed to get link stats")
 		WriteJSONError(w, "Failed to get link stats", http.StatusInternalServerError)
 		return

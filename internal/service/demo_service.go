@@ -1503,13 +1503,18 @@ func (s *DemoService) createSampleBroadcasts(ctx context.Context, workspaceID st
 		broadcast.CompletedAt = &completedTime
 		broadcast.UpdatedAt = completedTime
 
-		// The last broadcast is the A/B test; record newsletter-weekly-v2 as the selected
+		// The last broadcast is the A/B test; record its final variation as the selected
 		// winner (all of its messages were sent with that variation) so the Variations
-		// table highlights it. WinningTemplate is a top-level column persisted by
-		// UpdateBroadcast below.
-		if i == len(broadcasts)-1 {
-			winner := "newsletter-weekly-v2"
+		// table highlights it. Derive the template id from the variation rather than
+		// hardcoding it, and set the test/winner phase timestamps so the record matches a
+		// genuine winner selection. WinningTemplate/*SentAt are top-level columns
+		// persisted by UpdateBroadcast below.
+		if i == len(broadcasts)-1 && len(variations) > 0 {
+			winner := variations[len(variations)-1].TemplateID
+			winnerSentTime := sentTime.Add(1 * time.Hour)
 			broadcast.WinningTemplate = &winner
+			broadcast.TestSentAt = &sentTime
+			broadcast.WinnerSentAt = &winnerSentTime
 		}
 
 		// Update the broadcast in the repository to reflect processed status

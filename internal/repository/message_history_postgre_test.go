@@ -1084,7 +1084,7 @@ func TestMessageHistoryRepository_GetBroadcastLinkStats(t *testing.T) {
 		  AND jsonb_typeof(clicked_links) = 'object'
 		  AND jsonb_typeof(e.value) = 'object'
 		GROUP BY e.key
-		ORDER BY unique_clicks DESC, total_clicks DESC
+		ORDER BY unique_clicks DESC, total_clicks DESC, e.key
 		LIMIT 200
 	`)
 

@@ -1327,7 +1327,7 @@ func (r *MessageHistoryRepository) GetBroadcastLinkStats(ctx context.Context, wo
 		  AND jsonb_typeof(clicked_links) = 'object'
 		  AND jsonb_typeof(e.value) = 'object'
 		GROUP BY e.key
-		ORDER BY unique_clicks DESC, total_clicks DESC
+		ORDER BY unique_clicks DESC, total_clicks DESC, e.key
 		LIMIT 200
 	`
 	// $2 (templateID): empty selects the whole broadcast; a non-empty value scopes the

@@ -163,7 +163,8 @@ func TestLinkClickStats(t *testing.T) {
 		require.NoError(t, json.NewDecoder(resp.Body).Decode(&result))
 
 		require.Len(t, result.LinkStats, 2)
-		// Ordered by total clicks descending
+		// Ordered by unique clicks descending, then total clicks (both URLs tie at 1
+		// unique here, so urlA's higher total puts it first).
 		assert.Equal(t, urlA, result.LinkStats[0].URL)
 		assert.Equal(t, int64(2), result.LinkStats[0].TotalClicks)
 		assert.Equal(t, int64(1), result.LinkStats[0].UniqueClicks)
@@ -184,5 +185,80 @@ func TestLinkClickStats(t *testing.T) {
 			`SELECT COUNT(*) FROM webhook_deliveries WHERE event_type = 'email.clicked'`).Scan(&deliveries)
 		require.NoError(t, err)
 		assert.Equal(t, 1, deliveries, "only the clicked_at transition produces a webhook delivery")
+	})
+
+	// Runs last: its extra clicks create more email.clicked deliveries and timeline rows,
+	// which would break the workspace-wide count assertions above.
+	t.Run("broadcastLinkStats orders by unique clicks, not total clicks", func(t *testing.T) {
+		// A fresh broadcast so these counts are isolated from the urlA/urlB fixture above.
+		abBroadcast, err := factory.CreateBroadcast(workspace.ID)
+		require.NoError(t, err)
+
+		newMessage := func(t *testing.T) string {
+			t.Helper()
+			c, err := factory.CreateContact(workspace.ID)
+			require.NoError(t, err)
+			m, err := factory.CreateMessageHistory(workspace.ID,
+				testutil.WithMessageContact(c.Email),
+				testutil.WithMessageTemplate(template.ID),
+				testutil.WithMessageBroadcast(abBroadcast.ID))
+			require.NoError(t, err)
+			return m.ID
+		}
+
+		clickAs := func(t *testing.T, msgID, destinationURL string) {
+			t.Helper()
+			token, err := crypto.EncryptTrackingToken(fmt.Sprintf("%s\n%s\n%s\n%s",
+				msgID, workspace.ID, tokenTimestamp, destinationURL))
+			require.NoError(t, err)
+			req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("%s/r/%s", baseURL, token), nil)
+			require.NoError(t, err)
+			req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15")
+			resp, err := redirectClient.Do(req)
+			require.NoError(t, err)
+			defer func() { _ = resp.Body.Close() }()
+			require.Equal(t, http.StatusSeeOther, resp.StatusCode)
+		}
+
+		// urlHigh: clicked once by each of two messages → unique 2, total 2.
+		// urlLow:  clicked three times by a single message → unique 1, total 3.
+		urlHigh := "https://shop.example.com/winner"
+		urlLow := "https://shop.example.com/runner-up"
+
+		msg1 := newMessage(t)
+		msg2 := newMessage(t)
+		clickAs(t, msg1, urlHigh)
+		clickAs(t, msg2, urlHigh)
+		clickAs(t, msg1, urlLow)
+		clickAs(t, msg1, urlLow)
+		clickAs(t, msg1, urlLow)
+
+		resp, err := client.Get("/api/messages.broadcastLinkStats", map[string]string{
+			"workspace_id": workspace.ID,
+			"broadcast_id": abBroadcast.ID,
+		})
+		require.NoError(t, err)
+		defer func() { _ = resp.Body.Close() }()
+		require.Equal(t, http.StatusOK, resp.StatusCode)
+
+		var result struct {
+			LinkStats []struct {
+				URL          string `json:"url"`
+				TotalClicks  int64  `json:"total_clicks"`
+				UniqueClicks int64  `json:"unique_clicks"`
+			} `json:"link_stats"`
+		}
+		require.NoError(t, json.NewDecoder(resp.Body).Decode(&result))
+		require.Len(t, result.LinkStats, 2)
+
+		// unique_clicks is the primary sort key: urlHigh (2 unique) ranks above urlLow
+		// (1 unique) even though urlLow has MORE total clicks (3 > 2). The old
+		// total-clicks-first ordering would have flipped these two rows.
+		assert.Equal(t, urlHigh, result.LinkStats[0].URL)
+		assert.Equal(t, int64(2), result.LinkStats[0].UniqueClicks)
+		assert.Equal(t, int64(2), result.LinkStats[0].TotalClicks)
+		assert.Equal(t, urlLow, result.LinkStats[1].URL)
+		assert.Equal(t, int64(1), result.LinkStats[1].UniqueClicks)
+		assert.Equal(t, int64(3), result.LinkStats[1].TotalClicks)
 	})
 }
