@@ -159,6 +159,35 @@ export function getBroadcastStats(
 }
 
 /**
+ * Response from the broadcast variation stats endpoint (one A/B variation)
+ */
+export interface BroadcastVariationStatsResult {
+  broadcast_id: string
+  template_id: string
+  stats: MessageHistoryStatusSum
+}
+
+/**
+ * Gets aggregate statistics for a single variation (template) of a broadcast.
+ * Available regardless of broadcast status, so it powers per-variation metrics after a
+ * broadcast has finished sending (when the A/B testResults endpoint no longer applies).
+ */
+export function getBroadcastVariationStats(
+  workspaceId: string,
+  broadcastId: string,
+  templateId: string
+): Promise<BroadcastVariationStatsResult> {
+  const queryParams = new URLSearchParams()
+  queryParams.append('workspace_id', workspaceId)
+  queryParams.append('broadcast_id', broadcastId)
+  queryParams.append('template_id', templateId)
+
+  return api.get<BroadcastVariationStatsResult>(
+    `/api/messages.broadcastVariationStats?${queryParams.toString()}`
+  )
+}
+
+/**
  * Per-URL click stats for a broadcast
  * Matches LinkClickStats from the backend
  */
@@ -176,15 +205,19 @@ export interface BroadcastLinkStatsResult {
 }
 
 /**
- * Gets per-link click statistics for a specific broadcast
+ * Gets per-link click statistics for a specific broadcast.
+ * Pass templateId to scope the breakdown to a single A/B variation (the template its
+ * messages were sent with); omit it for the whole broadcast.
  */
 export function getBroadcastLinkStats(
   workspaceId: string,
-  broadcastId: string
+  broadcastId: string,
+  templateId?: string
 ): Promise<BroadcastLinkStatsResult> {
   const queryParams = new URLSearchParams()
   queryParams.append('workspace_id', workspaceId)
   queryParams.append('broadcast_id', broadcastId)
+  if (templateId) queryParams.append('template_id', templateId)
 
   return api.get<BroadcastLinkStatsResult>(
     `/api/messages.broadcastLinkStats?${queryParams.toString()}`

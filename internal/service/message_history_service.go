@@ -101,7 +101,7 @@ func (s *MessageHistoryService) GetBroadcastStats(ctx context.Context, workspace
 }
 
 // GetBroadcastLinkStats retrieves per-URL click statistics for a broadcast
-func (s *MessageHistoryService) GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID string) ([]domain.LinkClickStats, error) {
+func (s *MessageHistoryService) GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID, templateID string) ([]domain.LinkClickStats, error) {
 	var err error
 	ctx, _, userWorkspace, err := s.authService.AuthenticateUserForWorkspace(ctx, workspaceID)
 	if err != nil {
@@ -117,7 +117,7 @@ func (s *MessageHistoryService) GetBroadcastLinkStats(ctx context.Context, works
 		)
 	}
 
-	stats, err := s.repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID)
+	stats, err := s.repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, templateID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to get broadcast link stats: %w", err)
 	}

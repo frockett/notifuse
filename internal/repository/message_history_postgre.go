@@ -1295,7 +1295,7 @@ func (r *MessageHistoryRepository) GetBroadcastVariationStats(ctx context.Contex
 }
 
 // GetBroadcastLinkStats retrieves per-URL click statistics for a broadcast
-func (r *MessageHistoryRepository) GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID string) ([]domain.LinkClickStats, error) {
+func (r *MessageHistoryRepository) GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID, templateID string) ([]domain.LinkClickStats, error) {
 	// codecov:ignore:start
 	ctx, span := tracing.StartServiceSpan(ctx, "MessageHistoryRepository", "GetBroadcastLinkStats")
 	defer tracing.EndSpan(span, nil)
@@ -1323,14 +1323,17 @@ func (r *MessageHistoryRepository) GetBroadcastLinkStats(ctx context.Context, wo
 		FROM message_history
 		CROSS JOIN LATERAL jsonb_each(clicked_links) AS e(key, value)
 		WHERE broadcast_id = $1
+		  AND ($2 = '' OR template_id = $2)
 		  AND jsonb_typeof(clicked_links) = 'object'
 		  AND jsonb_typeof(e.value) = 'object'
 		GROUP BY e.key
-		ORDER BY total_clicks DESC
+		ORDER BY unique_clicks DESC, total_clicks DESC
 		LIMIT 200
 	`
+	// $2 (templateID): empty selects the whole broadcast; a non-empty value scopes the
+	// breakdown to a single A/B variation (the template its messages were sent with).
 
-	rows, err := workspaceDB.QueryContext(ctx, query, broadcastID)
+	rows, err := workspaceDB.QueryContext(ctx, query, broadcastID, templateID)
 	if err != nil {
 		// codecov:ignore:start
 		tracing.MarkSpanError(ctx, err)

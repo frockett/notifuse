@@ -201,8 +201,10 @@ type MessageHistoryRepository interface {
 	// GetBroadcastVariationStats retrieves statistics for a specific variation of a broadcast
 	GetBroadcastVariationStats(ctx context.Context, workspaceID, broadcastID, templateID string) (*MessageHistoryStatusSum, error)
 
-	// GetBroadcastLinkStats retrieves per-URL click statistics for a broadcast
-	GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID string) ([]LinkClickStats, error)
+	// GetBroadcastLinkStats retrieves per-URL click statistics for a broadcast.
+	// When templateID is non-empty, only clicks on messages sent with that template
+	// (i.e. that A/B variation) are counted; empty templateID covers the whole broadcast.
+	GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID, templateID string) ([]LinkClickStats, error)
 
 	// DeleteForEmail deletes all message history records for a specific email
 	DeleteForEmail(ctx context.Context, workspaceID, email string) error
@@ -219,8 +221,10 @@ type MessageHistoryService interface {
 	// GetBroadcastVariationStats retrieves statistics for a specific variation of a broadcast
 	GetBroadcastVariationStats(ctx context.Context, workspaceID, broadcastID, templateID string) (*MessageHistoryStatusSum, error)
 
-	// GetBroadcastLinkStats retrieves per-URL click statistics for a broadcast
-	GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID string) ([]LinkClickStats, error)
+	// GetBroadcastLinkStats retrieves per-URL click statistics for a broadcast.
+	// When templateID is non-empty, only clicks on messages sent with that template
+	// (i.e. that A/B variation) are counted; empty templateID covers the whole broadcast.
+	GetBroadcastLinkStats(ctx context.Context, workspaceID, broadcastID, templateID string) ([]LinkClickStats, error)
 }
 
 // MessageListParams contains parameters for listing messages with pagination and filtering

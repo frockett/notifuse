@@ -196,11 +196,11 @@ msgstr "{0}-{1} de {total} automatizaciones"
 
 #. placeholder {0}: range[0]
 #. placeholder {1}: range[1]
-#: src/pages/BroadcastsPage.tsx:1531
+#: src/pages/BroadcastsPage.tsx:1542
 msgid "{0}-{1} of {total} broadcasts"
 msgstr "{0}-{1} de {total} envíos masivos"
 
-#: src/pages/BroadcastsPage.tsx:812
+#: src/pages/BroadcastsPage.tsx:814
 msgid "{clicks} clicks out of {recipients} recipients"
 msgstr "{clicks} clics de {recipients} destinatarios"
 
@@ -220,7 +220,7 @@ msgstr "¡Código {language} copiado al portapapeles!"
 msgid "{minutes}m {remainingSeconds}s"
 msgstr "{minutes}m {remainingSeconds}s"
 
-#: src/pages/BroadcastsPage.tsx:777
+#: src/pages/BroadcastsPage.tsx:779
 msgid "{opens} opens out of {recipients} recipients"
 msgstr "{opens} aperturas de {recipients} destinatarios"
 
@@ -280,7 +280,7 @@ msgstr "+ añadir nombre del remitente, CC, CCO, responder a, adjuntos"
 msgid "+ Add variation"
 msgstr "+ Añadir variación"
 
-#: src/pages/BroadcastsPage.tsx:796
+#: src/pages/BroadcastsPage.tsx:798
 msgid "0 clicks out of 0 recipients"
 msgstr "0 clics de 0 destinatarios"
 
@@ -288,7 +288,7 @@ msgstr "0 clics de 0 destinatarios"
 msgid "0 contacts"
 msgstr "0 contactos"
 
-#: src/pages/BroadcastsPage.tsx:765
+#: src/pages/BroadcastsPage.tsx:767
 msgid "0 opens out of 0 recipients"
 msgstr "0 aperturas de 0 destinatarios"
 
@@ -403,7 +403,7 @@ msgstr "Se requiere un valor..."
 #: src/components/automations/nodes/ABTestNode.tsx:47
 #: src/components/automations/nodes/StatNode.tsx:58
 #: src/components/automations/nodes/StatNode.tsx:243
-#: src/pages/BroadcastsPage.tsx:1060
+#: src/pages/BroadcastsPage.tsx:1071
 msgid "A/B Test"
 msgstr "Prueba A/B"
 
@@ -421,7 +421,7 @@ msgstr "Acción"
 
 #: src/components/blog/PostsTable.tsx:296
 #: src/components/blog/RecentThemesTable.tsx:179
-#: src/pages/BroadcastsPage.tsx:826
+#: src/pages/BroadcastsPage.tsx:828
 msgid "Actions"
 msgstr "Acciones"
 
@@ -664,7 +664,7 @@ msgstr "después"
 
 #. placeholder {0}: broadcast.test_settings.test_duration_hours
 #. placeholder {1}: broadcast.test_settings.auto_send_winner_metric === 'open_rate' ? t`opens` : t`clicks`
-#: src/pages/BroadcastsPage.tsx:1078
+#: src/pages/BroadcastsPage.tsx:1089
 msgid "After {0} hours based on highest {1}"
 msgstr "Después de {0} horas basado en el mayor {1}"
 
@@ -676,6 +676,10 @@ msgstr "después de la fecha"
 #: src/components/segment/form_leaf.tsx:605
 msgid "Aggregate"
 msgstr "Agregar"
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:191
+#~ msgid "Aggregated across all A/B variations."
+#~ msgstr ""
 
 #: src/components/ai-assistant/AIAssistantChat.tsx:105
 msgid "AI Assistant Not Configured"
@@ -722,7 +726,7 @@ msgid "Alignment"
 msgstr "Alineación"
 
 #: src/components/analytics/EmailMetricsChart.tsx:284
-#: src/pages/BroadcastsPage.tsx:1447
+#: src/pages/BroadcastsPage.tsx:1458
 #: src/pages/TemplatesPage.tsx:124
 msgid "All"
 msgstr "Todos"
@@ -730,6 +734,10 @@ msgstr "Todos"
 #: src/components/segment/input.tsx:884
 msgid "ALL"
 msgstr "TODOS"
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:177
+msgid "All click events, including repeat clicks. May be inflated by bots and prefetching."
+msgstr ""
 
 #: src/components/transactional/ApiCommandModal.tsx:1007
 msgid "All contact fields are optional except email."
@@ -910,7 +918,7 @@ msgid "Are you sure you want to delete \"{0}\"?"
 msgstr "¿Estás seguro de que quieres eliminar \"{0}\"?"
 
 #. placeholder {0}: broadcastToDelete.name
-#: src/pages/BroadcastsPage.tsx:1615
+#: src/pages/BroadcastsPage.tsx:1626
 msgid "Are you sure you want to delete the broadcast \"{0}\"?"
 msgstr "¿Estás seguro de que quieres eliminar el envío masivo \"{0}\"?"
 
@@ -986,7 +994,7 @@ msgid "Are you sure you want to remove this variation?"
 msgstr "¿Estás seguro de que quieres eliminar esta variación?"
 
 #. placeholder {0}: record.templateName
-#: src/pages/BroadcastsPage.tsx:892
+#: src/pages/BroadcastsPage.tsx:894
 msgid "Are you sure you want to select \"{0}\" as the winner? The broadcast will be sent to the remaining recipients."
 msgstr "¿Estás seguro de que quieres seleccionar \"{0}\" como ganador? El envío masivo se enviará a los destinatarios restantes."
 
@@ -1036,7 +1044,7 @@ msgstr "Adjuntos"
 msgid "Attempts"
 msgstr "Intentos"
 
-#: src/pages/BroadcastsPage.tsx:927
+#: src/pages/BroadcastsPage.tsx:938
 msgid "Audience"
 msgstr "Audiencia"
 
@@ -1103,7 +1111,7 @@ msgstr ""
 msgid "Auto-reply"
 msgstr ""
 
-#: src/pages/BroadcastsPage.tsx:1069
+#: src/pages/BroadcastsPage.tsx:1080
 msgid "Auto-send Winner"
 msgstr "Enviar ganador automáticamente"
 
@@ -1512,27 +1520,27 @@ msgid "Broadcast"
 msgstr "Envío masivo"
 
 #. placeholder {0}: broadcast.name
-#: src/pages/BroadcastsPage.tsx:1362
+#: src/pages/BroadcastsPage.tsx:1373
 msgid "Broadcast \"{0}\" cancelled successfully"
 msgstr "Envío masivo \"{0}\" cancelado exitosamente"
 
 #. placeholder {0}: broadcastToDelete.name
-#: src/pages/BroadcastsPage.tsx:1304
+#: src/pages/BroadcastsPage.tsx:1315
 msgid "Broadcast \"{0}\" deleted successfully"
 msgstr "Envío masivo \"{0}\" eliminado exitosamente"
 
 #. placeholder {0}: broadcast.name
-#: src/pages/BroadcastsPage.tsx:1330
+#: src/pages/BroadcastsPage.tsx:1341
 msgid "Broadcast \"{0}\" paused successfully"
 msgstr "Envío masivo \"{0}\" pausado exitosamente"
 
 #. placeholder {0}: broadcast.name
-#: src/pages/BroadcastsPage.tsx:1400
+#: src/pages/BroadcastsPage.tsx:1411
 msgid "Broadcast \"{0}\" refreshed"
 msgstr "Envío masivo \"{0}\" actualizado"
 
 #. placeholder {0}: broadcast.name
-#: src/pages/BroadcastsPage.tsx:1346
+#: src/pages/BroadcastsPage.tsx:1357
 msgid "Broadcast \"{0}\" resumed successfully"
 msgstr "Envío masivo \"{0}\" reanudado exitosamente"
 
@@ -1555,7 +1563,7 @@ msgstr "Envío masivo creado exitosamente"
 msgid "Broadcast ID"
 msgstr "ID del envío masivo"
 
-#: src/pages/BroadcastsPage.tsx:1626
+#: src/pages/BroadcastsPage.tsx:1637
 msgid "Broadcast ID copied to clipboard"
 msgstr "ID del envío masivo copiado al portapapeles"
 
@@ -1569,7 +1577,7 @@ msgstr "Envío masivo actualizado exitosamente"
 
 #: src/components/analytics/EmailMetricsChart.tsx:285
 #: src/layouts/WorkspaceLayout.tsx:281
-#: src/pages/BroadcastsPage.tsx:1415
+#: src/pages/BroadcastsPage.tsx:1426
 msgid "Broadcasts"
 msgstr "Envíos masivos"
 
@@ -1686,21 +1694,21 @@ msgstr "Tamaño del botón"
 #: src/components/templates/SendTemplateModal.tsx:268
 #: src/components/templates/TemplateTranslationsTab.tsx:254
 #: src/components/transactional/UpsertTransactionalNotificationDrawer.tsx:179
-#: src/pages/BroadcastsPage.tsx:526
-#: src/pages/BroadcastsPage.tsx:548
-#: src/pages/BroadcastsPage.tsx:895
-#: src/pages/BroadcastsPage.tsx:1599
+#: src/pages/BroadcastsPage.tsx:528
+#: src/pages/BroadcastsPage.tsx:550
+#: src/pages/BroadcastsPage.tsx:897
+#: src/pages/BroadcastsPage.tsx:1610
 #: src/pages/ListsPage.tsx:318
 #: src/pages/TemplatesPage.tsx:366
 #: src/pages/TransactionalNotificationsPage.tsx:147
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/pages/BroadcastsPage.tsx:565
+#: src/pages/BroadcastsPage.tsx:567
 msgid "Cancel Broadcast"
 msgstr "Cancelar envío masivo"
 
-#: src/pages/BroadcastsPage.tsx:569
+#: src/pages/BroadcastsPage.tsx:571
 msgid "Cancel broadcast?"
 msgstr ""
 
@@ -1712,8 +1720,8 @@ msgstr "¿Cancelar operación?"
 msgid "Cancel Upload?"
 msgstr "¿Cancelar subida?"
 
-#: src/pages/BroadcastsPage.tsx:355
-#: src/pages/BroadcastsPage.tsx:1017
+#: src/pages/BroadcastsPage.tsx:357
+#: src/pages/BroadcastsPage.tsx:1028
 msgid "Cancelled"
 msgstr "Cancelado"
 
@@ -1855,7 +1863,7 @@ msgstr "Limpiar todo"
 msgid "Clear field"
 msgstr "Limpiar campo"
 
-#: src/pages/BroadcastsPage.tsx:1545
+#: src/pages/BroadcastsPage.tsx:1556
 msgid "Clear filters"
 msgstr ""
 
@@ -1872,6 +1880,10 @@ msgstr "Haz clic para opciones"
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:837
 msgid "Click or drag a CSV file to this area to upload"
 msgstr "Haz clic o arrastra un archivo CSV a esta área para subir"
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:164
+msgid "Click rate"
+msgstr ""
 
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:55
 msgid "Click Rate"
@@ -1894,8 +1906,8 @@ msgid "Click Resume to continue processing."
 msgstr ""
 
 #: src/components/broadcasts/BroadcastLinkStats.tsx:114
-msgid "Click share"
-msgstr ""
+#~ msgid "Click share"
+#~ msgstr ""
 
 #: src/components/timeline/ContactTimeline.tsx:506
 msgid "clicked"
@@ -1908,14 +1920,14 @@ msgstr "clic realizado"
 msgid "Clicked"
 msgstr "Clic realizado"
 
-#: src/pages/BroadcastsPage.tsx:1078
+#: src/pages/BroadcastsPage.tsx:1089
 msgid "clicks"
 msgstr "clics"
 
 #: src/components/analytics/EmailMetricsChart.tsx:269
 #: src/components/analytics/EmailMetricsChart.tsx:402
 #: src/components/broadcasts/BroadcastStats.tsx:225
-#: src/pages/BroadcastsPage.tsx:789
+#: src/pages/BroadcastsPage.tsx:791
 msgid "Clicks"
 msgstr "Clics"
 
@@ -2087,8 +2099,8 @@ msgstr "completado"
 #: src/components/automations/nodes/StatNode.tsx:108
 #: src/components/automations/nodes/StatNode.tsx:173
 #: src/components/automations/nodes/StatNode.tsx:255
-#: src/pages/BroadcastsPage.tsx:351
-#: src/pages/BroadcastsPage.tsx:998
+#: src/pages/BroadcastsPage.tsx:353
+#: src/pages/BroadcastsPage.tsx:1009
 msgid "Completed"
 msgstr "Completado"
 
@@ -2149,7 +2161,7 @@ msgid "Configure outgoing webhooks to receive real-time notifications when event
 msgstr "Configura webhooks salientes para recibir notificaciones en tiempo real cuando ocurran eventos en tu espacio de trabajo."
 
 #: src/components/broadcasts/SendOrScheduleModal.tsx:187
-#: src/pages/BroadcastsPage.tsx:1484
+#: src/pages/BroadcastsPage.tsx:1495
 msgid "Configure Provider"
 msgstr "Configurar proveedor"
 
@@ -2323,11 +2335,11 @@ msgstr "Copiar"
 msgid "Copy {0} Code"
 msgstr "Copiar código {0}"
 
-#: src/pages/BroadcastsPage.tsx:1619
+#: src/pages/BroadcastsPage.tsx:1630
 msgid "Copy to clipboard"
 msgstr "Copiar al portapapeles"
 
-#: src/components/broadcasts/BroadcastLinkStats.tsx:86
+#: src/components/broadcasts/BroadcastLinkStats.tsx:120
 #: src/components/file_manager/fileManager.tsx:901
 msgid "Copy URL"
 msgstr "Copiar URL"
@@ -2360,6 +2372,10 @@ msgstr ""
 #: src/pages/ContactsPage.tsx:700
 msgid "Country"
 msgstr "País"
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:95
+msgid "Counts may include automated security-scanner and Apple Mail prefetch clicks; Unique clicks is the most reliable human signal."
+msgstr ""
 
 #: src/components/email_builder/ui/BackgroundInput.tsx:86
 msgid "Cover"
@@ -2402,8 +2418,8 @@ msgid "Create Automation"
 msgstr "Crear automatización"
 
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:383
-#: src/pages/BroadcastsPage.tsx:1430
-#: src/pages/BroadcastsPage.tsx:1568
+#: src/pages/BroadcastsPage.tsx:1441
+#: src/pages/BroadcastsPage.tsx:1579
 msgid "Create Broadcast"
 msgstr "Crear envío masivo"
 
@@ -2485,7 +2501,7 @@ msgstr "Crea tu primera automatización"
 msgid "Create your first blog post to get started"
 msgstr "Crea tu primera publicación de blog para comenzar"
 
-#: src/pages/BroadcastsPage.tsx:1553
+#: src/pages/BroadcastsPage.tsx:1564
 msgid "Create your first broadcast to get started"
 msgstr "Crea tu primer envío masivo para comenzar"
 
@@ -2832,7 +2848,7 @@ msgstr "Atributos predeterminados"
 msgid "Default Language"
 msgstr ""
 
-#: src/pages/BroadcastsPage.tsx:699
+#: src/pages/BroadcastsPage.tsx:701
 msgid "Default sender"
 msgstr "Remitente predeterminado"
 
@@ -2881,7 +2897,7 @@ msgstr "Retraso"
 #: src/components/settings/Integrations.tsx:1388
 #: src/components/settings/Integrations.tsx:1457
 #: src/components/settings/WebhookCard.tsx:239
-#: src/pages/BroadcastsPage.tsx:1609
+#: src/pages/BroadcastsPage.tsx:1620
 #: src/pages/ContactsPage.tsx:944
 #: src/pages/ListsPage.tsx:328
 msgid "Delete"
@@ -2912,8 +2928,8 @@ msgstr "Eliminar bloque"
 msgid "Delete Block"
 msgstr "Eliminar bloque"
 
-#: src/pages/BroadcastsPage.tsx:588
-#: src/pages/BroadcastsPage.tsx:1594
+#: src/pages/BroadcastsPage.tsx:590
+#: src/pages/BroadcastsPage.tsx:1605
 msgid "Delete Broadcast"
 msgstr "Eliminar envío masivo"
 
@@ -3219,7 +3235,7 @@ msgstr "{0} archivo(s) descargado(s)"
 
 #: src/components/automations/AutomationCard.tsx:63
 #: src/components/blog/PostStatusTag.tsx:33
-#: src/pages/BroadcastsPage.tsx:1448
+#: src/pages/BroadcastsPage.tsx:1459
 msgid "Draft"
 msgstr "Borrador"
 
@@ -3351,7 +3367,7 @@ msgid "Edit broadcast"
 msgstr "Editar envío masivo"
 
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:383
-#: src/pages/BroadcastsPage.tsx:491
+#: src/pages/BroadcastsPage.tsx:493
 msgid "Edit Broadcast"
 msgstr "Editar envío masivo"
 
@@ -3577,7 +3593,7 @@ msgstr "Vista previa del correo"
 msgid "Email Provider Configuration Needed"
 msgstr "Configuración de proveedor de correo necesaria"
 
-#: src/pages/BroadcastsPage.tsx:1473
+#: src/pages/BroadcastsPage.tsx:1484
 msgid "Email Provider Required"
 msgstr "Proveedor de correo requerido"
 
@@ -3747,7 +3763,7 @@ msgstr "Introduce la URL de la imagen de fondo"
 msgid "Enter BCC email addresses"
 msgstr "Introduce direcciones de correo CCO"
 
-#: src/pages/BroadcastsPage.tsx:1632
+#: src/pages/BroadcastsPage.tsx:1643
 msgid "Enter broadcast ID to confirm"
 msgstr "Introduce el ID del envío masivo para confirmar"
 
@@ -3890,7 +3906,7 @@ msgstr "ID de entidad:"
 #: src/components/contacts/ContactsCsvUploadDrawer.tsx:930
 #: src/components/messages/MessageHistoryTable.tsx:134
 #: src/components/messages/MessageHistoryTable.tsx:322
-#: src/pages/BroadcastsPage.tsx:427
+#: src/pages/BroadcastsPage.tsx:429
 msgid "Error"
 msgstr "Error"
 
@@ -3988,7 +4004,7 @@ msgstr "Extracto"
 msgid "Excerpt only"
 msgstr ""
 
-#: src/pages/BroadcastsPage.tsx:959
+#: src/pages/BroadcastsPage.tsx:970
 msgid "Exclude Unsubscribed"
 msgstr "Excluir dados de baja"
 
@@ -4075,9 +4091,9 @@ msgstr "fallido"
 #: src/components/settings/WebhookCard.tsx:311
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:80
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:242
-#: src/pages/BroadcastsPage.tsx:353
-#: src/pages/BroadcastsPage.tsx:420
-#: src/pages/BroadcastsPage.tsx:1452
+#: src/pages/BroadcastsPage.tsx:355
+#: src/pages/BroadcastsPage.tsx:422
+#: src/pages/BroadcastsPage.tsx:1463
 #: src/pages/TransactionalNotificationsPage.tsx:232
 msgid "Failed"
 msgstr "Fallido"
@@ -4094,7 +4110,7 @@ msgstr "Error al activar automatización"
 msgid "Failed to add to list: {error}"
 msgstr "Error al añadir a la lista: {error}"
 
-#: src/pages/BroadcastsPage.tsx:1367
+#: src/pages/BroadcastsPage.tsx:1378
 msgid "Failed to cancel broadcast"
 msgstr "Error al cancelar envío masivo"
 
@@ -4169,7 +4185,7 @@ msgstr "Error al crear espacio de trabajo"
 msgid "Failed to delete automation"
 msgstr "Error al eliminar automatización"
 
-#: src/pages/BroadcastsPage.tsx:1317
+#: src/pages/BroadcastsPage.tsx:1328
 msgid "Failed to delete broadcast"
 msgstr "Error al eliminar envío masivo"
 
@@ -4304,7 +4320,7 @@ msgstr "Error al cargar suscripciones de webhook"
 msgid "Failed to pause automation"
 msgstr "Error al pausar automatización"
 
-#: src/pages/BroadcastsPage.tsx:1335
+#: src/pages/BroadcastsPage.tsx:1346
 msgid "Failed to pause broadcast"
 msgstr "Error al pausar envío masivo"
 
@@ -4372,7 +4388,7 @@ msgstr "Error al reenviar invitación"
 msgid "Failed to resend magic code"
 msgstr "Error al reenviar el código mágico"
 
-#: src/pages/BroadcastsPage.tsx:1351
+#: src/pages/BroadcastsPage.tsx:1362
 msgid "Failed to resume broadcast"
 msgstr "Error al reanudar envío masivo"
 
@@ -4427,7 +4443,7 @@ msgstr "Error al guardar suscripción de webhook"
 msgid "Failed to schedule broadcast"
 msgstr "Error al programar envío masivo"
 
-#: src/pages/BroadcastsPage.tsx:332
+#: src/pages/BroadcastsPage.tsx:334
 msgid "Failed to select winner"
 msgstr "Error al seleccionar ganador"
 
@@ -4827,7 +4843,7 @@ msgstr "Nombre del remitente"
 msgid "From Name (override)"
 msgstr "Nombre del remitente (anular)"
 
-#: src/pages/BroadcastsPage.tsx:744
+#: src/pages/BroadcastsPage.tsx:746
 msgid "From:"
 msgstr "De:"
 
@@ -5021,7 +5037,7 @@ msgstr "Ayuda a los lectores de pantalla a describir la imagen"
 msgid "Hide"
 msgstr "Ocultar"
 
-#: src/pages/BroadcastsPage.tsx:656
+#: src/pages/BroadcastsPage.tsx:658
 msgid "Hide Details"
 msgstr "Ocultar detalles"
 
@@ -5148,7 +5164,7 @@ msgstr "El ID solo puede contener letras minúsculas y números"
 msgid "ID can only contain lowercase letters, numbers, and underscores"
 msgstr "El ID solo puede contener letras minúsculas, números y guiones bajos"
 
-#: src/pages/BroadcastsPage.tsx:1640
+#: src/pages/BroadcastsPage.tsx:1651
 #: src/pages/ListsPage.tsx:346
 msgid "ID doesn't match"
 msgstr "El ID no coincide"
@@ -5334,7 +5350,7 @@ msgid "Importing files..."
 msgstr "Importando archivos..."
 
 #. placeholder {0}: broadcast.schedule.timezone
-#: src/pages/BroadcastsPage.tsx:985
+#: src/pages/BroadcastsPage.tsx:996
 msgid "in {0}"
 msgstr "en {0}"
 
@@ -5343,7 +5359,7 @@ msgstr "en {0}"
 msgid "in date range"
 msgstr "en rango de fechas"
 
-#: src/pages/BroadcastsPage.tsx:984
+#: src/pages/BroadcastsPage.tsx:995
 msgid "in recipients timezone"
 msgstr "en zona horaria de destinatarios"
 
@@ -5390,7 +5406,7 @@ msgstr "Indexar, pero no seguir enlaces"
 msgid "Inflight"
 msgstr "En vuelo"
 
-#: src/pages/BroadcastsPage.tsx:739
+#: src/pages/BroadcastsPage.tsx:741
 msgid "Info"
 msgstr "Información"
 
@@ -5804,13 +5820,18 @@ msgid "Line Through"
 msgstr "Tachado"
 
 #: src/components/blog_editor/toolbars/components/LinkPopover.tsx:131
+#: src/components/broadcasts/BroadcastLinkStats.tsx:83
 #: src/components/email_builder/blocks/MjImageBlock.tsx:56
 msgid "Link"
 msgstr "Enlace"
 
 #: src/components/broadcasts/BroadcastLinkStats.tsx:62
-msgid "Link Clicks"
-msgstr ""
+#~ msgid "Link Clicks"
+#~ msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:80
+#~ msgid "Link performance"
+#~ msgstr ""
 
 #: src/components/email_builder/blocks/MjSocialElementBlock.tsx:370
 msgid "Link Settings"
@@ -5846,7 +5867,7 @@ msgstr ""
 #: src/components/messages/MessageHistoryTable.tsx:132
 #: src/components/messages/MessageHistoryTable.tsx:215
 #: src/components/messages/MessageHistoryTable.tsx:229
-#: src/pages/BroadcastsPage.tsx:951
+#: src/pages/BroadcastsPage.tsx:962
 #: src/pages/ContactsPage.tsx:379
 msgid "List"
 msgstr "Lista"
@@ -6114,7 +6135,7 @@ msgstr ""
 msgid "Member removed successfully"
 msgstr "Miembro eliminado exitosamente"
 
-#: src/pages/BroadcastsPage.tsx:413
+#: src/pages/BroadcastsPage.tsx:415
 msgid "Message"
 msgstr "Mensaje"
 
@@ -6314,9 +6335,9 @@ msgstr "Mi webhook"
 msgid "my-custom-class"
 msgstr "mi-clase-personalizada"
 
-#: src/pages/BroadcastsPage.tsx:700
-#: src/pages/BroadcastsPage.tsx:768
-#: src/pages/BroadcastsPage.tsx:803
+#: src/pages/BroadcastsPage.tsx:702
+#: src/pages/BroadcastsPage.tsx:770
+#: src/pages/BroadcastsPage.tsx:805
 msgid "N/A"
 msgstr "N/D"
 
@@ -6399,7 +6420,7 @@ msgstr "Nuevo espacio de trabajo"
 msgid "Next"
 msgstr "Siguiente"
 
-#: src/pages/BroadcastsPage.tsx:376
+#: src/pages/BroadcastsPage.tsx:378
 msgid "Next Run"
 msgstr "Próxima ejecución"
 
@@ -6438,7 +6459,7 @@ msgstr "Próxima ejecución"
 #: src/components/settings/WorkspaceMembers.tsx:430
 #: src/components/settings/WorkspaceMembers.tsx:438
 #: src/components/transactional/UpsertTransactionalNotificationDrawer.tsx:154
-#: src/pages/BroadcastsPage.tsx:573
+#: src/pages/BroadcastsPage.tsx:575
 msgid "No"
 msgstr "No"
 
@@ -6455,11 +6476,11 @@ msgstr "Sin acceso"
 msgid "No automations yet"
 msgstr "Sin automatizaciones aún"
 
-#: src/pages/BroadcastsPage.tsx:1551
+#: src/pages/BroadcastsPage.tsx:1562
 msgid "No broadcasts found"
 msgstr "No se encontraron envíos masivos"
 
-#: src/pages/BroadcastsPage.tsx:1539
+#: src/pages/BroadcastsPage.tsx:1550
 msgid "No broadcasts match your filters"
 msgstr ""
 
@@ -6543,9 +6564,13 @@ msgstr "Sin problemas"
 msgid "No items selected"
 msgstr "No hay elementos seleccionados"
 
-#: src/components/broadcasts/BroadcastLinkStats.tsx:128
-msgid "No link clicks recorded yet"
+#: src/components/broadcasts/BroadcastLinkStats.tsx:196
+msgid "No link clicks recorded for this variation yet"
 msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:128
+#~ msgid "No link clicks recorded yet"
+#~ msgstr ""
 
 #: src/components/automations/AutomationCard.tsx:99
 msgid "No list"
@@ -6849,6 +6874,14 @@ msgstr "Una vez"
 msgid "Once per contact"
 msgstr "Una vez por contacto"
 
+#: src/components/broadcasts/BroadcastLinkStats.tsx:186
+#~ msgid "Only clicks recorded since per-link tracking was enabled appear here; earlier clicks are still included in the Clicks total above."
+#~ msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:92
+msgid "Only clicks recorded since per-link tracking was enabled appear here; earlier clicks still count toward the variation's Clicks total."
+msgstr ""
+
 #: src/components/file_manager/fileManager.tsx:1046
 msgid "Only lowercase alphanumeric characters, underscore, and dash are allowed."
 msgstr "Solo se permiten caracteres alfanuméricos en minúsculas, guión bajo y guión."
@@ -6907,14 +6940,14 @@ msgstr "abierto"
 msgid "Opened"
 msgstr "Abierto"
 
-#: src/pages/BroadcastsPage.tsx:1078
+#: src/pages/BroadcastsPage.tsx:1089
 msgid "opens"
 msgstr "aperturas"
 
 #: src/components/analytics/EmailMetricsChart.tsx:268
 #: src/components/analytics/EmailMetricsChart.tsx:375
 #: src/components/broadcasts/BroadcastStats.tsx:201
-#: src/pages/BroadcastsPage.tsx:758
+#: src/pages/BroadcastsPage.tsx:760
 msgid "Opens"
 msgstr "Aperturas"
 
@@ -7048,17 +7081,17 @@ msgstr "Pausar automatización"
 msgid "Pause automation?"
 msgstr "¿Pausar automatización?"
 
-#: src/pages/BroadcastsPage.tsx:518
+#: src/pages/BroadcastsPage.tsx:520
 msgid "Pause Broadcast"
 msgstr "Pausar envío masivo"
 
-#: src/pages/BroadcastsPage.tsx:522
+#: src/pages/BroadcastsPage.tsx:524
 msgid "Pause broadcast?"
 msgstr "¿Pausar envío masivo?"
 
 #: src/components/automations/AutomationCard.tsx:67
-#: src/pages/BroadcastsPage.tsx:357
-#: src/pages/BroadcastsPage.tsx:1004
+#: src/pages/BroadcastsPage.tsx:359
+#: src/pages/BroadcastsPage.tsx:1015
 msgid "Paused"
 msgstr "Pausado"
 
@@ -7074,7 +7107,7 @@ msgstr "Payload:"
 #: src/components/settings/WorkspaceMembers.tsx:116
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:79
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:236
-#: src/pages/BroadcastsPage.tsx:347
+#: src/pages/BroadcastsPage.tsx:349
 #: src/pages/ContactsPage.tsx:393
 msgid "Pending"
 msgstr "Pendiente"
@@ -7084,13 +7117,13 @@ msgstr "Pendiente"
 msgid "Pending confirmation"
 msgstr "Confirmación pendiente"
 
-#: src/components/broadcasts/BroadcastLinkStats.tsx:49
+#: src/components/broadcasts/BroadcastLinkStats.tsx:70
 msgid "Per-link click data is not available."
 msgstr ""
 
 #: src/components/broadcasts/BroadcastLinkStats.tsx:64
-msgid "Per-link tracking only covers clicks recorded after this feature was enabled. Older clicks are counted in the aggregate Clicks stat only. Each message records up to 50 distinct URLs."
-msgstr ""
+#~ msgid "Per-link tracking only covers clicks recorded after this feature was enabled. Older clicks are counted in the aggregate Clicks stat only. Each message records up to 50 distinct URLs."
+#~ msgstr ""
 
 #: src/components/broadcasts/RecipientFeedSettings.tsx:88
 msgid "Per-Recipient Data Feed"
@@ -7538,7 +7571,7 @@ msgstr "Resultados de vista previa"
 msgid "Preview template"
 msgstr "Previsualizar plantilla"
 
-#: src/pages/BroadcastsPage.tsx:857
+#: src/pages/BroadcastsPage.tsx:859
 #: src/pages/TemplatesPage.tsx:386
 msgid "Preview Template"
 msgstr "Previsualizar plantilla"
@@ -7627,7 +7660,7 @@ msgstr "Procesamiento pausado"
 msgid "Processing was stopped before completion."
 msgstr ""
 
-#: src/pages/BroadcastsPage.tsx:397
+#: src/pages/BroadcastsPage.tsx:399
 msgid "Progress"
 msgstr "Progreso"
 
@@ -7691,7 +7724,7 @@ msgstr "Compra"
 msgid "Push"
 msgstr "Push"
 
-#: src/pages/BroadcastsPage.tsx:570
+#: src/pages/BroadcastsPage.tsx:572
 msgid "Queued emails will not be sent. In-flight sends will complete."
 msgstr ""
 
@@ -7749,7 +7782,7 @@ msgstr "Listo para enviar"
 msgid "Ready to use"
 msgstr "Listo para usar"
 
-#: src/pages/BroadcastsPage.tsx:1009
+#: src/pages/BroadcastsPage.tsx:1020
 msgid "Reason:"
 msgstr "Razón:"
 
@@ -7796,11 +7829,11 @@ msgid "recipient@example.com"
 msgstr "destinatario@ejemplo.com"
 
 #: src/components/email_builder/ui/tiptap/components/TiptapToolbar.tsx:98
-#: src/pages/BroadcastsPage.tsx:1087
+#: src/pages/BroadcastsPage.tsx:1098
 msgid "Recommended"
 msgstr "Recomendado"
 
-#: src/pages/BroadcastsPage.tsx:1085
+#: src/pages/BroadcastsPage.tsx:1096
 msgid "Recommended Winner"
 msgstr "Ganador recomendado"
 
@@ -7833,7 +7866,7 @@ msgstr "Rehacer (Ctrl+Shift+Z)"
 msgid "Refresh"
 msgstr "Actualizar"
 
-#: src/pages/BroadcastsPage.tsx:477
+#: src/pages/BroadcastsPage.tsx:479
 msgid "Refresh Broadcast"
 msgstr "Actualizar envío masivo"
 
@@ -7972,7 +8005,7 @@ msgstr ""
 msgid "Reply to"
 msgstr "Responder a"
 
-#: src/pages/BroadcastsPage.tsx:748
+#: src/pages/BroadcastsPage.tsx:750
 msgid "Reply To:"
 msgstr "Responder a:"
 
@@ -8091,11 +8124,11 @@ msgstr ""
 msgid "Resume"
 msgstr "Reanudar"
 
-#: src/pages/BroadcastsPage.tsx:540
+#: src/pages/BroadcastsPage.tsx:542
 msgid "Resume Broadcast"
 msgstr "Reanudar envío masivo"
 
-#: src/pages/BroadcastsPage.tsx:544
+#: src/pages/BroadcastsPage.tsx:546
 msgid "Resume broadcast?"
 msgstr "¿Reanudar envío masivo?"
 
@@ -8151,7 +8184,7 @@ msgstr ""
 msgid "Run Test"
 msgstr ""
 
-#: src/pages/BroadcastsPage.tsx:349
+#: src/pages/BroadcastsPage.tsx:351
 msgid "Running"
 msgstr "Ejecutando"
 
@@ -8186,7 +8219,7 @@ msgstr "Clave secreta S3"
 msgid "Same Window"
 msgstr "Misma ventana"
 
-#: src/pages/BroadcastsPage.tsx:1062
+#: src/pages/BroadcastsPage.tsx:1073
 msgid "Sample Percentage"
 msgstr "Porcentaje de muestra"
 
@@ -8301,8 +8334,8 @@ msgid "Schedule for later delivery"
 msgstr "Programar para entrega posterior"
 
 #: src/components/blog/PostStatusTag.tsx:20
-#: src/pages/BroadcastsPage.tsx:978
-#: src/pages/BroadcastsPage.tsx:1449
+#: src/pages/BroadcastsPage.tsx:989
+#: src/pages/BroadcastsPage.tsx:1460
 msgid "Scheduled"
 msgstr "Programado"
 
@@ -8327,7 +8360,7 @@ msgstr "Extrae una URL y devuelve su contenido como markdown"
 msgid "Screen width below which mobile layout is activated. Common values: 480px, 600px, 768px"
 msgstr "Ancho de pantalla por debajo del cual se activa el diseño móvil. Valores comunes: 480px, 600px, 768px"
 
-#: src/pages/BroadcastsPage.tsx:1457
+#: src/pages/BroadcastsPage.tsx:1468
 #: src/pages/TemplatesPage.tsx:435
 msgid "Search by name"
 msgstr ""
@@ -8408,7 +8441,7 @@ msgid "Segment tree reset"
 msgstr "Árbol de segmento restablecido"
 
 #: src/components/contacts/SegmentsFilter.tsx:228
-#: src/pages/BroadcastsPage.tsx:932
+#: src/pages/BroadcastsPage.tsx:943
 #: src/pages/ContactsPage.tsx:425
 #: src/pages/ContactsPage.tsx:625
 msgid "Segments"
@@ -8419,7 +8452,7 @@ msgstr "Segmentos"
 #: src/components/settings/BlogSettings.tsx:336
 #: src/components/settings/BlogSettings.tsx:352
 #: src/components/templates/TemplateSelectorInput.tsx:238
-#: src/pages/BroadcastsPage.tsx:902
+#: src/pages/BroadcastsPage.tsx:904
 msgid "Select"
 msgstr "Seleccionar"
 
@@ -8695,7 +8728,7 @@ msgstr "Selecciona de qué lista eliminar el contacto"
 msgid "Select which segment this trigger applies to"
 msgstr "Selecciona a qué segmento aplica este disparador"
 
-#: src/pages/BroadcastsPage.tsx:891
+#: src/pages/BroadcastsPage.tsx:893
 msgid "Select Winner"
 msgstr "Seleccionar ganador"
 
@@ -8708,7 +8741,7 @@ msgstr "Seleccionar espacio de trabajo"
 msgid "Select your storage provider to pre-fill the configuration:"
 msgstr "Selecciona tu proveedor de almacenamiento para pre-llenar la configuración:"
 
-#: src/pages/BroadcastsPage.tsx:1096
+#: src/pages/BroadcastsPage.tsx:1107
 msgid "Selected Winner"
 msgstr "Ganador seleccionado"
 
@@ -8751,7 +8784,7 @@ msgstr "Enviar código mágico"
 msgid "Send Now"
 msgstr "Enviar ahora"
 
-#: src/pages/BroadcastsPage.tsx:617
+#: src/pages/BroadcastsPage.tsx:619
 msgid "Send or Schedule"
 msgstr "Enviar o programar"
 
@@ -8767,7 +8800,7 @@ msgstr "Enviar prueba"
 #: src/components/settings/Integrations.tsx:2286
 #: src/components/templates/SendTemplateModal.tsx:263
 #: src/components/templates/SendTemplateModal.tsx:277
-#: src/pages/BroadcastsPage.tsx:841
+#: src/pages/BroadcastsPage.tsx:843
 #: src/pages/TemplatesPage.tsx:376
 msgid "Send Test Email"
 msgstr "Enviar correo de prueba"
@@ -8792,7 +8825,7 @@ msgstr "Nombre del remitente"
 msgid "Senders"
 msgstr "Remitentes"
 
-#: src/pages/BroadcastsPage.tsx:1450
+#: src/pages/BroadcastsPage.tsx:1461
 msgid "Sending"
 msgstr ""
 
@@ -8815,7 +8848,7 @@ msgstr "enviado"
 #: src/components/messages/MessageHistoryTab.tsx:101
 #: src/components/messages/MessageHistoryTab.tsx:103
 #: src/components/messages/MessageHistoryTable.tsx:258
-#: src/pages/BroadcastsPage.tsx:1451
+#: src/pages/BroadcastsPage.tsx:1462
 #: src/pages/TransactionalNotificationsPage.tsx:198
 msgid "Sent"
 msgstr "Enviado"
@@ -8987,7 +9020,7 @@ msgstr "Mostrar"
 msgid "Show Controls"
 msgstr "Mostrar controles"
 
-#: src/pages/BroadcastsPage.tsx:661
+#: src/pages/BroadcastsPage.tsx:663
 msgid "Show Details"
 msgstr "Mostrar detalles"
 
@@ -8997,7 +9030,11 @@ msgid "Show More ({0} remaining)"
 msgstr "Mostrar más ({0} restantes)"
 
 #: src/components/broadcasts/BroadcastLinkStats.tsx:132
-msgid "Showing the top 200 links by total clicks."
+#~ msgid "Showing the top 200 links by total clicks."
+#~ msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:200
+msgid "Showing the top 200 links by unique clicks."
 msgstr ""
 
 #: src/pages/SignInPage.tsx:198
@@ -9283,7 +9320,7 @@ msgstr "Empieza a escribir..."
 msgid "started"
 msgstr "iniciado"
 
-#: src/pages/BroadcastsPage.tsx:992
+#: src/pages/BroadcastsPage.tsx:1003
 msgid "Started"
 msgstr "Iniciado"
 
@@ -9307,7 +9344,7 @@ msgstr "Estado"
 #: src/components/messages/MessageHistoryTab.tsx:580
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:76
 #: src/components/webhooks/OutgoingWebhooksTab.tsx:363
-#: src/pages/BroadcastsPage.tsx:370
+#: src/pages/BroadcastsPage.tsx:372
 msgid "Status"
 msgstr "Estado"
 
@@ -9348,7 +9385,7 @@ msgstr "Atributos de estilo"
 
 #: src/components/templates/TemplatePreviewDrawer.tsx:305
 #: src/components/templates/TemplateTranslationsTab.tsx:212
-#: src/pages/BroadcastsPage.tsx:726
+#: src/pages/BroadcastsPage.tsx:728
 #: src/pages/TemplatesPage.tsx:258
 msgid "Subject"
 msgstr "Asunto"
@@ -9516,11 +9553,11 @@ msgstr "Destino"
 msgid "Target list:"
 msgstr ""
 
-#: src/pages/BroadcastsPage.tsx:451
+#: src/pages/BroadcastsPage.tsx:453
 msgid "Task Status"
 msgstr "Estado de tarea"
 
-#: src/pages/BroadcastsPage.tsx:432
+#: src/pages/BroadcastsPage.tsx:434
 msgid "Task type:"
 msgstr "Tipo de tarea:"
 
@@ -9545,8 +9582,8 @@ msgstr ""
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:824
 #: src/components/messages/MessageHistoryTable.tsx:130
 #: src/components/messages/MessageHistoryTable.tsx:172
-#: src/pages/BroadcastsPage.tsx:721
 #: src/pages/BroadcastsPage.tsx:723
+#: src/pages/BroadcastsPage.tsx:725
 #: src/pages/TemplatesPage.tsx:208
 msgid "Template"
 msgstr "Plantilla"
@@ -9804,11 +9841,11 @@ msgstr "La automatización comenzará a procesar contactos que coincidan con el 
 msgid "The automation will stop processing new contacts."
 msgstr "La automatización dejará de procesar nuevos contactos."
 
-#: src/pages/BroadcastsPage.tsx:545
+#: src/pages/BroadcastsPage.tsx:547
 msgid "The broadcast will continue sending from where it was paused."
 msgstr "El envío masivo continuará enviando desde donde fue pausado."
 
-#: src/pages/BroadcastsPage.tsx:523
+#: src/pages/BroadcastsPage.tsx:525
 msgid "The broadcast will stop sending and can be resumed later."
 msgstr "El envío masivo dejará de enviar y puede reanudarse más tarde."
 
@@ -9957,7 +9994,7 @@ msgstr ""
 msgid "This action cannot be undone."
 msgstr "Esta acción no se puede deshacer."
 
-#: src/pages/BroadcastsPage.tsx:1617
+#: src/pages/BroadcastsPage.tsx:1628
 msgid "This action cannot be undone. To confirm, please enter the broadcast ID:"
 msgstr "Esta acción no se puede deshacer. Para confirmar, por favor introduce el ID del envío masivo:"
 
@@ -10282,7 +10319,7 @@ msgstr "Total {total} publicaciones"
 msgid "Total attachments size exceeds 10MB limit"
 msgstr "El tamaño total de adjuntos excede el límite de 10MB"
 
-#: src/components/broadcasts/BroadcastLinkStats.tsx:98
+#: src/components/broadcasts/BroadcastLinkStats.tsx:179
 msgid "Total clicks"
 msgstr ""
 
@@ -10352,7 +10389,7 @@ msgstr "Evento disparador"
 msgid "Trigger on specific field changes"
 msgstr "Activar en cambios de campo específicos"
 
-#: src/pages/BroadcastsPage.tsx:1542
+#: src/pages/BroadcastsPage.tsx:1553
 msgid "Try adjusting your search or status filter"
 msgstr ""
 
@@ -10420,15 +10457,31 @@ msgstr "Deshacer"
 msgid "Undo (Ctrl+Z)"
 msgstr "Deshacer (Ctrl+Z)"
 
-#: src/components/broadcasts/BroadcastLinkStats.tsx:106
+#: src/components/broadcasts/BroadcastLinkStats.tsx:132
 msgid "Unique clicks"
+msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:141
+#~ msgid "Unique clicks ÷ emails sent."
+#~ msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:163
+msgid "Unique clicks ÷ recipients of this variation."
+msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:183
+#~ msgid "Unique clicks counts each recipient once per link — someone who clicks several links appears in every row, so these won't add up to the campaign's total number of clickers."
+#~ msgstr ""
+
+#: src/components/broadcasts/BroadcastLinkStats.tsx:89
+msgid "Unique clicks counts each recipient once per link — someone who clicks several links appears in every row, so these won't add up to this variation's total number of clickers."
 msgstr ""
 
 #: src/components/blog/PostsTable.tsx:170
 #: src/components/contacts/SegmentsFilter.tsx:89
 #: src/components/timeline/ContactTimeline.tsx:761
-#: src/pages/BroadcastsPage.tsx:1090
 #: src/pages/BroadcastsPage.tsx:1101
+#: src/pages/BroadcastsPage.tsx:1112
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -10444,7 +10497,7 @@ msgstr "Error desconocido"
 
 #: src/components/automations/nodes/AddToListNode.tsx:56
 #: src/components/automations/nodes/RemoveFromListNode.tsx:53
-#: src/pages/BroadcastsPage.tsx:954
+#: src/pages/BroadcastsPage.tsx:965
 msgid "Unknown list"
 msgstr "Lista desconocida"
 
@@ -10452,7 +10505,7 @@ msgstr "Lista desconocida"
 msgid "Unknown List"
 msgstr "Lista desconocida"
 
-#: src/pages/BroadcastsPage.tsx:942
+#: src/pages/BroadcastsPage.tsx:953
 msgid "Unknown segment"
 msgstr "Segmento desconocido"
 
@@ -10533,7 +10586,7 @@ msgstr "Suscripción cancelada de lista"
 msgid "Unsubscribes"
 msgstr "Cancelaciones de suscripción"
 
-#: src/pages/BroadcastsPage.tsx:695
+#: src/pages/BroadcastsPage.tsx:697
 msgid "Untitled"
 msgstr "Sin título"
 
@@ -10622,7 +10675,7 @@ msgstr "URL"
 #~ msgid "URL copied to clipboard"
 #~ msgstr ""
 
-#: src/components/broadcasts/BroadcastLinkStats.tsx:40
+#: src/components/broadcasts/BroadcastLinkStats.tsx:62
 #: src/components/file_manager/fileManager.tsx:907
 msgid "URL copied to clipboard."
 msgstr "URL copiada al portapapeles."
@@ -10747,23 +10800,23 @@ msgstr "Nombre de usuario"
 msgid "Using {0}..."
 msgstr "Usando {0}..."
 
-#: src/pages/BroadcastsPage.tsx:1039
+#: src/pages/BroadcastsPage.tsx:1050
 msgid "UTM Campaign"
 msgstr "Campaña UTM"
 
-#: src/pages/BroadcastsPage.tsx:1051
+#: src/pages/BroadcastsPage.tsx:1062
 msgid "UTM Content"
 msgstr "Contenido UTM"
 
-#: src/pages/BroadcastsPage.tsx:1033
+#: src/pages/BroadcastsPage.tsx:1044
 msgid "UTM Medium"
 msgstr "Medio UTM"
 
-#: src/pages/BroadcastsPage.tsx:1027
+#: src/pages/BroadcastsPage.tsx:1038
 msgid "UTM Source"
 msgstr "Fuente UTM"
 
-#: src/pages/BroadcastsPage.tsx:1045
+#: src/pages/BroadcastsPage.tsx:1056
 msgid "UTM Term"
 msgstr "Término UTM"
 
@@ -10789,7 +10842,7 @@ msgid "Variant name"
 msgstr "Nombre de variante"
 
 #: src/components/broadcasts/UpsertBroadcastDrawer.tsx:720
-#: src/pages/BroadcastsPage.tsx:670
+#: src/pages/BroadcastsPage.tsx:672
 msgid "Variations"
 msgstr "Variaciones"
 
@@ -10875,7 +10928,7 @@ msgstr "Advertencia"
 msgid "We'll automatically detect and use your website's favicon"
 msgstr "Detectaremos y usaremos automáticamente el favicon de tu sitio web"
 
-#: src/pages/BroadcastsPage.tsx:1024
+#: src/pages/BroadcastsPage.tsx:1035
 msgid "Web Analytics"
 msgstr "Analíticas web"
 
@@ -11016,11 +11069,11 @@ msgstr "Será eliminado"
 msgid "Will resume from row {0}"
 msgstr "Se reanudará desde la fila {0}"
 
-#: src/pages/BroadcastsPage.tsx:1098
+#: src/pages/BroadcastsPage.tsx:1109
 msgid "Winner"
 msgstr "Ganador"
 
-#: src/pages/BroadcastsPage.tsx:325
+#: src/pages/BroadcastsPage.tsx:327
 msgid "Winner selected successfully! The broadcast will be sent to remaining recipients."
 msgstr "¡Ganador seleccionado exitosamente! El envío masivo se enviará a los destinatarios restantes."
 
@@ -11154,7 +11207,7 @@ msgstr "Sí"
 msgid "Yes, activate"
 msgstr "Sí, activar"
 
-#: src/pages/BroadcastsPage.tsx:572
+#: src/pages/BroadcastsPage.tsx:574
 msgid "Yes, cancel"
 msgstr ""
 
@@ -11172,15 +11225,15 @@ msgid "Yes, Delete"
 msgstr "Sí, eliminar"
 
 #: src/components/automations/AutomationCard.tsx:236
-#: src/pages/BroadcastsPage.tsx:525
+#: src/pages/BroadcastsPage.tsx:527
 msgid "Yes, pause"
 msgstr "Sí, pausar"
 
-#: src/pages/BroadcastsPage.tsx:547
+#: src/pages/BroadcastsPage.tsx:549
 msgid "Yes, resume"
 msgstr "Sí, reanudar"
 
-#: src/pages/BroadcastsPage.tsx:894
+#: src/pages/BroadcastsPage.tsx:896
 msgid "Yes, Select Winner"
 msgstr "Sí, seleccionar ganador"
 
@@ -11189,7 +11242,7 @@ msgid "You can only upload CSV files!"
 msgstr "¡Solo puedes subir archivos CSV!"
 
 #: src/components/broadcasts/SendOrScheduleModal.tsx:177
-#: src/pages/BroadcastsPage.tsx:1474
+#: src/pages/BroadcastsPage.tsx:1485
 msgid "You don't have a marketing email provider configured. Please set up an email provider in your workspace settings to send broadcasts."
 msgstr "No tienes un proveedor de correo de marketing configurado. Por favor, configura un proveedor de correo en la configuración de tu espacio de trabajo para enviar envíos masivos."
 
@@ -11206,15 +11259,15 @@ msgstr ""
 msgid "You don't have write permission for automations"
 msgstr "No tienes permiso de escritura para automatizaciones"
 
-#: src/pages/BroadcastsPage.tsx:490
-#: src/pages/BroadcastsPage.tsx:517
-#: src/pages/BroadcastsPage.tsx:539
-#: src/pages/BroadcastsPage.tsx:564
-#: src/pages/BroadcastsPage.tsx:587
-#: src/pages/BroadcastsPage.tsx:603
-#: src/pages/BroadcastsPage.tsx:886
-#: src/pages/BroadcastsPage.tsx:1421
-#: src/pages/BroadcastsPage.tsx:1559
+#: src/pages/BroadcastsPage.tsx:492
+#: src/pages/BroadcastsPage.tsx:519
+#: src/pages/BroadcastsPage.tsx:541
+#: src/pages/BroadcastsPage.tsx:566
+#: src/pages/BroadcastsPage.tsx:589
+#: src/pages/BroadcastsPage.tsx:605
+#: src/pages/BroadcastsPage.tsx:888
+#: src/pages/BroadcastsPage.tsx:1432
+#: src/pages/BroadcastsPage.tsx:1570
 msgid "You don't have write permission for broadcasts"
 msgstr "No tienes permiso de escritura para envíos masivos"
 
@@ -11262,7 +11315,7 @@ msgstr "Tienes cambios sin guardar. ¿Estás seguro de que quieres cerrar? Tus c
 msgid "You must configure a Custom Endpoint URL in General Settings above before enabling the blog."
 msgstr "Debes configurar una URL de punto final personalizado en la Configuración general arriba antes de habilitar el blog."
 
-#: src/pages/BroadcastsPage.tsx:840
+#: src/pages/BroadcastsPage.tsx:842
 #: src/pages/TemplatesPage.tsx:375
 msgid "You need read template and write contact permissions to send test emails"
 msgstr "Necesitas permisos de lectura de plantilla y escritura de contacto para enviar correos de prueba"

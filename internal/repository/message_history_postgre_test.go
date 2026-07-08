@@ -1080,14 +1080,15 @@ func TestMessageHistoryRepository_GetBroadcastLinkStats(t *testing.T) {
 		FROM message_history
 		CROSS JOIN LATERAL jsonb_each(clicked_links) AS e(key, value)
 		WHERE broadcast_id = $1
+		  AND ($2 = '' OR template_id = $2)
 		  AND jsonb_typeof(clicked_links) = 'object'
 		  AND jsonb_typeof(e.value) = 'object'
 		GROUP BY e.key
-		ORDER BY total_clicks DESC
+		ORDER BY unique_clicks DESC, total_clicks DESC
 		LIMIT 200
 	`)
 
-	t.Run("successful link stats retrieval ordered by total clicks", func(t *testing.T) {
+	t.Run("successful link stats retrieval ordered by unique clicks", func(t *testing.T) {
 		mockWorkspaceRepo.EXPECT().
 			GetConnection(gomock.Any(), workspaceID).
 			Return(db, nil)
@@ -1097,14 +1098,32 @@ func TestMessageHistoryRepository_GetBroadcastLinkStats(t *testing.T) {
 			AddRow("https://example.com/b", int64(2), int64(2))
 
 		mock.ExpectQuery(expectedQuery).
-			WithArgs(broadcastID).
+			WithArgs(broadcastID, "").
 			WillReturnRows(rows)
 
-		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID)
+		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, "")
 		require.NoError(t, err)
 		require.Len(t, stats, 2)
 		assert.Equal(t, domain.LinkClickStats{URL: "https://example.com/a", TotalClicks: 5, UniqueClicks: 3}, stats[0])
 		assert.Equal(t, domain.LinkClickStats{URL: "https://example.com/b", TotalClicks: 2, UniqueClicks: 2}, stats[1])
+	})
+
+	t.Run("scopes to a single variation when templateID is provided", func(t *testing.T) {
+		mockWorkspaceRepo.EXPECT().
+			GetConnection(gomock.Any(), workspaceID).
+			Return(db, nil)
+
+		rows := sqlmock.NewRows([]string{"url", "total_clicks", "unique_clicks"}).
+			AddRow("https://example.com/a", int64(4), int64(2))
+
+		mock.ExpectQuery(expectedQuery).
+			WithArgs(broadcastID, "tpl-1").
+			WillReturnRows(rows)
+
+		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, "tpl-1")
+		require.NoError(t, err)
+		require.Len(t, stats, 1)
+		assert.Equal(t, domain.LinkClickStats{URL: "https://example.com/a", TotalClicks: 4, UniqueClicks: 2}, stats[0])
 	})
 
 	t.Run("no clicked links returns empty slice", func(t *testing.T) {
@@ -1113,10 +1132,10 @@ func TestMessageHistoryRepository_GetBroadcastLinkStats(t *testing.T) {
 			Return(db, nil)
 
 		mock.ExpectQuery(expectedQuery).
-			WithArgs(broadcastID).
+			WithArgs(broadcastID, "").
 			WillReturnRows(sqlmock.NewRows([]string{"url", "total_clicks", "unique_clicks"}))
 
-		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID)
+		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, "")
 		require.NoError(t, err)
 		require.NotNil(t, stats)
 		require.Empty(t, stats)
@@ -1127,7 +1146,7 @@ func TestMessageHistoryRepository_GetBroadcastLinkStats(t *testing.T) {
 			GetConnection(gomock.Any(), workspaceID).
 			Return(nil, errors.New("connection error"))
 
-		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID)
+		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, "")
 		require.Error(t, err)
 		require.Nil(t, stats)
 		require.Contains(t, err.Error(), "failed to get workspace connection")
@@ -1139,10 +1158,10 @@ func TestMessageHistoryRepository_GetBroadcastLinkStats(t *testing.T) {
 			Return(db, nil)
 
 		mock.ExpectQuery(expectedQuery).
-			WithArgs(broadcastID).
+			WithArgs(broadcastID, "").
 			WillReturnError(errors.New("query error"))
 
-		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID)
+		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, "")
 		require.Error(t, err)
 		require.Nil(t, stats)
 		require.Contains(t, err.Error(), "failed to get broadcast link stats")
@@ -1157,10 +1176,10 @@ func TestMessageHistoryRepository_GetBroadcastLinkStats(t *testing.T) {
 			AddRow("https://example.com/a", "not-a-number", int64(1))
 
 		mock.ExpectQuery(expectedQuery).
-			WithArgs(broadcastID).
+			WithArgs(broadcastID, "").
 			WillReturnRows(rows)
 
-		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID)
+		stats, err := repo.GetBroadcastLinkStats(ctx, workspaceID, broadcastID, "")
 		require.Error(t, err)
 		require.Nil(t, stats)
 		require.Contains(t, err.Error(), "failed to scan broadcast link stats")

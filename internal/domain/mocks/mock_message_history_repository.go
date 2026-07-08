@@ -80,18 +80,18 @@ func (mr *MockMessageHistoryRepositoryMockRecorder) Get(arg0, arg1, arg2, arg3 i
 }
 
 // GetBroadcastLinkStats mocks base method.
-func (m *MockMessageHistoryRepository) GetBroadcastLinkStats(arg0 context.Context, arg1, arg2 string) ([]domain.LinkClickStats, error) {
+func (m *MockMessageHistoryRepository) GetBroadcastLinkStats(arg0 context.Context, arg1, arg2, arg3 string) ([]domain.LinkClickStats, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetBroadcastLinkStats", arg0, arg1, arg2)
+	ret := m.ctrl.Call(m, "GetBroadcastLinkStats", arg0, arg1, arg2, arg3)
 	ret0, _ := ret[0].([]domain.LinkClickStats)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // GetBroadcastLinkStats indicates an expected call of GetBroadcastLinkStats.
-func (mr *MockMessageHistoryRepositoryMockRecorder) GetBroadcastLinkStats(arg0, arg1, arg2 interface{}) *gomock.Call {
+func (mr *MockMessageHistoryRepositoryMockRecorder) GetBroadcastLinkStats(arg0, arg1, arg2, arg3 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetBroadcastLinkStats", reflect.TypeOf((*MockMessageHistoryRepository)(nil).GetBroadcastLinkStats), arg0, arg1, arg2)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetBroadcastLinkStats", reflect.TypeOf((*MockMessageHistoryRepository)(nil).GetBroadcastLinkStats), arg0, arg1, arg2, arg3)
 }
 
 // GetBroadcastStats mocks base method.

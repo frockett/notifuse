@@ -1503,6 +1503,15 @@ func (s *DemoService) createSampleBroadcasts(ctx context.Context, workspaceID st
 		broadcast.CompletedAt = &completedTime
 		broadcast.UpdatedAt = completedTime
 
+		// The last broadcast is the A/B test; record newsletter-weekly-v2 as the selected
+		// winner (all of its messages were sent with that variation) so the Variations
+		// table highlights it. WinningTemplate is a top-level column persisted by
+		// UpdateBroadcast below.
+		if i == len(broadcasts)-1 {
+			winner := "newsletter-weekly-v2"
+			broadcast.WinningTemplate = &winner
+		}
+
 		// Update the broadcast in the repository to reflect processed status
 		if err := s.broadcastRepo.UpdateBroadcast(ctx, broadcast); err != nil {
 			s.logger.WithField("broadcast_id", broadcast.ID).WithField("error", err.Error()).Warn("Failed to update broadcast status to processed")

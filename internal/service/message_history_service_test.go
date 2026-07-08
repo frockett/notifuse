@@ -637,6 +637,7 @@ func TestMessageHistoryService_GetBroadcastLinkStats(t *testing.T) {
 		name          string
 		workspaceID   string
 		broadcastID   string
+		templateID    string
 		setupMocks    func(mockRepo *mocks.MockMessageHistoryRepository, mockAuthService *mocks.MockAuthService)
 		expectedStats []domain.LinkClickStats
 		expectedError string
@@ -658,7 +659,7 @@ func TestMessageHistoryService_GetBroadcastLinkStats(t *testing.T) {
 					}, nil)
 
 				mockRepo.EXPECT().
-					GetBroadcastLinkStats(gomock.Any(), "workspace-123", "broadcast-123").
+					GetBroadcastLinkStats(gomock.Any(), "workspace-123", "broadcast-123", "").
 					Return([]domain.LinkClickStats{
 						{URL: "https://example.com/a", TotalClicks: 5, UniqueClicks: 3},
 						{URL: "https://example.com/b", TotalClicks: 2, UniqueClicks: 2},
@@ -667,6 +668,33 @@ func TestMessageHistoryService_GetBroadcastLinkStats(t *testing.T) {
 			expectedStats: []domain.LinkClickStats{
 				{URL: "https://example.com/a", TotalClicks: 5, UniqueClicks: 3},
 				{URL: "https://example.com/b", TotalClicks: 2, UniqueClicks: 2},
+			},
+		},
+		{
+			name:        "Success scoped to a variation",
+			workspaceID: "workspace-123",
+			broadcastID: "broadcast-123",
+			templateID:  "tpl-1",
+			setupMocks: func(mockRepo *mocks.MockMessageHistoryRepository, mockAuthService *mocks.MockAuthService) {
+				mockAuthService.EXPECT().
+					AuthenticateUserForWorkspace(gomock.Any(), "workspace-123").
+					Return(context.Background(), &domain.User{}, &domain.UserWorkspace{
+						UserID:      "user123",
+						WorkspaceID: "workspace-123",
+						Role:        "member",
+						Permissions: domain.UserPermissions{
+							domain.PermissionResourceMessageHistory: {Read: true, Write: true},
+						},
+					}, nil)
+
+				mockRepo.EXPECT().
+					GetBroadcastLinkStats(gomock.Any(), "workspace-123", "broadcast-123", "tpl-1").
+					Return([]domain.LinkClickStats{
+						{URL: "https://example.com/a", TotalClicks: 4, UniqueClicks: 2},
+					}, nil)
+			},
+			expectedStats: []domain.LinkClickStats{
+				{URL: "https://example.com/a", TotalClicks: 4, UniqueClicks: 2},
 			},
 		},
 		{
@@ -713,7 +741,7 @@ func TestMessageHistoryService_GetBroadcastLinkStats(t *testing.T) {
 					}, nil)
 
 				mockRepo.EXPECT().
-					GetBroadcastLinkStats(gomock.Any(), "workspace-123", "broadcast-123").
+					GetBroadcastLinkStats(gomock.Any(), "workspace-123", "broadcast-123", "").
 					Return(nil, errors.New("database error"))
 			},
 			expectedError: "failed to get broadcast link stats: database error",
@@ -736,7 +764,7 @@ func TestMessageHistoryService_GetBroadcastLinkStats(t *testing.T) {
 			service := NewMessageHistoryService(mockRepo, mockWorkspaceRepo, mockLogger, mockAuthService)
 
 			// Call the method under test
-			stats, err := service.GetBroadcastLinkStats(context.Background(), tc.workspaceID, tc.broadcastID)
+			stats, err := service.GetBroadcastLinkStats(context.Background(), tc.workspaceID, tc.broadcastID, tc.templateID)
 
 			// Verify expectations
 			if tc.expectedError != "" {
