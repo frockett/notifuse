@@ -20,13 +20,13 @@ services:
       - DB_HOST=${DB_HOST:-postgres}
       - DB_PORT=${DB_PORT:-5432}
       - DB_USER=notifuse
-      - DB_PASSWORD=${SERVICE_PASSWORD_64_NOTIFUSE_DB}
+      - DB_PASSWORD=${SERVICE_PASSWORD_64_DB}
       - DB_PREFIX=notifuse
       - DB_NAME=notifuse_system
       - DB_SSLMODE=disable
 
       # Secret Key (Required) - Generate a secure random string for production
-      - SECRET_KEY=${SERVICE_PASSWORD_64_NOTIFUSE_SECRET_KEY}
+      - SECRET_KEY=${SERVICE_PASSWORD_64_SECRET}
 
       # All other settings (ROOT_EMAIL, API_ENDPOINT, SMTP)
       # can be configured through the Setup Wizard on first launch
@@ -64,7 +64,7 @@ services:
     image: postgres:17-alpine
     environment:
       - POSTGRES_USER=notifuse
-      - POSTGRES_PASSWORD=${SERVICE_PASSWORD_64_NOTIFUSE_DB}
+      - POSTGRES_PASSWORD=${SERVICE_PASSWORD_64_DB}
       - POSTGRES_DB=notifuse_system
     volumes:
       - postgres-data:/var/lib/postgresql/data
