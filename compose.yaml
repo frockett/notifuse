@@ -19,14 +19,14 @@ services:
       # Database Configuration (Required)
       - DB_HOST=${DB_HOST:-postgres}
       - DB_PORT=${DB_PORT:-5432}
-      - DB_USER=${DB_USER:-postgres}
-      - DB_PASSWORD=${DB_PASSWORD:-postgres}
-      - DB_PREFIX=${DB_PREFIX:-notifuse}
-      - DB_NAME=${DB_NAME:-notifuse_system}
-      - DB_SSLMODE=${DB_SSLMODE:-disable}
+      - DB_USER=notifuse
+      - DB_PASSWORD=$SERVICE_PASSWORD_64_NOTIFUSE_DB
+      - DB_PREFIX=notifuse
+      - DB_NAME=notifuse_system
+      - DB_SSLMODE=disable
 
       # Secret Key (Required) - Generate a secure random string for production
-      - SECRET_KEY=${SECRET_KEY:-d04zCk3Fa45oOjDWHpAvc1AZxnLdGffOnNWK+Jt2yXf37+FTfuMMHb8flcfPMqLluRR3rvhbr555r6j1DEigrA==}
+      - SECRET_KEY=$SERVICE_PASSWORD_64_NOTIFUSE_SECRET_KEY
 
       # All other settings (ROOT_EMAIL, API_ENDPOINT, SMTP)
       # can be configured through the Setup Wizard on first launch
@@ -64,17 +64,13 @@ services:
 
   postgres:
     image: postgres:17-alpine
-    ports:
-      - '5433:5432'
     environment:
-      - POSTGRES_USER=${DB_USER:-postgres}
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
-      - POSTGRES_DB=${POSTGRES_DB:-postgres}
+      - POSTGRES_USER=notifuse
+      - POSTGRES_PASSWORD=$SERVICE_PASSWORD_64_NOTIFUSE_DB
+      - POSTGRES_DB=notifuse_system
     volumes:
       - postgres-data:/var/lib/postgresql/data
     restart: unless-stopped
-    networks:
-      - notifuse-network
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U postgres']
       interval: 5s
@@ -85,6 +81,3 @@ volumes:
   postgres-data:
     driver: local
 
-networks:
-  notifuse-network:
-    driver: bridge
